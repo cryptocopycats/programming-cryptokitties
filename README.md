@@ -69,7 +69,7 @@ p Base32.encode( genome )
 ```
 
 Bingo!
-Using a [genes / traits chart]() you can now decipher the genome.
+Using a genes / traits chart you can now decipher the genome.
 
 
 ---
