@@ -182,7 +182,7 @@ What's Base32?
 
 Encoding / decoding numbers in 5-bit chunks is called base 32
 because 2^5 (=2 * 2 * 2 * 2 * 2) results in 32 values.
-Using the Electrologica notation / alphabets
+Using the Electrologica notation / alphabet
 (`00 01 02 03 04 05 06 07`
 `08 09 10 11 12 13 14 15`
 `16 17 18 19 20 21 22 23`
@@ -208,7 +208,7 @@ who first deciphered the CryptoKitties 240-bit genome
 in 5-bit chunks.
 The Kai notation / alphabet
 follows base56
-and uses (`123456789abcdefghijkmnopqrstuvwx`):
+and uses (`123456789abcdefghijkmnopqrstuvwx`).
 The conversion chart reads:
 
 |Kai    |Binary |Num|Kai    |Binary |Num|Kai    |Binary |Num|Kai    |Binary |Num|
