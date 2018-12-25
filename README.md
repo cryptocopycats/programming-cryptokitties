@@ -71,7 +71,10 @@ p Base32.encode( genome )
 Bingo!
 Using a [genes / traits chart]() you can now decipher the genome.
 
-Genes (12 x 4)
+
+---
+
+CryptoKitties Genes / Traits Chart 
 
 Fur (0-3) • Pattern (4-7) • Eye Color (8-11) • Eye Shape (12-15) • Base Color (16-19) • Highlight Color (20-23) • Accent Color (24-27) • Wild (28-31) • Mouth (32-35) • Environment (36-39) • Secret Y Gene (40-43) • Purrstige (44-47)
 
@@ -99,6 +102,8 @@ Fur (FU) - Genes 0-3:
 ...
 
 (Source: [copycats/GENES.md](https://github.com/cryptocopycats/copycats/blob/master/GENES.md))
+
+---
 
 
 Let's start deciphering from left-to-right `...06-05-05-03-09-08-09-09-11-14-14-14`.
