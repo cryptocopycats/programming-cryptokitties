@@ -147,7 +147,7 @@ p Base32.encode( genome )
 ```
 
 Again using a genes / traits chart you can now decipher the genome.
-Let's start from left-to-right.
+Let's start from left-to-right `...05-02-03-07-08-09-14-15-13-12-13-12`.
 
 Fur (FU) - Genes 0-3:
 
