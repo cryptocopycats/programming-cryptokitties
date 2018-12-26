@@ -275,13 +275,13 @@ that deciphers the genome.
 
 
 Let's (re)use the [copycats library / gem](https://github.com/cryptocopycats/copycats)
-that includes an up-to-date list of all traits.
+that includes an up-to-date list of all trait mappings.
 For example, try:
 
 ``` ruby
 require 'copycats'
 
-pp TRAITS     ## pretty print (pp) TRAITS, that is, list of all traits
+pp TRAITS     ## pretty print (pp) TRAITS, that is, list of all trait mappings
 ```
 
 Resulting in:
