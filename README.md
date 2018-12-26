@@ -878,7 +878,7 @@ Fur (Genes 0-3)
 | 2 | 01110 | f | ragamuffin | h2 |
 | 3 | 01011 | c | himalayan | h3 |
 
-p = primary, h1 = hidden 1st order, h2 = hidden 2nd order, h3 = hidden 3rd order
+p = primary, h1 = hidden 1, h2 = hidden 2, h3 = hidden 3
 
 Pattern (Genes 4-7)
 
@@ -933,15 +933,6 @@ Accent Color (Genes 24-27)
 | 25 | 00100 | 5 | granitegrey | h1 |
 | 26 | 00110 | 7 | kittencream | h2 |
 | 27 | 00110 | 7 | kittencream | h3 |
-
-Wild (Genes 28-31)
-
-|Gene  |Binary   |Kai  |Trait    |   |
-|------|---------|-----|---------|---|
-| 28 | 00000 | 1 | **?** | p |
-| 29 | 00101 | 6 | ? | h1 |
-| 30 | 00101 | 6 | ? | h2 |
-| 31 | 00000 | 1 | ? | h3 |
 
 Mouth (Genes 32-35)
 
