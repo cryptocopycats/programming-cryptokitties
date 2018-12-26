@@ -869,7 +869,7 @@ Resulting in:
 
 ---
 
-Fur (Genes 0-3)
+Fur (FU) - Genes 0-3:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
@@ -880,7 +880,7 @@ Fur (Genes 0-3)
 
 p = primary, h1 = hidden 1, h2 = hidden 2, h3 = hidden 3
 
-Pattern (Genes 4-7)
+Pattern (PA) - Genes 4-7:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
@@ -889,7 +889,7 @@ Pattern (Genes 4-7)
 | 6 | 01000 | 9 | calicool | h2 |
 | 7 | 01001 | a | luckystripe | h3 |
 
-Eye Color (Genes 8-11)
+Eye Color (EC) - Genes 8-11:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
@@ -898,7 +898,7 @@ Eye Color (Genes 8-11)
 | 10 | 00101 | 6 | sizzurp | h2 |
 | 11 | 00110 | 7 | chestnut | h3 |
 
-Eye Shape (Genes 12-15)
+Eye Shape (ES) - Genes 12-15:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
@@ -907,7 +907,7 @@ Eye Shape (Genes 12-15)
 | 14 | 00101 | 6 | simple | h2 |
 | 15 | 00101 | 6 | simple | h3 |
 
-Base Color (Genes 16-19)
+Base Color (BC) - Genes 16-19:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
@@ -916,7 +916,7 @@ Base Color (Genes 16-19)
 | 18 | 00011 | 4 | orangesoda | h2 |
 | 19 | 00001 | 2 | salmon | h3 |
 
-Highlight Color (Genes 20-23)
+Highlight Color (HC) - Genes 20-23:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
@@ -925,7 +925,7 @@ Highlight Color (Genes 20-23)
 | 22 | 01000 | 9 | swampgreen | h2 |
 | 23 | 01101 | e | lemonade | h3 |
 
-Accent Color (Genes 24-27)
+Accent Color (AC) - Genes 24-27:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
@@ -934,7 +934,7 @@ Accent Color (Genes 24-27)
 | 26 | 00110 | 7 | kittencream | h2 |
 | 27 | 00110 | 7 | kittencream | h3 |
 
-Mouth (Genes 32-35)
+Mouth (MO) - Genes 32-35:
 
 |Gene  |Binary   |Kai  |Trait    |   |
 |------|---------|-----|---------|---|
