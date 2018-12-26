@@ -106,7 +106,8 @@ Fur (FU) - Genes 0-3:
 ---
 
 
-Let's start deciphering from left-to-right `...06-05-05-03-09-08-09-09-11-14-14-14`.
+Let's start deciphering from right-to-left `...06-05-05-03-09-08-09-09-11-14-14-14`, that is,
+`14` maps to ragamuffin, `14` to ragamuffin, `14` to ragamuffin, `11` to himalayan and so on:
 
 
 Fur (FU) - Genes 0-3:
@@ -147,7 +148,8 @@ p Base32.encode( genome )
 ```
 
 Again using a genes / traits chart you can now decipher the genome.
-Let's start from left-to-right `...05-02-03-07-08-09-14-15-13-12-13-12`.
+Let's start from right-to-left `...05-02-03-07-08-09-14-15-13-12-13-12`, that is, 
+`12` maps to munchkin, `13` to sphynx, and so on:
 
 Fur (FU) - Genes 0-3:
 
