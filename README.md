@@ -267,8 +267,9 @@ p Base32.fmt( Base32.encode( genome ))
 
 ## Build Your Own CryptoKitties Genome Genes Reader
 
-Let's automate the look up the 5-bit chunk to trait mapping
-and code add a first genome genes reader.
+Let's automate the look up of the 5-bit chunk to trait mapping
+and code a genes reader
+that deciphers the genome.
 
 
 Let's (re)use the [copycats library / gem](https://github.com/cryptocopycats/copycats)
@@ -278,7 +279,7 @@ For example, try:
 ``` ruby
 require 'copycats'
 
-pp TRAITS     ## pretty print (pp) TRAITS hash
+pp TRAITS     ## pretty print (pp) TRAITS, that is, list of all traits
 ```
 
 Resulting in:
@@ -658,8 +659,36 @@ puts " 8 | #{TRAITS[:coloreyes][:kai][genes_kai[8]]}"
 puts " 9 | #{TRAITS[:coloreyes][:kai][genes_kai[9]]}"
 puts "10 | #{TRAITS[:coloreyes][:kai][genes_kai[10]]}"
 puts "11 | #{TRAITS[:coloreyes][:kai][genes_kai[11]]}"
-
-...
+puts
+puts "Eye Shape (ES) - Genes 12-15:"
+puts "12 | #{TRAITS[:eyes][:kai][genes_kai[12]]}"
+puts "13 | #{TRAITS[:eyes][:kai][genes_kai[13]]}"
+puts "14 | #{TRAITS[:eyes][:kai][genes_kai[14]]}"
+puts "15 | #{TRAITS[:eyes][:kai][genes_kai[15]]}"
+puts
+puts "Base Color (BC) - Genes 16-19:"
+puts "16 | #{TRAITS[:color1][:kai][genes_kai[16]]}"
+puts "17 | #{TRAITS[:color1][:kai][genes_kai[17]]}"
+puts "18 | #{TRAITS[:color1][:kai][genes_kai[18]]}"
+puts "19 | #{TRAITS[:color1][:kai][genes_kai[19]]}"
+puts
+puts "Highlight Color (HC) - Genes 20-23:"
+puts "20 | #{TRAITS[:color2][:kai][genes_kai[20]]}"
+puts "21 | #{TRAITS[:color2][:kai][genes_kai[21]]}"
+puts "22 | #{TRAITS[:color2][:kai][genes_kai[22]]}"
+puts "23 | #{TRAITS[:color2][:kai][genes_kai[23]]}"
+puts
+puts "Accent Color (AC) - Genes 24-27:"
+puts "24 | #{TRAITS[:color3][:kai][genes_kai[24]]}"
+puts "25 | #{TRAITS[:color3][:kai][genes_kai[25]]}"
+puts "26 | #{TRAITS[:color3][:kai][genes_kai[26]]}"
+puts "27 | #{TRAITS[:color3][:kai][genes_kai[27]]}"
+puts
+puts "Mouth (MO) - Genes 32-35:"
+puts "32 | #{TRAITS[:mouth][:kai][genes_kai[32]]}"
+puts "33 | #{TRAITS[:mouth][:kai][genes_kai[33]]}"
+puts "34 | #{TRAITS[:mouth][:kai][genes_kai[34]]}"
+puts "35 | #{TRAITS[:mouth][:kai][genes_kai[35]]}"
 ```
 
 prints
@@ -683,7 +712,35 @@ Eye Color (EC) - Genes 8-11:
 10 | sizzurp
 11 | chestnut
 
-...
+Eye Shape (ES) - Genes 12-15:
+12 | crazy
+13 | simple
+14 | simple
+15 | simple
+
+Base Color (BC) - Genes 16-19:
+16 | shadowgrey
+17 | orangesoda
+18 | orangesoda
+19 | salmon
+
+Highlight Color (HC) - Genes 20-23:
+20 | swampgreen
+21 | royalpurple
+22 | swampgreen
+23 | lemonade
+
+Accent Color (AC) - Genes 24-27:
+24 | granitegrey
+25 | granitegrey
+26 | kittencream
+27 | kittencream
+
+Mouth (MO) - Genes 32-35:
+32 | happygokitty
+33 | happygokitty
+34 | soserious
+35 | pouty
 ```
 
 Note: Every trait has four genes
@@ -695,7 +752,11 @@ Let's (double) check for the Kitty #1001:
 - Fur: ragamuffin
 - Pattern: luckystripe
 - Eye Color: mintgreen
-- ...
+- Eye Shape: crazy
+- Base Color: shadowgrey
+- Highlight Color: swampgreen
+- Accent Color: granitegrey
+- Mouth: happygokitty
 
 And the official page:
 

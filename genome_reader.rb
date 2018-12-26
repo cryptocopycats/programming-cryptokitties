@@ -42,5 +42,33 @@ puts " 8 | #{TRAITS[:coloreyes][:kai][genes_kai[8]]}"
 puts " 9 | #{TRAITS[:coloreyes][:kai][genes_kai[9]]}"
 puts "10 | #{TRAITS[:coloreyes][:kai][genes_kai[10]]}"
 puts "11 | #{TRAITS[:coloreyes][:kai][genes_kai[11]]}"
-
-## ...
+puts
+puts "Eye Shape (ES) - Genes 12-15:"
+puts "12 | #{TRAITS[:eyes][:kai][genes_kai[12]]}"
+puts "13 | #{TRAITS[:eyes][:kai][genes_kai[13]]}"
+puts "14 | #{TRAITS[:eyes][:kai][genes_kai[14]]}"
+puts "15 | #{TRAITS[:eyes][:kai][genes_kai[15]]}"
+puts
+puts "Base Color (BC) - Genes 16-19:"
+puts "16 | #{TRAITS[:color1][:kai][genes_kai[16]]}"
+puts "17 | #{TRAITS[:color1][:kai][genes_kai[17]]}"
+puts "18 | #{TRAITS[:color1][:kai][genes_kai[18]]}"
+puts "19 | #{TRAITS[:color1][:kai][genes_kai[19]]}"
+puts
+puts "Highlight Color (HC) - Genes 20-23:"
+puts "20 | #{TRAITS[:color2][:kai][genes_kai[20]]}"
+puts "21 | #{TRAITS[:color2][:kai][genes_kai[21]]}"
+puts "22 | #{TRAITS[:color2][:kai][genes_kai[22]]}"
+puts "23 | #{TRAITS[:color2][:kai][genes_kai[23]]}"
+puts
+puts "Accent Color (AC) - Genes 24-27:"
+puts "24 | #{TRAITS[:color3][:kai][genes_kai[24]]}"
+puts "25 | #{TRAITS[:color3][:kai][genes_kai[25]]}"
+puts "26 | #{TRAITS[:color3][:kai][genes_kai[26]]}"
+puts "27 | #{TRAITS[:color3][:kai][genes_kai[27]]}"
+puts
+puts "Mouth (MO) - Genes 32-35:"
+puts "32 | #{TRAITS[:mouth][:kai][genes_kai[32]]}"
+puts "33 | #{TRAITS[:mouth][:kai][genes_kai[33]]}"
+puts "34 | #{TRAITS[:mouth][:kai][genes_kai[34]]}"
+puts "35 | #{TRAITS[:mouth][:kai][genes_kai[35]]}"
