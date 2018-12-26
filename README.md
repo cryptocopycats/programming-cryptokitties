@@ -766,6 +766,191 @@ And the official page:
 
 Bingo! The cattributes match up.
 
+For easy (re)use lets put together a more "generic"
+`print_genes` method:
+
+``` ruby
+print_genes( 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )  # kitty 1001
+print_genes( 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac ) # kitty 1111
+```
+
+And the code:
+
+``` ruby
+def print_genes( genome )
+
+  genes_kai = Base32.encode( genome )
+  genes_kai = genes_kai.reverse    # for easy array access reverse string
+
+  TRAITS.each_with_index do |(trait_key, trait_hash),i|
+
+     # note: skip wild, environment, secret, prestige for now
+     next if [:wild,   :environment,
+              :secret, :prestige].include? trait_key
+
+     offset = i*4
+     puts "#{trait_hash[:name]} (#{trait_hash[:code]}) - Genes #{trait_hash[:genes]}:"
+     puts "#{'%2d' % (0+offset)} | #{trait_hash[:kai][genes_kai[0+offset]]}"
+     puts "#{'%2d' % (1+offset)} | #{trait_hash[:kai][genes_kai[1+offset]]}"
+     puts "#{'%2d' % (2+offset)} | #{trait_hash[:kai][genes_kai[2+offset]]}"
+     puts "#{'%2d' % (3+offset)} | #{trait_hash[:kai][genes_kai[3+offset]]}"
+     puts
+  end
+end
+```
+
+Resulting in
+
+```
+Fur (FU) - Genes 0-3:
+ 0 | ragamuffin
+ 1 | ragamuffin
+ 2 | ragamuffin
+ 3 | himalayan
+
+Pattern (PA) - Genes 4-7:
+ 4 | luckystripe
+ 5 | luckystripe
+ 6 | calicool
+ 7 | luckystripe
+
+Eye Color (EC) - Genes 8-11:
+ 8 | mintgreen
+ 9 | sizzurp
+10 | sizzurp
+11 | chestnut
+
+Eye Shape (ES) - Genes 12-15:
+12 | crazy
+13 | simple
+14 | simple
+15 | simple
+
+Base Color (BC) - Genes 16-19:
+16 | shadowgrey
+17 | orangesoda
+18 | orangesoda
+19 | salmon
+
+Highlight Color (HC) - Genes 20-23:
+20 | swampgreen
+21 | royalpurple
+22 | swampgreen
+23 | lemonade
+
+Accent Color (AC) - Genes 24-27:
+24 | granitegrey
+25 | granitegrey
+26 | kittencream
+27 | kittencream
+
+Mouth (MO) - Genes 32-35:
+32 | happygokitty
+33 | happygokitty
+34 | soserious
+35 | pouty
+```
+
+See a difference? There's no difference :-).
+
+Note:
+The copycats library / gem has a built-in gene reader and pretty printer.
+Let's try it:
+
+
+``` ruby
+genome = Genome.new( 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )
+puts genome.build_tables    # outputs tables in text with markdown formatting
+```
+
+Resulting in:
+
+---
+
+Fur (Genes 0-3)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 0 | 01110 | f | **ragamuffin** | p |
+| 1 | 01110 | f | ragamuffin | h1 |
+| 2 | 01110 | f | ragamuffin | h2 |
+| 3 | 01011 | c | himalayan | h3 |
+
+p = primary, h1 = hidden 1st order, h2 = hidden 2nd order, h3 = hidden 3rd order
+
+Pattern (Genes 4-7)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 4 | 01001 | a | **luckystripe** | p |
+| 5 | 01001 | a | luckystripe | h1 |
+| 6 | 01000 | 9 | calicool | h2 |
+| 7 | 01001 | a | luckystripe | h3 |
+
+Eye Color (Genes 8-11)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 8 | 00011 | 4 | **mintgreen** | p |
+| 9 | 00101 | 6 | sizzurp | h1 |
+| 10 | 00101 | 6 | sizzurp | h2 |
+| 11 | 00110 | 7 | chestnut | h3 |
+
+Eye Shape (Genes 12-15)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 12 | 00110 | 7 | **crazy** | p |
+| 13 | 00101 | 6 | simple | h1 |
+| 14 | 00101 | 6 | simple | h2 |
+| 15 | 00101 | 6 | simple | h3 |
+
+Base Color (Genes 16-19)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 16 | 00000 | 1 | **shadowgrey** | p |
+| 17 | 00011 | 4 | orangesoda | h1 |
+| 18 | 00011 | 4 | orangesoda | h2 |
+| 19 | 00001 | 2 | salmon | h3 |
+
+Highlight Color (Genes 20-23)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 20 | 01000 | 9 | **swampgreen** | p |
+| 21 | 00110 | 7 | royalpurple | h1 |
+| 22 | 01000 | 9 | swampgreen | h2 |
+| 23 | 01101 | e | lemonade | h3 |
+
+Accent Color (Genes 24-27)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 24 | 00100 | 5 | **granitegrey** | p |
+| 25 | 00100 | 5 | granitegrey | h1 |
+| 26 | 00110 | 7 | kittencream | h2 |
+| 27 | 00110 | 7 | kittencream | h3 |
+
+Wild (Genes 28-31)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 28 | 00000 | 1 | **?** | p |
+| 29 | 00101 | 6 | ? | h1 |
+| 30 | 00101 | 6 | ? | h2 |
+| 31 | 00000 | 1 | ? | h3 |
+
+Mouth (Genes 32-35)
+
+|Gene  |Binary   |Kai  |Trait    |   |
+|------|---------|-----|---------|---|
+| 32 | 01110 | f | **happygokitty** | p |
+| 33 | 01110 | f | happygokitty | h1 |
+| 34 | 01111 | g | soserious | h2 |
+| 35 | 01001 | a | pouty | h3 |
+
+---
 
 
 
