@@ -1036,8 +1036,7 @@ Note: The service uses "internal" keys for the trait types.
 and `prestige` is known as purrstige on kitty profile pages.
 
 
-Let's use the official cattributes totals statistics  
-and let's build a cattributes rarity / popularity statistics
+Let's use the official cattributes totals statistics and let's build a cattributes rarity / popularity statistics
 report page that groups all cattributes by trait type
 (e.g. fur, pattern, eye color, and so on) and
 adds a ranking from 1 to 31 and the popularity / rarity in
@@ -1410,9 +1409,8 @@ resulting in:
 ```
 
 
-Now let's generate a cattributes rarity / popularity statistics
-report in text with markdown formatting
-and let's use the `TRAITS` list of all traits 
+Now let's generate a cattributes rarity / popularity statistics report in text with markdown formatting
+and let's use the `TRAITS` list of all traits
 from the [copycats library / gem](https://github.com/cryptocopycats/copycats) 
 to add the official trait type names and two-letter codes:
 
@@ -1421,12 +1419,10 @@ to add the official trait type names and two-letter codes:
 require 'copycats'
 
 buf = ""
-buf += <<TXT
-# Cattributes Rarity / Popularity Statistics
-
-(Source: [`api.cryptokitties.co/cattributes` (JSON)](https://api.cryptokitties.co/cattributes))
-
-TXT
+buf << "# Cattributes Rarity / Popularity Statistics\n"
+buf << "\n"
+buf << "(Source: [`api.cryptokitties.co/cattributes` (JSON)](https://api.cryptokitties.co/cattributes))\n"
+buf << "\n\n"
 
 # quick hack - map copycats keys to (internal) cryptokitties trait type keys
 #  note: all keys are the same except:
@@ -1436,7 +1432,6 @@ TRAIT_TYPE_MAPPINGS =
   :color2 => :colorsecondary,
   :color3 => :colortertiary
 }
-
 
 TRAITS.each do |key,h|
   next if key == :secret  ## skip secret (y gene) trait for now
