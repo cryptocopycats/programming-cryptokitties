@@ -21,12 +21,6 @@ end
 pp trait_types
 
 
-puts
-puts "Trait Types:"
-pp trait_types
-
-
-
 
 require 'copycats'
 
