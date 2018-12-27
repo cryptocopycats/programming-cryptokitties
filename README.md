@@ -1091,11 +1091,11 @@ cattribute_totals.each do |h|
   key = h['type'].to_sym
   rec = trait_types[ key ] ||= [0,[]]
 
-  rec[ 0 ] += h['total'].to_i   ## up totals
-  rec[ 1 ] << [h['description'],h['total'].to_i]
+  rec[ 0 ] += h['total'].to_i   ## sum up totals for trait type
+  rec[ 1 ] << [h['description'], h['total'].to_i]
 end
 
-pp types
+pp trait_types
 ```
 
 resulting in:
