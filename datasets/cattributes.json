@@ -1,0 +1,1700 @@
+[
+  {
+    "description": "totesbasic",
+    "type": "pattern",
+    "gene": 15,
+    "total": "317195"
+  },
+  {
+    "description": "thicccbrowz",
+    "type": "eyes",
+    "gene": 7,
+    "total": "224569"
+  },
+  {
+    "description": "granitegrey",
+    "type": "colortertiary",
+    "gene": 4,
+    "total": "220303"
+  },
+  {
+    "description": "kittencream",
+    "type": "colortertiary",
+    "gene": 6,
+    "total": "215296"
+  },
+  {
+    "description": "pouty",
+    "type": "mouth",
+    "gene": 9,
+    "total": "206095"
+  },
+  {
+    "description": "happygokitty",
+    "type": "mouth",
+    "gene": 14,
+    "total": "185779"
+  },
+  {
+    "description": "royalpurple",
+    "type": "colorsecondary",
+    "gene": 6,
+    "total": "175025"
+  },
+  {
+    "description": "swampgreen",
+    "type": "colorsecondary",
+    "gene": 8,
+    "total": "174520"
+  },
+  {
+    "description": "lemonade",
+    "type": "colorsecondary",
+    "gene": 13,
+    "total": "170998"
+  },
+  {
+    "description": "greymatter",
+    "type": "colorprimary",
+    "gene": 10,
+    "total": "167426"
+  },
+  {
+    "description": "crazy",
+    "type": "eyes",
+    "gene": 6,
+    "total": "162807"
+  },
+  {
+    "description": "luckystripe",
+    "type": "pattern",
+    "gene": 9,
+    "total": "161830"
+  },
+  {
+    "description": "soserious",
+    "type": "mouth",
+    "gene": 15,
+    "total": "158260"
+  },
+  {
+    "description": "coffee",
+    "type": "colorsecondary",
+    "gene": 12,
+    "total": "157393"
+  },
+  {
+    "description": "strawberry",
+    "type": "coloreyes",
+    "gene": 7,
+    "total": "145760"
+  },
+  {
+    "description": "ragdoll",
+    "type": "body",
+    "gene": 15,
+    "total": "140212"
+  },
+  {
+    "description": "cottoncandy",
+    "type": "colorprimary",
+    "gene": 4,
+    "total": "140009"
+  },
+  {
+    "description": "mintgreen",
+    "type": "coloreyes",
+    "gene": 3,
+    "total": "137250"
+  },
+  {
+    "description": "mauveover",
+    "type": "colorprimary",
+    "gene": 5,
+    "total": "134722"
+  },
+  {
+    "description": "sizzurp",
+    "type": "coloreyes",
+    "gene": 5,
+    "total": "127703"
+  },
+  {
+    "description": "amur",
+    "type": "pattern",
+    "gene": 10,
+    "total": "125320"
+  },
+  {
+    "description": "sphynx",
+    "type": "body",
+    "gene": 13,
+    "total": "122295"
+  },
+  {
+    "description": "shadowgrey",
+    "type": "colorprimary",
+    "gene": 0,
+    "total": "120984"
+  },
+  {
+    "description": "munchkin",
+    "type": "body",
+    "gene": 12,
+    "total": "116237"
+  },
+  {
+    "description": "saycheese",
+    "type": "mouth",
+    "gene": 10,
+    "total": "112765"
+  },
+  {
+    "description": "simple",
+    "type": "eyes",
+    "gene": 5,
+    "total": "112456"
+  },
+  {
+    "description": "topaz",
+    "type": "coloreyes",
+    "gene": 2,
+    "total": "109431"
+  },
+  {
+    "description": "chocolate",
+    "type": "colorsecondary",
+    "gene": 14,
+    "total": "106131"
+  },
+  {
+    "description": "spock",
+    "type": "pattern",
+    "gene": 12,
+    "total": "105256"
+  },
+  {
+    "description": "selkirk",
+    "type": "body",
+    "gene": 1,
+    "total": "104842"
+  },
+  {
+    "description": "himalayan",
+    "type": "body",
+    "gene": 11,
+    "total": "99657"
+  },
+  {
+    "description": "bananacream",
+    "type": "colorprimary",
+    "gene": 15,
+    "total": "97646"
+  },
+  {
+    "description": "aquamarine",
+    "type": "colorprimary",
+    "gene": 6,
+    "total": "94113"
+  },
+  {
+    "description": "icy",
+    "type": "colortertiary",
+    "gene": 3,
+    "total": "93902"
+  },
+  {
+    "description": "ragamuffin",
+    "type": "body",
+    "gene": 14,
+    "total": "93617"
+  },
+  {
+    "description": "orangesoda",
+    "type": "colorprimary",
+    "gene": 3,
+    "total": "92002"
+  },
+  {
+    "description": "wiley",
+    "type": "eyes",
+    "gene": 14,
+    "total": "91547"
+  },
+  {
+    "description": "raisedbrow",
+    "type": "eyes",
+    "gene": 19,
+    "total": "91092"
+  },
+  {
+    "description": "sandalwood",
+    "type": "colortertiary",
+    "gene": 1,
+    "total": "89729"
+  },
+  {
+    "description": "tiger",
+    "type": "pattern",
+    "gene": 1,
+    "total": "89676"
+  },
+  {
+    "description": "cymric",
+    "type": "body",
+    "gene": 9,
+    "total": "89254"
+  },
+  {
+    "description": "gold",
+    "type": "coloreyes",
+    "gene": 1,
+    "total": "89101"
+  },
+  {
+    "description": "egyptiankohl",
+    "type": "colorsecondary",
+    "gene": 2,
+    "total": "87692"
+  },
+  {
+    "description": "purplehaze",
+    "type": "colortertiary",
+    "gene": 10,
+    "total": "85876"
+  },
+  {
+    "description": "salmon",
+    "type": "colorprimary",
+    "gene": 1,
+    "total": "85352"
+  },
+  {
+    "description": "googly",
+    "type": "eyes",
+    "gene": 3,
+    "total": "85334"
+  },
+  {
+    "description": "birman",
+    "type": "body",
+    "gene": 3,
+    "total": "84069"
+  },
+  {
+    "description": "chestnut",
+    "type": "coloreyes",
+    "gene": 6,
+    "total": "82573"
+  },
+  {
+    "description": "sapphire",
+    "type": "coloreyes",
+    "gene": 8,
+    "total": "82195"
+  },
+  {
+    "description": "slyboots",
+    "type": "eyes",
+    "gene": 13,
+    "total": "81779"
+  },
+  {
+    "description": "thundergrey",
+    "type": "coloreyes",
+    "gene": 0,
+    "total": "79701"
+  },
+  {
+    "description": "chronic",
+    "type": "eyes",
+    "gene": 12,
+    "total": "79515"
+  },
+  {
+    "description": "emeraldgreen",
+    "type": "colortertiary",
+    "gene": 7,
+    "total": "79258"
+  },
+  {
+    "description": "wuvme",
+    "type": "mouth",
+    "gene": 2,
+    "total": "79136"
+  },
+  {
+    "description": "grim",
+    "type": "mouth",
+    "gene": 11,
+    "total": "78660"
+  },
+  {
+    "description": "wonky",
+    "type": "eyes",
+    "gene": 1,
+    "total": "78383"
+  },
+  {
+    "description": "cyan",
+    "type": "coloreyes",
+    "gene": 15,
+    "total": "76755"
+  },
+  {
+    "description": "rascal",
+    "type": "pattern",
+    "gene": 2,
+    "total": "75962"
+  },
+  {
+    "description": "barkbrown",
+    "type": "colorsecondary",
+    "gene": 11,
+    "total": "70013"
+  },
+  {
+    "description": "frosting",
+    "type": "colortertiary",
+    "gene": 15,
+    "total": "69356"
+  },
+  {
+    "description": "whixtensions",
+    "type": "mouth",
+    "gene": 0,
+    "total": "67017"
+  },
+  {
+    "description": "cinderella",
+    "type": "colorprimary",
+    "gene": 9,
+    "total": "66978"
+  },
+  {
+    "description": "bobtail",
+    "type": "body",
+    "gene": 5,
+    "total": "65851"
+  },
+  {
+    "description": "coralsunrise",
+    "type": "coloreyes",
+    "gene": 11,
+    "total": "65583"
+  },
+  {
+    "description": "azaleablush",
+    "type": "colortertiary",
+    "gene": 12,
+    "total": "65054"
+  },
+  {
+    "description": "scarlet",
+    "type": "colorsecondary",
+    "gene": 10,
+    "total": "64011"
+  },
+  {
+    "description": "koladiviya",
+    "type": "body",
+    "gene": 4,
+    "total": "62436"
+  },
+  {
+    "description": "beard",
+    "type": "mouth",
+    "gene": 8,
+    "total": "59657"
+  },
+  {
+    "description": "tongue",
+    "type": "mouth",
+    "gene": 23,
+    "total": "57448"
+  },
+  {
+    "description": "calicool",
+    "type": "pattern",
+    "gene": 8,
+    "total": "54377"
+  },
+  {
+    "description": "cloudwhite",
+    "type": "colorprimary",
+    "gene": 16,
+    "total": "53801"
+  },
+  {
+    "description": "gerbil",
+    "type": "mouth",
+    "gene": 3,
+    "total": "53726"
+  },
+  {
+    "description": "belleblue",
+    "type": "colortertiary",
+    "gene": 0,
+    "total": "53065"
+  },
+  {
+    "description": "spangled",
+    "type": "pattern",
+    "gene": 7,
+    "total": "51884"
+  },
+  {
+    "description": "skyblue",
+    "type": "colorsecondary",
+    "gene": 22,
+    "total": "45622"
+  },
+  {
+    "description": "dahlia",
+    "type": "coloreyes",
+    "gene": 10,
+    "total": "45060"
+  },
+  {
+    "description": "laperm",
+    "type": "body",
+    "gene": 22,
+    "total": "44437"
+  },
+  {
+    "description": "morningglory",
+    "type": "colortertiary",
+    "gene": 14,
+    "total": "43051"
+  },
+  {
+    "description": "rorschach",
+    "type": "pattern",
+    "gene": 6,
+    "total": "43036"
+  },
+  {
+    "description": "leopard",
+    "type": "pattern",
+    "gene": 4,
+    "total": "41508"
+  },
+  {
+    "description": "bloodred",
+    "type": "colortertiary",
+    "gene": 19,
+    "total": "41328"
+  },
+  {
+    "description": "pixiebob",
+    "type": "body",
+    "gene": 7,
+    "total": "39969"
+  },
+  {
+    "description": "cashewmilk",
+    "type": "colortertiary",
+    "gene": 5,
+    "total": "37908"
+  },
+  {
+    "description": "savannah",
+    "type": "body",
+    "gene": 0,
+    "total": "37833"
+  },
+  {
+    "description": "ganado",
+    "type": "pattern",
+    "gene": 3,
+    "total": "37327"
+  },
+  {
+    "description": "brownies",
+    "type": "colorprimary",
+    "gene": 12,
+    "total": "36518"
+  },
+  {
+    "description": "limegreen",
+    "type": "coloreyes",
+    "gene": 17,
+    "total": "36286"
+  },
+  {
+    "description": "peach",
+    "type": "colortertiary",
+    "gene": 2,
+    "total": "33890"
+  },
+  {
+    "description": "oldlace",
+    "type": "colorprimary",
+    "gene": 18,
+    "total": "33492"
+  },
+  {
+    "description": "jaguar",
+    "type": "pattern",
+    "gene": 11,
+    "total": "31949"
+  },
+  {
+    "description": "parakeet",
+    "type": "coloreyes",
+    "gene": 14,
+    "total": "29883"
+  },
+  {
+    "description": "otaku",
+    "type": "eyes",
+    "gene": 4,
+    "total": "29477"
+  },
+  {
+    "description": "olive",
+    "type": "coloreyes",
+    "gene": 12,
+    "total": "29243"
+  },
+  {
+    "description": "kalahari",
+    "type": "colortertiary",
+    "gene": 8,
+    "total": "26916"
+  },
+  {
+    "description": "doridnudibranch",
+    "type": "coloreyes",
+    "gene": 13,
+    "total": "26772"
+  },
+  {
+    "description": "tigerpunk",
+    "type": "pattern",
+    "gene": 20,
+    "total": "26441"
+  },
+  {
+    "description": "lilac",
+    "type": "colorsecondary",
+    "gene": 4,
+    "total": "25731"
+  },
+  {
+    "description": "confuzzled",
+    "type": "mouth",
+    "gene": 4,
+    "total": "25344"
+  },
+  {
+    "description": "apricot",
+    "type": "colorsecondary",
+    "gene": 5,
+    "total": "24978"
+  },
+  {
+    "description": "stunned",
+    "type": "eyes",
+    "gene": 15,
+    "total": "24654"
+  },
+  {
+    "description": "dali",
+    "type": "mouth",
+    "gene": 20,
+    "total": "23256"
+  },
+  {
+    "description": "swarley",
+    "type": "eyes",
+    "gene": 0,
+    "total": "23219"
+  },
+  {
+    "description": "rollercoaster",
+    "type": "mouth",
+    "gene": 7,
+    "total": "22628"
+  },
+  {
+    "description": "fangtastic",
+    "type": "mouth",
+    "gene": 12,
+    "total": "22618"
+  },
+  {
+    "description": "norwegianforest",
+    "type": "body",
+    "gene": 16,
+    "total": "21298"
+  },
+  {
+    "description": "chartreux",
+    "type": "body",
+    "gene": 10,
+    "total": "21160"
+  },
+  {
+    "description": "shale",
+    "type": "colortertiary",
+    "gene": 9,
+    "total": "21083"
+  },
+  {
+    "description": "sass",
+    "type": "eyes",
+    "gene": 22,
+    "total": "21068"
+  },
+  {
+    "description": "serpent",
+    "type": "eyes",
+    "gene": 2,
+    "total": "20791"
+  },
+  {
+    "description": "bubblegum",
+    "type": "coloreyes",
+    "gene": 19,
+    "total": "20660"
+  },
+  {
+    "description": "poisonberry",
+    "type": "colorsecondary",
+    "gene": 3,
+    "total": "20354"
+  },
+  {
+    "description": "asif",
+    "type": "eyes",
+    "gene": 11,
+    "total": "19818"
+  },
+  {
+    "description": "nachocheez",
+    "type": "colorprimary",
+    "gene": 7,
+    "total": "19555"
+  },
+  {
+    "description": "fabulous",
+    "type": "eyes",
+    "gene": 18,
+    "total": "19224"
+  },
+  {
+    "description": "impish",
+    "type": "mouth",
+    "gene": 5,
+    "total": "18029"
+  },
+  {
+    "description": "springcrocus",
+    "type": "colorsecondary",
+    "gene": 1,
+    "total": "17918"
+  },
+  {
+    "description": "forgetmenot",
+    "type": "coloreyes",
+    "gene": 9,
+    "total": "17483"
+  },
+  {
+    "description": "onyx",
+    "type": "colorprimary",
+    "gene": 25,
+    "total": "17448"
+  },
+  {
+    "description": "violet",
+    "type": "colorsecondary",
+    "gene": 9,
+    "total": "17389"
+  },
+  {
+    "description": "henna",
+    "type": "pattern",
+    "gene": 21,
+    "total": "16405"
+  },
+  {
+    "description": "camo",
+    "type": "pattern",
+    "gene": 5,
+    "total": "15520"
+  },
+  {
+    "description": "baddate",
+    "type": "eyes",
+    "gene": 10,
+    "total": "14933"
+  },
+  {
+    "description": "elk",
+    "type": "wild",
+    "gene": 17,
+    "total": "14086"
+  },
+  {
+    "description": "persian",
+    "type": "body",
+    "gene": 23,
+    "total": "13355"
+  },
+  {
+    "description": "chantilly",
+    "type": "body",
+    "gene": 2,
+    "total": "13101"
+  },
+  {
+    "description": "martian",
+    "type": "colorprimary",
+    "gene": 27,
+    "total": "12841"
+  },
+  {
+    "description": "siberian",
+    "type": "body",
+    "gene": 8,
+    "total": "12824"
+  },
+  {
+    "description": "cerulian",
+    "type": "colorsecondary",
+    "gene": 21,
+    "total": "12719"
+  },
+  {
+    "description": "wolfgrey",
+    "type": "colorsecondary",
+    "gene": 20,
+    "total": "12455"
+  },
+  {
+    "description": "missmuffett",
+    "type": "colortertiary",
+    "gene": 13,
+    "total": "11960"
+  },
+  {
+    "description": "eclipse",
+    "type": "coloreyes",
+    "gene": 23,
+    "total": "11498"
+  },
+  {
+    "description": "daffodil",
+    "type": "colortertiary",
+    "gene": 16,
+    "total": "11454"
+  },
+  {
+    "description": "verdigris",
+    "type": "colorprimary",
+    "gene": 23,
+    "total": "11079"
+  },
+  {
+    "description": "hintomint",
+    "type": "colorprimary",
+    "gene": 14,
+    "total": "10888"
+  },
+  {
+    "description": "dragontail",
+    "type": "wild",
+    "gene": 24,
+    "total": "10555"
+  },
+  {
+    "description": "highlander",
+    "type": "body",
+    "gene": 18,
+    "total": "10199"
+  },
+  {
+    "description": "alien",
+    "type": "eyes",
+    "gene": 17,
+    "total": "10193"
+  },
+  {
+    "description": "wingtips",
+    "type": "eyes",
+    "gene": 25,
+    "total": "10175"
+  },
+  {
+    "description": "dragonwings",
+    "type": "wild",
+    "gene": 28,
+    "total": "10130"
+  },
+  {
+    "description": "salty",
+    "type": "environment",
+    "gene": 16,
+    "total": "10116"
+  },
+  {
+    "description": "harbourfog",
+    "type": "colorprimary",
+    "gene": 8,
+    "total": "9774"
+  },
+  {
+    "description": "caffeine",
+    "type": "eyes",
+    "gene": 8,
+    "total": "9642"
+  },
+  {
+    "description": "belch",
+    "type": "mouth",
+    "gene": 6,
+    "total": "9624"
+  },
+  {
+    "description": "wasntme",
+    "type": "mouth",
+    "gene": 1,
+    "total": "9480"
+  },
+  {
+    "description": "patrickstarfish",
+    "type": "colortertiary",
+    "gene": 23,
+    "total": "9122"
+  },
+  {
+    "description": "padparadscha",
+    "type": "colorsecondary",
+    "gene": 7,
+    "total": "9068"
+  },
+  {
+    "description": "toyger",
+    "type": "body",
+    "gene": 26,
+    "total": "8923"
+  },
+  {
+    "description": "cheeky",
+    "type": "mouth",
+    "gene": 16,
+    "total": "8430"
+  },
+  {
+    "description": "peppermint",
+    "type": "colorsecondary",
+    "gene": 24,
+    "total": "8313"
+  },
+  {
+    "description": "dippedcone",
+    "type": "pattern",
+    "gene": 18,
+    "total": "8188"
+  },
+  {
+    "description": "sweetmeloncakes",
+    "type": "eyes",
+    "gene": 23,
+    "total": "8126"
+  },
+  {
+    "description": "moue",
+    "type": "mouth",
+    "gene": 13,
+    "total": "8011"
+  },
+  {
+    "description": "lynx",
+    "type": "body",
+    "gene": 20,
+    "total": "7833"
+  },
+  {
+    "description": "manul",
+    "type": "body",
+    "gene": 6,
+    "total": "7755"
+  },
+  {
+    "description": "thunderstruck",
+    "type": "pattern",
+    "gene": 17,
+    "total": "7676"
+  },
+  {
+    "description": "dragonfruit",
+    "type": "colorprimary",
+    "gene": 13,
+    "total": "7667"
+  },
+  {
+    "description": "safetyvest",
+    "type": "colorsecondary",
+    "gene": 17,
+    "total": "7667"
+  },
+  {
+    "description": "manx",
+    "type": "body",
+    "gene": 27,
+    "total": "7305"
+  },
+  {
+    "description": "periwinkle",
+    "type": "colortertiary",
+    "gene": 22,
+    "total": "7275"
+  },
+  {
+    "description": "atlantis",
+    "type": "colortertiary",
+    "gene": 20,
+    "total": "7050"
+  },
+  {
+    "description": "littlefoot",
+    "type": "wild",
+    "gene": 16,
+    "total": "7012"
+  },
+  {
+    "description": "tundra",
+    "type": "colorprimary",
+    "gene": 11,
+    "total": "6842"
+  },
+  {
+    "description": "starstruck",
+    "type": "mouth",
+    "gene": 17,
+    "total": "6780"
+  },
+  {
+    "description": "hotrod",
+    "type": "pattern",
+    "gene": 26,
+    "total": "6634"
+  },
+  {
+    "description": "royalblue",
+    "type": "colorsecondary",
+    "gene": 26,
+    "total": "6542"
+  },
+  {
+    "description": "mainecoon",
+    "type": "body",
+    "gene": 21,
+    "total": "6487"
+  },
+  {
+    "description": "wowza",
+    "type": "eyes",
+    "gene": 9,
+    "total": "6457"
+  },
+  {
+    "description": "pumpkin",
+    "type": "coloreyes",
+    "gene": 16,
+    "total": "6435"
+  },
+  {
+    "description": "mittens",
+    "type": "pattern",
+    "gene": 13,
+    "total": "6236"
+  },
+  {
+    "description": "grimace",
+    "type": "mouth",
+    "gene": 21,
+    "total": "6083"
+  },
+  {
+    "description": "neckbeard",
+    "type": "mouth",
+    "gene": 26,
+    "total": "5981"
+  },
+  {
+    "description": "daemonhorns",
+    "type": "wild",
+    "gene": 23,
+    "total": "5884"
+  },
+  {
+    "description": "redvelvet",
+    "type": "colorprimary",
+    "gene": 22,
+    "total": "5647"
+  },
+  {
+    "description": "highsociety",
+    "type": "pattern",
+    "gene": 19,
+    "total": "5613"
+  },
+  {
+    "description": "universe",
+    "type": "colorsecondary",
+    "gene": 25,
+    "total": "5292"
+  },
+  {
+    "description": "butterscotch",
+    "type": "colorsecondary",
+    "gene": 15,
+    "total": "5093"
+  },
+  {
+    "description": "turtleback",
+    "type": "colorsecondary",
+    "gene": 18,
+    "total": "4941"
+  },
+  {
+    "description": "finalfrontier",
+    "type": "environment",
+    "gene": 21,
+    "total": "4798"
+  },
+  {
+    "description": "flapflap",
+    "type": "wild",
+    "gene": 22,
+    "total": "4311"
+  },
+  {
+    "description": "buzzed",
+    "type": "eyes",
+    "gene": 27,
+    "total": "4293"
+  },
+  {
+    "description": "palejade",
+    "type": "coloreyes",
+    "gene": 21,
+    "total": "4282"
+  },
+  {
+    "description": "yokel",
+    "type": "mouth",
+    "gene": 24,
+    "total": "4278"
+  },
+  {
+    "description": "daemonwings",
+    "type": "wild",
+    "gene": 20,
+    "total": "4029"
+  },
+  {
+    "description": "flamingo",
+    "type": "colortertiary",
+    "gene": 17,
+    "total": "3810"
+  },
+  {
+    "description": "ducky",
+    "type": "wild",
+    "gene": 18,
+    "total": "3776"
+  },
+  {
+    "description": "seafoam",
+    "type": "colortertiary",
+    "gene": 24,
+    "total": "3650"
+  },
+  {
+    "description": "chameleon",
+    "type": "eyes",
+    "gene": 16,
+    "total": "3629"
+  },
+  {
+    "description": "koala",
+    "type": "colorprimary",
+    "gene": 19,
+    "total": "3571"
+  },
+  {
+    "description": "topoftheworld",
+    "type": "mouth",
+    "gene": 25,
+    "total": "3443"
+  },
+  {
+    "description": "twilightsparkle",
+    "type": "coloreyes",
+    "gene": 20,
+    "total": "3396"
+  },
+  {
+    "description": "dioscuri",
+    "type": "coloreyes",
+    "gene": 29,
+    "total": "3350"
+  },
+  {
+    "description": "avatar",
+    "type": "pattern",
+    "gene": 28,
+    "total": "3197"
+  },
+  {
+    "description": "mintmacaron",
+    "type": "colortertiary",
+    "gene": 27,
+    "total": "3098"
+  },
+  {
+    "description": "fox",
+    "type": "body",
+    "gene": 24,
+    "total": "2840"
+  },
+  {
+    "description": "unicorn",
+    "type": "wild",
+    "gene": 27,
+    "total": "2840"
+  },
+  {
+    "description": "pinefresh",
+    "type": "coloreyes",
+    "gene": 22,
+    "total": "2837"
+  },
+  {
+    "description": "garnet",
+    "type": "colorsecondary",
+    "gene": 23,
+    "total": "2827"
+  },
+  {
+    "description": "shamrock",
+    "type": "colorprimary",
+    "gene": 29,
+    "total": "2812"
+  },
+  {
+    "description": "trioculus",
+    "type": "wild",
+    "gene": 19,
+    "total": "2775"
+  },
+  {
+    "description": "tinybox",
+    "type": "environment",
+    "gene": 19,
+    "total": "2731"
+  },
+  {
+    "description": "bornwithit",
+    "type": "eyes",
+    "gene": 28,
+    "total": "2728"
+  },
+  {
+    "description": "pearl",
+    "type": "colorsecondary",
+    "gene": 29,
+    "total": "2479"
+  },
+  {
+    "description": "buttercup",
+    "type": "colortertiary",
+    "gene": 18,
+    "total": "2460"
+  },
+  {
+    "description": "samwise",
+    "type": "mouth",
+    "gene": 18,
+    "total": "2408"
+  },
+  {
+    "description": "rosequartz",
+    "type": "colorsecondary",
+    "gene": 19,
+    "total": "2330"
+  },
+  {
+    "description": "razzledazzle",
+    "type": "pattern",
+    "gene": 25,
+    "total": "2313"
+  },
+  {
+    "description": "vigilante",
+    "type": "pattern",
+    "gene": 0,
+    "total": "2176"
+  },
+  {
+    "description": "meowgarine",
+    "type": "colorprimary",
+    "gene": 2,
+    "total": "2165"
+  },
+  {
+    "description": "mekong",
+    "type": "body",
+    "gene": 17,
+    "total": "2163"
+  },
+  {
+    "description": "walrus",
+    "type": "mouth",
+    "gene": 28,
+    "total": "1997"
+  },
+  {
+    "description": "roadtogold",
+    "type": "environment",
+    "gene": 26,
+    "total": "1916"
+  },
+  {
+    "description": "sully",
+    "type": "colortertiary",
+    "gene": 28,
+    "total": "1914"
+  },
+  {
+    "description": "glacier",
+    "type": "colorprimary",
+    "gene": 21,
+    "total": "1907"
+  },
+  {
+    "description": "lykoi",
+    "type": "body",
+    "gene": 28,
+    "total": "1886"
+  },
+  {
+    "description": "lavender",
+    "type": "colorprimary",
+    "gene": 20,
+    "total": "1815"
+  },
+  {
+    "description": "aflutter",
+    "type": "wild",
+    "gene": 25,
+    "total": "1797"
+  },
+  {
+    "description": "babypuke",
+    "type": "coloreyes",
+    "gene": 24,
+    "total": "1681"
+  },
+  {
+    "description": "kurilian",
+    "type": "body",
+    "gene": 25,
+    "total": "1603"
+  },
+  {
+    "description": "frozen",
+    "type": "environment",
+    "gene": 25,
+    "total": "1573"
+  },
+  {
+    "description": "drift",
+    "type": "environment",
+    "gene": 23,
+    "total": "1559"
+  },
+  {
+    "description": "kaleidoscope",
+    "type": "coloreyes",
+    "gene": 30,
+    "total": "1507"
+  },
+  {
+    "description": "autumnmoon",
+    "type": "coloreyes",
+    "gene": 26,
+    "total": "1465"
+  },
+  {
+    "description": "alicorn",
+    "type": "wild",
+    "gene": 29,
+    "total": "1393"
+  },
+  {
+    "description": "majestic",
+    "type": "mouth",
+    "gene": 22,
+    "total": "1392"
+  },
+  {
+    "description": "cyborg",
+    "type": "colorsecondary",
+    "gene": 0,
+    "total": "1387"
+  },
+  {
+    "description": "arcreactor",
+    "type": "pattern",
+    "gene": 22,
+    "total": "1377"
+  },
+  {
+    "description": "oceanid",
+    "type": "eyes",
+    "gene": 24,
+    "total": "1336"
+  },
+  {
+    "description": "hotcocoa",
+    "type": "colorprimary",
+    "gene": 28,
+    "total": "1281"
+  },
+  {
+    "description": "balinese",
+    "type": "body",
+    "gene": 19,
+    "total": "1249"
+  },
+  {
+    "description": "duckduckcat",
+    "type": "prestige",
+    "gene": null,
+    "total": "1249"
+  },
+  {
+    "description": "ruhroh",
+    "type": "mouth",
+    "gene": 19,
+    "total": "1241"
+  },
+  {
+    "description": "hyacinth",
+    "type": "colorprimary",
+    "gene": 26,
+    "total": "1230"
+  },
+  {
+    "description": "myparade",
+    "type": "environment",
+    "gene": 20,
+    "total": "1195"
+  },
+  {
+    "description": "wyrm",
+    "type": "wild",
+    "gene": 30,
+    "total": "1152"
+  },
+  {
+    "description": "juju",
+    "type": "environment",
+    "gene": 18,
+    "total": "1146"
+  },
+  {
+    "description": "tendertears",
+    "type": "eyes",
+    "gene": 20,
+    "total": "1135"
+  },
+  {
+    "description": "prism",
+    "type": "environment",
+    "gene": 29,
+    "total": "1133"
+  },
+  {
+    "description": "hanauma",
+    "type": "colortertiary",
+    "gene": 11,
+    "total": "1070"
+  },
+  {
+    "description": "scorpius",
+    "type": "pattern",
+    "gene": 24,
+    "total": "1050"
+  },
+  {
+    "description": "splat",
+    "type": "pattern",
+    "gene": 16,
+    "total": "1045"
+  },
+  {
+    "description": "foghornpawhorn",
+    "type": "wild",
+    "gene": 26,
+    "total": "1020"
+  },
+  {
+    "description": "jacked",
+    "type": "environment",
+    "gene": 27,
+    "total": "1014"
+  },
+  {
+    "description": "furball",
+    "type": "prestige",
+    "gene": null,
+    "total": "998"
+  },
+  {
+    "description": "drama",
+    "type": "eyes",
+    "gene": 30,
+    "total": "995"
+  },
+  {
+    "description": "oasis",
+    "type": "coloreyes",
+    "gene": 27,
+    "total": "991"
+  },
+  {
+    "description": "hacker",
+    "type": "eyes",
+    "gene": 21,
+    "total": "954"
+  },
+  {
+    "description": "prune",
+    "type": "prestige",
+    "gene": null,
+    "total": "921"
+  },
+  {
+    "description": "icicle",
+    "type": "colorprimary",
+    "gene": 24,
+    "total": "900"
+  },
+  {
+    "description": "allyouneed",
+    "type": "pattern",
+    "gene": 27,
+    "total": "880"
+  },
+  {
+    "description": "gyre",
+    "type": "pattern",
+    "gene": 29,
+    "total": "844"
+  },
+  {
+    "description": "isotope",
+    "type": "coloreyes",
+    "gene": 4,
+    "total": "830"
+  },
+  {
+    "description": "mertail",
+    "type": "colorsecondary",
+    "gene": 27,
+    "total": "818"
+  },
+  {
+    "description": "delite",
+    "type": "mouth",
+    "gene": 30,
+    "total": "811"
+  },
+  {
+    "description": "featherbrain",
+    "type": "wild",
+    "gene": 21,
+    "total": "810"
+  },
+  {
+    "description": "satiated",
+    "type": "mouth",
+    "gene": 27,
+    "total": "801"
+  },
+  {
+    "description": "cobalt",
+    "type": "colortertiary",
+    "gene": 25,
+    "total": "800"
+  },
+  {
+    "description": "prairierose",
+    "type": "colorsecondary",
+    "gene": 30,
+    "total": "784"
+  },
+  {
+    "description": "gemini",
+    "type": "coloreyes",
+    "gene": 28,
+    "total": "725"
+  },
+  {
+    "description": "secretgarden",
+    "type": "environment",
+    "gene": 24,
+    "total": "699"
+  },
+  {
+    "description": "moonrise",
+    "type": "pattern",
+    "gene": 30,
+    "total": "687"
+  },
+  {
+    "description": "floorislava",
+    "type": "environment",
+    "gene": 28,
+    "total": "683"
+  },
+  {
+    "description": "cornflower",
+    "type": "colorprimary",
+    "gene": 17,
+    "total": "665"
+  },
+  {
+    "description": "candyshoppe",
+    "type": "eyes",
+    "gene": 29,
+    "total": "648"
+  },
+  {
+    "description": "downbythebay",
+    "type": "coloreyes",
+    "gene": 25,
+    "total": "645"
+  },
+  {
+    "description": "reindeer",
+    "type": "prestige",
+    "gene": null,
+    "total": "636"
+  },
+  {
+    "description": "firedup",
+    "type": "eyes",
+    "gene": 26,
+    "total": "633"
+  },
+  {
+    "description": "thatsawrap",
+    "type": "prestige",
+    "gene": null,
+    "total": "615"
+  },
+  {
+    "description": "ooze",
+    "type": "colorsecondary",
+    "gene": 16,
+    "total": "613"
+  },
+  {
+    "description": "metime",
+    "type": "environment",
+    "gene": 22,
+    "total": "612"
+  },
+  {
+    "description": "burmilla",
+    "type": "body",
+    "gene": 29,
+    "total": "598"
+  },
+  {
+    "description": "junglebook",
+    "type": "environment",
+    "gene": 30,
+    "total": "583"
+  },
+  {
+    "description": "lit",
+    "type": "prestige",
+    "gene": null,
+    "total": "570"
+  },
+  {
+    "description": "dune",
+    "type": "environment",
+    "gene": 17,
+    "total": "568"
+  },
+  {
+    "description": "holidaycheer",
+    "type": "prestige",
+    "gene": null,
+    "total": "545"
+  },
+  {
+    "description": "mallowflower",
+    "type": "colortertiary",
+    "gene": 26,
+    "total": "542"
+  },
+  {
+    "description": "summerbonnet",
+    "type": "colortertiary",
+    "gene": 21,
+    "total": "541"
+  },
+  {
+    "description": "bridesmaid",
+    "type": "coloreyes",
+    "gene": 18,
+    "total": "527"
+  },
+  {
+    "description": "inflatablepool",
+    "type": "colorsecondary",
+    "gene": 28,
+    "total": "508"
+  },
+  {
+    "description": "fallspice",
+    "type": "colortertiary",
+    "gene": 29,
+    "total": "507"
+  },
+  {
+    "description": "firstblush",
+    "type": "colorprimary",
+    "gene": 30,
+    "total": "482"
+  },
+  {
+    "description": "struck",
+    "type": "mouth",
+    "gene": 29,
+    "total": "428"
+  },
+  {
+    "description": "liger",
+    "type": "body",
+    "gene": 30,
+    "total": "328"
+  },
+  {
+    "description": "dreamboat",
+    "type": "colortertiary",
+    "gene": 30,
+    "total": "324"
+  }
+]
