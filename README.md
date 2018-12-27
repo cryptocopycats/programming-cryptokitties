@@ -949,15 +949,15 @@ Mouth (MO) - Genes 32-35:
 
 
 
-## Statistics, Statistics, Statitics - Cattributes Rarity & Popularity
+## Statistics, Statistics, Statistics - Cattributes Rarity & Popularity
 
 Crypto collectibles are all about rarity - the more rare a cattribute
-in theory the more valuable the kitty.
+the more valuable the kitty in theory.
 
 
-Let's use the official cattributes totals statistics  
-that you can fetch from the (unofficial, no API-key required)
-CryptoKitties web service @ [`https://api.cryptokitties.co/cattributes`](https://api.cryptokitties.co/cattributes). Resulting in:
+Let's use the official cattributes totals statistics that you can fetch from the (unofficial, no API-key required)
+CryptoKitties web service @ [`api.cryptokitties.co/cattributes`](https://api.cryptokitties.co/cattributes). 
+Resulting in:
 
 ``` json
 [
@@ -1016,7 +1016,7 @@ CryptoKitties web service @ [`https://api.cryptokitties.co/cattributes`](https:/
 The result is ordered by
 most popular cattribute to most rare.
 And the most popular cattribute is - surprise, surprise -
-the famous totesbasic (pattern) with 317 195 kitties (as of Dec/27, 2018),
+the infamous totesbasic (pattern) with 317 195 kitties (as of Dec/27, 2018),
 followed by thicccbrowz (eyes) with 224 569 kitties,
 granitegrey (colortertiary) with 220 303,
 kittencream (colortertiary) with 215 296,
@@ -1026,10 +1026,18 @@ is dreamboat (colortertiary) with only 324 kitties (as of Dec/27, 2018),
 followed by liger (body) with 328,
 struck (mouth) with 428 and so on and so forth.
 
+Note: The service uses "internal" keys for the trait types.
+`colorprimary` is officially known as base color,
+`colorsecondary` is officially known as highlight color, 
+`colortertiary` is known as accent color,
+`eyes` is known as eye shape,
+`coloreyes` is known as eye colors,
+`body` is known as fur,
+and `prestige` is known as purrstige on kitty profile pages.
+
 
 Let's use the official cattributes totals statistics  
-and let's build a
-cattributes rarity / popularity statistics
+and let's build a cattributes rarity / popularity statistics
 report page that groups all cattributes by trait type
 (e.g. fur, pattern, eye color, and so on) and
 adds a ranking from 1 to 31 and the popularity / rarity in
@@ -1403,9 +1411,15 @@ resulting in:
 
 
 Now let's generate a cattributes rarity / popularity statistics
-report in text with markdown formatting:
+report in text with markdown formatting
+and let's use the `TRAITS` list of all traits 
+from the [copycats library / gem](https://github.com/cryptocopycats/copycats) 
+to add the official trait type names and two-letter codes:
+
 
 ``` ruby
+require 'copycats'
+
 buf = ""
 buf += <<TXT
 # Cattributes Rarity / Popularity Statistics
