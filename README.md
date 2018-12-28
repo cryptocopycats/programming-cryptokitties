@@ -1858,4 +1858,227 @@ from the original cryptokitties source.
 
 
 
+
+## Inside Breeding - Matron + Sire = New (Baby) Kitty
+
+CryptoKitties lets you breed new kitties.
+Pick a matron and a sire and
+a new bun is in the oven.
+
+Now how does the "magic" mixing of genes work?
+
+The bad news is all CryptoKitties contracts are open source
+EXCEPT the "magic" sooper-sekret gene mixing operation forumula in the GeneSciene contract.
+
+You can find the byte code in the contract at https://etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code.
+If you click on "Switch to Opcode" you will get
+almost endless to-the-metal byte code stack machine
+instructions:
+
+```
+PUSH1 0x60
+PUSH1 0x40
+MSTORE
+PUSH1 0x04
+CALLDATASIZE
+LT
+PUSH2 0x006c
+JUMPI
+PUSH4 0xffffffff
+PUSH29 0x0100000000000000000000000000000000000000000000000000000000
+PUSH1 0x00
+CALLDATALOAD
+DIV
+AND
+PUSH4 0x0d9f5aed
+DUP2
+EQ
+PUSH2 0x0071
+JUMPI
+DUP1
+PUSH4 0x1597ee44
+EQ
+PUSH2 0x009f
+JUMPI
+DUP1
+PUSH4 0x54c15b82
+...
+```
+
+Now the good news -
+thanks to Sean Soria's reverse engineering work
+- see the article "[CryptoKitties mixGenes Function](https://medium.com/@sean.soria/cryptokitties-mixgenes-function-69207883fc80)"
+the code is now "cracked" and an open book.
+Let's look at the `mixGenes` function in pseudocode:
+
+```
+def mixGenes(mGenes[48], sGenes[48], babyGenes[48]):
+  # PARENT GENE SWAPPING
+  for (i = 0; i < 12; i++):
+    index = 4 * i
+    for (j = 3; j > 0; j--):
+      if random() < 0.25:
+        swap(mGenes, index+j, index+j-1)
+      if random() < 0.25:
+        swap(sGenes, index+j, index+j-1)
+  # BABY GENES
+  for (i = 0; i < 48; i++):
+    mutation = 0
+    # CHECK MUTATION
+    if i % 4 == 0:
+      gene1 = mGene[i]
+      gene2 = sGene[i]
+      if gene1 > gene2:
+        gene1, gene2 = gene2, gene1
+      if (gene2 - gene1) == 1 and iseven(gene1):
+        probability = 0.25
+        if gene1 > 23:
+          probability /= 2
+        if random() < probability:
+          mutation = (gene1 / 2) + 16
+    # GIVE BABY GENES
+    if mutation:
+      baby[i] = mutation
+    else:
+      if random() < 0.5:
+        babyGenes[i] = mGene[i]
+      else:
+        babyGenes[i] = sGene[i]
+```
+
+Yes, that's better.
+Let's turn the pseudocode
+into working code that you can run at your own computer (off the blockchain).
+
+First, let's prepare the two input parameters, that is,
+`mGenes[48]` - the matron's 48 genes
+and `sGenes[48]` - the sire's 48 genes.
+
+``` ruby
+require 'base32-alphabets'
+
+
+genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+
+genes_kai = Base32.encode( genome )
+p genes_kai
+#=> "aaaa788522f2agff16617755e979244166677664a9aacfff"
+
+def kai_to_num( genes_kai )
+  genes_num = []
+  genes_kai.each_char do |gene|
+    genes_num << Kai::NUMBER[gene]
+  end
+  genes_num
+end
+
+genes_num = kai_to_num( genes_kai )
+p genes_num
+# => [9, 9, 9, 9, 6, 7, 7, 4, 1, 1, 14, 1, 9, 15, 14, 14, 0, 5, 5, 0, 6, 6, 4, 4, 13, 8, 6, 8, 1, 3, 3, 0, 5, 5, 5, 6, 6, 5, 5, 3, 9, 8, 9, 9, 11, 14, 14, 14]
+p genes_num.size
+# => 48
+p genes_num.reverse
+# => [14, 14, 14, 11, 9, 9, 8, 9, 3, 5, 5, 6, 6, 5, 5, 5, 0, 3, 3, 1, 8, 6, 8, 13, 4, 4, 6, 6, 0, 5, 5, 0, 14, 14, 15, 9, 1, 14, 1, 1, 4, 7, 7, 6, 9, 9, 9, 9]
+```
+
+To get  the matron's 48 genes
+or the sire's 48 genes
+let's convert the genome to 5-bit chunks
+with (base32) kai.
+And than convert every gene (that is, 5-bit chunk)
+to an integer number
+to get an array of 48 genes e.g.
+`[9, 9, 9, 9, 6, 7, 7, 4, 1, 1, 14, 1, 9, 15, 14, 14, 0, 5, 5, 0, 6, 6, 4, 4, 13, 8, 6, 8, 1, 3, 3, 0, 5, 5, 5, 6, 6, 5, 5, 3, 9, 8, 9, 9, 11, 14, 14, 14]`.
+Note, the `mixGenes`
+function expects the primary genes first, followed by the hidden 1, hidden 2, and
+so forth, thus, let's use `reverse` resulting in:
+`[14, 14, 14, 11, 9, 9, 8, 9, 3, 5, 5, 6, 6, 5, 5, 5, 0, 3, 3, 1, 8, 6, 8, 13, 4, 4, 6, 6, 0, 5, 5, 0, 14, 14, 15, 9, 1, 14, 1, 1, 4, 7, 7, 6, 9, 9, 9, 9]`
+
+
+Ready to go! Let's breed a new kitten:
+
+``` ruby
+def mixgenes( mgenes, sgenes )  ## returns babygenes
+  ## note: reverse genes strings (in kai) so index 0 is the first number
+  ##                                         index 1 is the second number etc.
+  mgenes = mgenes.reverse
+  sgenes = sgenes.reverse
+
+  babygenes = "?"*48      ## string with 48 question marks (?)
+
+  # PARENT GENE SWAPPING
+  12.times do |i| # loop from 0 to 11        # for(i = 0; i < 12; i++)
+    puts "parent gene swapping i: #{i}"
+    index = 4*i                              #   index = 4 * i
+    3.downto(1) do |j| ## loop from 3 to 1   #   for (j = 3; j > 0; j--)
+      puts "   j: #{j}"
+      if rand(100) < 25                      #     if random() < 0.25:
+        mgenes[index+j-1], mgenes[index+j] = #       swap(mGenes, index+j, index+j-1)
+        mgenes[index+j],   mgenes[index+j-1]
+      end
+      if rand(100) < 25                      #     if random() < 0.25:
+        sgenes[index+j-1], sgenes[index+j] = #        swap(sGenes, index+j, index+j-1)
+        sgenes[index+j],   sgenes[index+j-1]
+      end
+    end
+  end
+
+  # BABY GENES
+  48.times do |i| # loop from 0 to 47        #  for (i = 0; i < 48; i++):
+    puts "baby genes i: #{i}"
+    mutation = nil                           #    mutation = 0
+                                             #    # CHECK MUTATION
+    if i % 4 == 0                            #    if i % 4 == 0:
+      gene1 = Kai::NUMBER[ mgenes[i] ]       #      gene1 = mGene[i]
+      gene2 = Kai::NUMBER[ sgenes[i] ]       #      gene2 = sGene[i]
+      if gene1 > gene2                       #      if gene1 > gene2:
+         gene1, gene2 = gene2, gene1        #        gene1, gene2 = gene2, gene1
+      end
+      if (gene2 - gene1) == 1 && gene1.even? #     if (gene2 - gene1) == 1 and iseven(gene1):
+        probability = 25                     #        probability = 0.25
+        if gene1 > 23                        #        if gene1 > 23:
+          probability /= 2                   #          probability /= 2
+        end
+        if rand(100) < probability                   #        if random() < probability:
+          mutation = Kai::ALPHABET[ (gene1/2)+16 ]   #          mutation = (gene1 / 2) + 16
+        end
+      end
+    end
+    # GIVE BABY GENES
+    if mutation                              #    if mutation:
+      babygenes[i]=mutation                   #      baby[i] = mutation
+    else                                     #    else:
+      if rand(100) < 50                      #      if random() < 0.5:
+        babygenes[i] = mgenes[i]             #        babyGenes[i] = mGene[i]
+      else                                   #      else:
+        babygenes[i] = sgenes[i]             #        babyGenes[i] = sGene[i]
+      end
+    end
+  end
+
+  babygenes.reverse   # return bagygenes (reversed back)
+end # mixgenes
+```
+
+Let's try the
+"magic" sooper-sekret gene mixing operation forumula
+with a matron and a sire:
+
+``` ruby
+mgenes_hex = 0x000063169218f348dc640d171b000208934b5a90189038cb3084624a50f7316c
+sgenes_hex = 0x00005a13429085339c6521ef0300011c82438c628cc431a63298e3721f772d29
+
+mgenes = Kai.encode( mgenes_hex )   # convert to 5-bit (base32/kai) notation
+p mgenes
+# => "ddca578ka4f7949p4d11535kaeea175h846k2243aa9gfdcd"
+
+sgenes = Kai.encode( sgenes_hex )
+p sgenes
+# => "c9am65567ff7b9gg1d1138539f77647577k46784f9gpfcaa"
+
+babygenes = mixgenes( mgenes, sgenes )
+p babygenes
+```
+
+
 To be continued...
