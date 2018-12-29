@@ -1875,7 +1875,7 @@ What about mewtations, that is, new traits not present in a matron or sire?
 
 
 The bad news is all CryptoKitties contracts are open source
-EXCEPT the "magic" sooper-sekret gene mixing operation forumula in the GeneSciene contract.
+EXCEPT the "magic" sooper-sekret gene mixing operation formula in the GeneSciene contract.
 You can find the byte code in the contract at
 [`etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code`](https://etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code).
 If you click on "Switch to Opcode" you will see
@@ -2237,7 +2237,7 @@ Resulting in:
 | h3          |  0.6%            | h3        |  0.6%          |
 
 
-What a about mewtations?
+What about mewtations?
 
 There's a 25% chance of getting a mutation for tier I & II
 and a 12.5% chance for tier III & IIII
