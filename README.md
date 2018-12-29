@@ -2,11 +2,14 @@
 
 _Let's start with CryptoKitties & Copycats. Inside Unique Bits & Bytes on the Blockchain..._
 
-
+![](i/cryptokitties-modernart-paintings.png)
 
 At the heart of crypto collectibles on the blockchain are unique bits & bytes.
 For CryptoKitties this is a 240-bit integer that holds the
 super "sekretoooo" genome / genes.
+
+
+![](i/cryptokitties-genes01.png)
 
 Let's use Kitty #1001 as an example
 and look at the "magic" 240-bit integer number:
@@ -148,7 +151,7 @@ p Base32.encode( genome )
 ```
 
 Again using a genes / traits chart you can now decipher the genome.
-Let's start from right-to-left `...05-02-03-07-08-09-14-15-13-12-13-12`, that is, 
+Let's start from right-to-left `...05-02-03-07-08-09-14-15-13-12-13-12`, that is,
 `12` maps to munchkin, `13` to sphynx, and so on:
 
 Fur (FU) - Genes 0-3:
@@ -267,9 +270,9 @@ p Base32.fmt( Base32.encode( genome ))
 ```
 
 
-## Build Your Own CryptoKitties Genome Genes Reader
+## Build Your Own CryptoKitties Genome / Genes Reader
 
-Let's automate the look up of the 5-bit chunk to trait mapping
+Let's automate the lookup of the 5-bit chunk mapping to traits
 and code a genes reader
 that deciphers the genome.
 
@@ -956,7 +959,7 @@ the more valuable the kitty in theory.
 
 
 Let's use the official cattributes totals statistics that you can fetch from the (unofficial, no API-key required)
-CryptoKitties web service @ [`api.cryptokitties.co/cattributes`](https://api.cryptokitties.co/cattributes). 
+CryptoKitties web service @ [`api.cryptokitties.co/cattributes`](https://api.cryptokitties.co/cattributes).
 Resulting in:
 
 ``` json
@@ -1028,7 +1031,7 @@ struck (mouth) with 428 and so on and so forth.
 
 Note: The service uses "internal" keys for the trait types.
 `colorprimary` is officially known as base color,
-`colorsecondary` is officially known as highlight color, 
+`colorsecondary` is officially known as highlight color,
 `colortertiary` is known as accent color,
 `eyes` is known as eye shape,
 `coloreyes` is known as eye colors,
@@ -1411,7 +1414,7 @@ resulting in:
 
 Now let's generate a cattributes rarity / popularity statistics report in text with markdown formatting
 and let's use the `TRAITS` list of all traits
-from the [copycats library / gem](https://github.com/cryptocopycats/copycats) 
+from the [copycats library / gem](https://github.com/cryptocopycats/copycats)
 to add the official trait type names and two-letter codes:
 
 
@@ -1859,20 +1862,24 @@ from the original cryptokitties source.
 
 
 
-## Inside Breeding - Matron + Sire = New (Baby) Kitty
+## Inside Breeding - Matron + Sire = New (Offspring) Kitty - All About Gene Swapping, Inheritance & Mewtations
+
 
 CryptoKitties lets you breed new kitties.
 Pick a matron and a sire and
 a new bun is in the oven.
 
 Now how does the "magic" mixing of genes work?
+What genes do new (offspring) kitties inherit from parents?
+What about mewtations, that is, new traits not present in a matron or sire?
+
 
 The bad news is all CryptoKitties contracts are open source
 EXCEPT the "magic" sooper-sekret gene mixing operation forumula in the GeneSciene contract.
-
-You can find the byte code in the contract at https://etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code.
-If you click on "Switch to Opcode" you will get
-almost endless to-the-metal byte code stack machine
+You can find the byte code in the contract at
+[`etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code`](https://etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code).
+If you click on "Switch to Opcode" you will see
+almost endless to-the-metal stack machine byte code
 instructions:
 
 ```
@@ -1906,8 +1913,7 @@ PUSH4 0x54c15b82
 ```
 
 Now the good news -
-thanks to Sean Soria's reverse engineering work
-- see the article "[CryptoKitties mixGenes Function](https://medium.com/@sean.soria/cryptokitties-mixgenes-function-69207883fc80)"
+thanks to Sean Soria's reverse engineering work - see the article "[CryptoKitties mixGenes Function (December 2017)](https://medium.com/@sean.soria/cryptokitties-mixgenes-function-69207883fc80)" -
 the code is now "cracked" and an open book.
 Let's look at the `mixGenes` function in pseudocode:
 
@@ -1948,7 +1954,9 @@ def mixGenes(mGenes[48], sGenes[48], babyGenes[48]):
 
 Yes, that's better.
 Let's turn the pseudocode
-into working code that you can run at your own computer (off the blockchain).
+into working code that you can run at your very own computer off the (block)chain
+with a vanilla scripting language.
+
 
 First, let's prepare the two input parameters, that is,
 `mGenes[48]` - the matron's 48 genes
@@ -1999,86 +2007,258 @@ Ready to go! Let's breed a new kitten:
 
 ``` ruby
 def mixgenes( mgenes, sgenes )  ## returns babygenes
-  ## note: reverse genes strings (in kai) so index 0 is the first number
-  ##                                         index 1 is the second number etc.
-  mgenes = mgenes.reverse
-  sgenes = sgenes.reverse
-
-  babygenes = "?"*48      ## string with 48 question marks (?)
+  babygenes = []
 
   # PARENT GENE SWAPPING
-  12.times do |i| # loop from 0 to 11        # for(i = 0; i < 12; i++)
-    puts "parent gene swapping i: #{i}"
-    index = 4*i                              #   index = 4 * i
-    3.downto(1) do |j| ## loop from 3 to 1   #   for (j = 3; j > 0; j--)
-      puts "   j: #{j}"
-      if rand(100) < 25                      #     if random() < 0.25:
-        mgenes[index+j-1], mgenes[index+j] = #       swap(mGenes, index+j, index+j-1)
+  for i in 0.step(11,1) do ## loop from 0 to 11    # for(i = 0; i < 12; i++)
+    index = 4*i                                    #    index = 4 * i
+    for j in 3.step(1,-1) do  ## loop from 3 to 1  #   for (j = 3; j > 0; j--)
+      if rand() < 0.25                             #     if random() < 0.25:
+        mgenes[index+j-1], mgenes[index+j] =       #       swap(mGenes, index+j, index+j-1)
         mgenes[index+j],   mgenes[index+j-1]
       end
-      if rand(100) < 25                      #     if random() < 0.25:
-        sgenes[index+j-1], sgenes[index+j] = #        swap(sGenes, index+j, index+j-1)
+      if rand() < 0.25                             #     if random() < 0.25:
+        sgenes[index+j-1], sgenes[index+j] =       #        swap(sGenes, index+j, index+j-1)
         sgenes[index+j],   sgenes[index+j-1]
       end
     end
   end
 
   # BABY GENES
-  48.times do |i| # loop from 0 to 47        #  for (i = 0; i < 48; i++):
-    puts "baby genes i: #{i}"
-    mutation = nil                           #    mutation = 0
-                                             #    # CHECK MUTATION
-    if i % 4 == 0                            #    if i % 4 == 0:
-      gene1 = Kai::NUMBER[ mgenes[i] ]       #      gene1 = mGene[i]
-      gene2 = Kai::NUMBER[ sgenes[i] ]       #      gene2 = sGene[i]
-      if gene1 > gene2                       #      if gene1 > gene2:
-         gene1, gene2 = gene2, gene1        #        gene1, gene2 = gene2, gene1
+  for i in 0.step(47,1) do ## loop from 0 to 47    #  for (i = 0; i < 48; i++):
+    mutation = nil                                 #    mutation = 0
+    # CHECK MUTATION
+    if i % 4 == 0                                  #    if i % 4 == 0:
+      gene1 = mgenes[i]                            #      gene1 = mGene[i]
+      gene2 = sgenes[i]                            #      gene2 = sGene[i]
+      if gene1 > gene2                             #      if gene1 > gene2:
+         gene1, gene2 = gene2, gene1               #        gene1, gene2 = gene2, gene1
       end
-      if (gene2 - gene1) == 1 && gene1.even? #     if (gene2 - gene1) == 1 and iseven(gene1):
-        probability = 25                     #        probability = 0.25
-        if gene1 > 23                        #        if gene1 > 23:
-          probability /= 2                   #          probability /= 2
+      if (gene2 - gene1) == 1 && gene1.even?       #     if (gene2 - gene1) == 1 and iseven(gene1):
+        probability = 0.25                         #        probability = 0.25
+        if gene1 > 23                              #        if gene1 > 23:
+          probability /= 2                         #          probability /= 2
         end
-        if rand(100) < probability                   #        if random() < probability:
-          mutation = Kai::ALPHABET[ (gene1/2)+16 ]   #          mutation = (gene1 / 2) + 16
+        if rand() < probability                    #        if random() < probability:
+          mutation = (gene1/2)+16                  #          mutation = (gene1 / 2) + 16
         end
       end
     end
     # GIVE BABY GENES
-    if mutation                              #    if mutation:
-      babygenes[i]=mutation                   #      baby[i] = mutation
-    else                                     #    else:
-      if rand(100) < 50                      #      if random() < 0.5:
-        babygenes[i] = mgenes[i]             #        babyGenes[i] = mGene[i]
-      else                                   #      else:
-        babygenes[i] = sgenes[i]             #        babyGenes[i] = sGene[i]
+    if mutation                                    #    if mutation:
+      babygenes[i]=mutation                        #      baby[i] = mutation
+    else                                           #    else:
+      if rand() < 0.5                              #      if random() < 0.5:
+        babygenes[i] = mgenes[i]                   #        babyGenes[i] = mGene[i]
+      else                                         #      else:
+        babygenes[i] = sgenes[i]                   #        babyGenes[i] = sGene[i]
       end
     end
   end
 
-  babygenes.reverse   # return bagygenes (reversed back)
+  babygenes   # return bagygenes
 end # mixgenes
 ```
 
+
+![](i/cryptokitties-genes-ii.png)
+
+
+
 Let's try the
-"magic" sooper-sekret gene mixing operation forumula
+"magic" sooper-sekret gene mixing operation formula
 with a matron and a sire:
 
 ``` ruby
-mgenes_hex = 0x000063169218f348dc640d171b000208934b5a90189038cb3084624a50f7316c
-sgenes_hex = 0x00005a13429085339c6521ef0300011c82438c628cc431a63298e3721f772d29
+mgenome = 0x000063169218f348dc640d171b000208934b5a90189038cb3084624a50f7316c
+sgenome = 0x00005a13429085339c6521ef0300011c82438c628cc431a63298e3721f772d29
 
-mgenes = Kai.encode( mgenes_hex )   # convert to 5-bit (base32/kai) notation
-p mgenes
+mgenes_kai = Kai.encode( mgenome )   # convert to 5-bit (base32/kai) notation
+p mgenes_kai
 # => "ddca578ka4f7949p4d11535kaeea175h846k2243aa9gfdcd"
 
-sgenes = Kai.encode( sgenes_hex )
-p sgenes
+sgenes_kai = Kai.encode( sgenome )
+p sgenes_kai
 # => "c9am65567ff7b9gg1d1138539f77647577k46784f9gpfcaa"
 
-babygenes = mixgenes( mgenes, sgenes )
-p babygenes
+mgenes = kai_to_num( mgenes_kai ).reverse
+sgenes = kai_to_num( sgenes_kai ).reverse
+
+
+babygenes1 = mixgenes( mgenes, sgenes )
+p babygenes1
+# => [9, 9, 11, 14, 23, 8, 9, 14, 3, 3, 5, 1, 3, 19, 3, 7, 16, 4, 6, 5, 9, 6, 14, 8, 19, 4, 2, 4, 0, 0, 12, 3, 23, 15, 8, 10, 6, 14, 3, 9, 19, 5, 6, 5, 20, 9, 11, 8]
+babygenes2 = mixgenes( mgenes, sgenes )
+p babygenes2
+# => [12, 9, 11, 11, 15, 23, 9, 9, 5, 2, 3, 6, 3, 19, 5, 6, 4, 4, 3, 5, 9, 6, 13, 9, 19, 4, 7, 4, 0, 0, 12, 12, 15, 3, 8, 10, 6, 3, 14, 9, 19, 5, 5, 4, 9, 9, 11, 8]
+babygenes3 = mixgenes( mgenes, sgenes )
+p babygenes3
+# => [12, 12, 14, 11, 15, 23, 8, 14, 3, 1, 3, 1, 19, 3, 7, 6, 16, 5, 6, 3, 6, 6, 13, 9, 19, 4, 2, 4, 0, 0, 0, 12, 23, 3, 8, 8, 6, 6, 14, 14, 4, 19, 6, 7, 9, 12, 9, 11]
 ```
+
+Note: Every time you call mixgenes
+with the same matron and sire genes
+you will get DIFFERENT offspring genes.
+That's the fun casino gambling / lottery part!
+
+The source of the randomness is - surprise, surprise -
+the `rand()` function
+that returns a rand(om) lottery number between 0.0 and 0.99 on every call
+e.g.
+
+``` ruby
+p rand()
+#=> 0.5645703425961436
+p rand()
+#=> 0.1913357207205566
+p rand()
+#=> 0.6769058596527606
+```
+
+You can calculate / read the odds / probabilities:
+
+- `rand() < 0.5` means a 50% probability
+- `rand() < 0.25`  means a 25% probability
+- `rand() < 0.25 /= 2` means a 12.5% probability (0.25 / 2 = 0.125)
+
+
+Before summing up the offspring odds / probabilities
+in full glory
+let's wrap up the mixgenes call
+and convert the genes back into (base32) kai.
+
+``` ruby
+def num_to_kai( genes_num )
+  genes_num.map do |gene|
+    Kai::ALPHABET[gene]
+  end.join
+end
+
+babygenes1_kai = num_to_kai( babygenes1.reverse )
+p babygenes1_kai
+# => "9cam676ka4f7b9gp4d11535k9f7a675h84k42644fa9pfcaa"
+babygenes2_kai = num_to_kai( babygenes2.reverse )
+p babygenes2_kai
+# => "9caa566kaf47b94gdd11585kae7a645576k47436aapgccad"
+babygenes3_kai = num_to_kai( babygenes3.reverse )
+p babygenes3_kai
+# => "cada87k5ff77994pd111535kae77476h784k2424f9pgcfdd"
+```
+
+
+Voila! Now you can lookup the traits using a chart
+or use a gene reader (see above). Let's try:
+
+``` ruby
+print_genes( babygenes1_kai )
+```
+
+resulting in:
+
+```
+Fur (FU) - Genes 0-3:
+ 0 | cymric
+ 1 | cymric
+ 2 | himalayan
+ 3 | ragamuffin
+
+Pattern (PA) - Genes 4-7:
+ 4 | totesbasic
+ 5 | calicool
+ 6 | luckystripe
+ 7 | totesbasic
+
+Eye Color (EC) - Genes 8-11:
+ 8 | mintgreen
+ 9 | mintgreen
+10 | sizzurp
+11 | gold
+
+Eye Shape (ES) - Genes 12-15:
+12 | googly
+13 | raisedbrow
+14 | googly
+15 | thicccbrowz
+
+Base Color (BC) - Genes 16-19:
+16 | cloudwhite
+17 | cottoncandy
+18 | aquamarine
+19 | mauveover
+
+Highlight Color (HC) - Genes 20-23:
+20 | violet
+21 | royalpurple
+22 | chocolate
+23 | swampgreen
+
+Accent Color (AC) - Genes 24-27:
+24 | bloodred
+25 | granitegrey
+26 | peach
+27 | granitegrey
+
+Mouth (MO) - Genes 32-35:
+32 | tongue
+33 | soserious
+34 | beard
+35 | saycheese
+```
+
+
+Let's sum up the mixgenes offspring odds / probabilities.
+What are the chances of getting a gene passed along from
+a matron or sire? Let's call them parent A or B.
+
+There's a 50% / 50% chance
+of getting the gene from parent A or B.
+
+Now the (random lottery) fun starts.
+The mixgenes function swaps the genes (p, h1, h2, h3)
+starting at the 3rd hidden (h3) gene up to the primary (p) gene
+and the chance for a swap to happen are 25%.
+Resulting in:
+
+- 75% chance of getting the primary (p) gene from parent A or B
+- 18.75% (75 / 4) chance of getting the 1st hidden (h1) gene from A or B
+- 4.69% (75 / 4^2) chance of getting the 2nd hidden (h2) gene from A or B
+- 1.17% (75 / 4^3)  chance of getting the 3rd hidden (h3) gene from A or B
+
+Note: The chances of 75% + 18.75% + 4.69% + 1.17% for the genes (p, h1, h2, h3)
+add up to ~ 100%.
+
+Resulting in:
+
+| Matron Gene | Matron % to Pass | Sire Gene | Sire % to Pass |
+|-------------|-----------------:|-----------|---------------:|
+| p           | 37.5%            | p         | 37.5%          |
+| h1          |  9.4%            | h1        |  9.4%          |
+| h2          |  2.3%            | h2        |  2.3%          |
+| h3          |  0.6%            | h3        |  0.6%          |
+
+
+What a about mewtations?
+
+There's a 25% chance of getting a mutation for tier I & II
+and a 12.5% chance for tier III & IIII
+but only given A & B contain the right gene mutation pairs.
+The "magic" line / condition in mixgenes
+reads `if (gene2 - gene1) == 1 && gene1.even?`
+
+In plain english with genes in (base32) kai
+the "magic" gene mutation pairs are:
+
+| Tier I   |  Tier II   |  Tier III |  Tier IIII  |
+|----------|------------|-----------|-------------|
+| 1+2 => h |  h+i => q  | q+r => u  | u+v => w    |  
+| 3+4 => i |  j+k => r  | s+t => v  |             |
+| 5+6 => j |  m+n => s  |           |             |
+| 7+8 => k |  o+p => t  |           |             |
+| 9+a => m |            |           |             |
+| b+c => n |            |           |             |
+| d+e => o |            |           |             |
+| f+g => p |            |           |             |
+
 
 
 To be continued...
