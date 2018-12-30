@@ -2216,25 +2216,50 @@ of getting the gene from parent A or B.
 Now the (random lottery) fun starts.
 The mixgenes function swaps the genes (p, h1, h2, h3)
 starting at the 3rd hidden (h3) gene up to the primary (p) gene
-and the chance for a swap to happen are 25%.
+and the chance for a swap to happen are 25% (or 75% to NOT happen).
 Resulting in:
 
-- 75% chance of getting the primary (p) gene from parent A or B
-- 18.75% (75 / 4) chance of getting the 1st hidden (h1) gene from A or B
-- 4.69% (75 / 4^2) chance of getting the 2nd hidden (h2) gene from A or B
-- 1.17% (75 / 4^3)  chance of getting the 3rd hidden (h3) gene from A or B
+- 75%  (0.75) chance of getting the primary (p) gene from parent A or B
+- 18.75% (0.75 * 0.25  or 75 / 4) chance of getting the 1st hidden (h1) gene from A or B
+- 4.6875% (0.75 * 0.25 * 0.25 or 75 / 4^2) chance of getting the 2nd hidden (h2) gene from A or B
+- 1.5625% (0.25 * 0.25 * 0.25  or 100 / 4^3) chance of getting the 3rd hidden (h3) gene from A or B
 
-Note: The chances of 75% + 18.75% + 4.69% + 1.17% for the genes (p, h1, h2, h3)
-add up to ~ 100%.
+Note: The chances of 75% + 18.75% + 4.6875% + 1.5625% for the genes (p, h1, h2, h3)
+add up to 100%. Bingo! Let's calculate to (double) check:
+
+``` ruby
+p     = 0.75
+h1    = 0.75 * 0.25
+h2    = 0.75 * 0.25 * 0.25
+h3    = 0.25 * 0.25 * 0.25
+total = p + h1 + h2 + h3
+
+puts "p=#{p}, h1=#{h1}, h2=#{h2}, h3=#{h3}, total=#{total}"
+#=> p=0.75, h1=0.1875, h2=0.046875, h3=0.015625, total=1.0
+```
 
 Resulting in:
 
-| Matron Gene | Matron % to Pass | Sire Gene | Sire % to Pass |
-|-------------|-----------------:|-----------|---------------:|
-| p           | 37.5%            | p         | 37.5%          |
-| h1          |  9.4%            | h1        |  9.4%          |
-| h2          |  2.3%            | h2        |  2.3%          |
-| h3          |  0.6%            | h3        |  0.6%          |
+| Matron Gene | Matron % to Pass   | Sire Gene | Sire % to Pass      |
+|-------------|-------------------:|-----------|--------------------:|
+| p           | 37.5%              | p         | 37.5%               |
+| h1          |  9.375% or ~9.4%   | h1        |  9.375% or ~9.4%    |
+| h2          |  2.34375% or ~2.3% | h2        |  2.34375% or ~2.3%  |
+| h3          |  0.78125% or ~0.8% | h3        |  0.78125% or ~0.8%  |
+| total       | 50%                | total     | 50%                 |
+
+Compare with the official CryptoKitties probabilities matrix:
+
+![](i/mixgenes-probabilities-matrix.png)
+
+(Source: [`guide.cryptokitties.co/guide/cat-features/genes`](https://guide.cryptokitties.co/guide/cat-features/genes))
+
+Bingo! The odds / probabilities match up.
+Let's celebrate with a distribution curve chart -
+a picture is worth a thousand words, isn't it?
+
+![](i/mixgenes-probabilities-curve.png)
+
 
 
 What about mewtations?
@@ -2245,8 +2270,28 @@ but only given A & B contain the right gene mutation pairs.
 The "magic" line / condition in mixgenes
 reads `if (gene2 - gene1) == 1 && gene1.even?`
 
-In plain english with genes in (base32) kai
-the "magic" gene mutation pairs are:
+In plain english with genes in
+"raw" integer numbers the "magic" gene mutation pairs are:
+
+| Tier I      |  Tier II      |  Tier III    |  Tier IIII  |
+|-------------|---------------|--------------|-------------|
+| 0+1 => 16   |  16+17 => 24  | 24+25 => 28  | 28+29 => 30 |  
+| 2+3 => 17   |  18+19 => 25  | 26+27 => 29  |             |
+| 4+5 => 18   |  20+21 => 26  |              |             |
+| 6+7 => 19   |  22+23 => 27  |              |             |
+| 8+9 => 20   |               |              |             |
+| 10+11 => 21 |               |              |             |
+| 12+13 => 22 |               |              |             |
+| 14+15 => 23 |               |              |             |
+
+The "magic" calcucation formula in mixgenes reads
+`mutation = (gene1/2)+16`. Let's try some calculations
+`0/2+16 => 16` and `2/2+16 => 17`
+and `4/2+16 = 18` and so on and so forth until
+`28/2+16 => 30`.
+
+
+The same gene mutation pairs chart in (base32) kai reads:
 
 | Tier I   |  Tier II   |  Tier III |  Tier IIII  |
 |----------|------------|-----------|-------------|
@@ -2258,6 +2303,13 @@ the "magic" gene mutation pairs are:
 | b+c => n |            |           |             |
 | d+e => o |            |           |             |
 | f+g => p |            |           |             |
+
+
+
+
+
+## Build Your Own CryptoKitties Breeding (Offspring) Calculator
+
 
 
 
