@@ -1919,6 +1919,7 @@ Let's look at the `mixGenes` function in pseudocode:
 
 ```
 def mixGenes(mGenes[48], sGenes[48], babyGenes[48]):
+
   # PARENT GENE SWAPPING
   for (i = 0; i < 12; i++):
     index = 4 * i
@@ -1927,6 +1928,7 @@ def mixGenes(mGenes[48], sGenes[48], babyGenes[48]):
         swap(mGenes, index+j, index+j-1)
       if random() < 0.25:
         swap(sGenes, index+j, index+j-1)
+
   # BABY GENES
   for (i = 0; i < 48; i++):
     mutation = 0
@@ -1942,6 +1944,7 @@ def mixGenes(mGenes[48], sGenes[48], babyGenes[48]):
           probability /= 2
         if random() < probability:
           mutation = (gene1 / 2) + 16
+
     # GIVE BABY GENES
     if mutation:
       baby[i] = mutation
@@ -1972,15 +1975,7 @@ genes_kai = Base32.encode( genome )
 p genes_kai
 #=> "aaaa788522f2agff16617755e979244166677664a9aacfff"
 
-def kai_to_num( genes_kai )
-  genes_num = []
-  genes_kai.each_char do |gene|
-    genes_num << Kai::NUMBER[gene]
-  end
-  genes_num
-end
-
-genes_num = kai_to_num( genes_kai )
+genes_num = Base32.bytes( genome )
 p genes_num
 # => [9, 9, 9, 9, 6, 7, 7, 4, 1, 1, 14, 1, 9, 15, 14, 14, 0, 5, 5, 0, 6, 6, 4, 4, 13, 8, 6, 8, 1, 3, 3, 0, 5, 5, 5, 6, 6, 5, 5, 3, 9, 8, 9, 9, 11, 14, 14, 14]
 p genes_num.size
@@ -1992,8 +1987,7 @@ p genes_num.reverse
 To get  the matron's 48 genes
 or the sire's 48 genes
 let's convert the genome to 5-bit chunks
-with (base32) kai.
-And than convert every gene (that is, 5-bit chunk)
+and than convert every gene (that is, 5-bit chunk)
 to an integer number
 to get an array of 48 genes e.g.
 `[9, 9, 9, 9, 6, 7, 7, 4, 1, 1, 14, 1, 9, 15, 14, 14, 0, 5, 5, 0, 6, 6, 4, 4, 13, 8, 6, 8, 1, 3, 3, 0, 5, 5, 5, 6, 6, 5, 5, 3, 9, 8, 9, 9, 11, 14, 14, 14]`.
@@ -2073,17 +2067,12 @@ with a matron and a sire:
 mgenome = 0x000063169218f348dc640d171b000208934b5a90189038cb3084624a50f7316c
 sgenome = 0x00005a13429085339c6521ef0300011c82438c628cc431a63298e3721f772d29
 
-mgenes_kai = Kai.encode( mgenome )   # convert to 5-bit (base32/kai) notation
-p mgenes_kai
-# => "ddca578ka4f7949p4d11535kaeea175h846k2243aa9gfdcd"
-
-sgenes_kai = Kai.encode( sgenome )
-p sgenes_kai
-# => "c9am65567ff7b9gg1d1138539f77647577k46784f9gpfcaa"
-
-mgenes = kai_to_num( mgenes_kai ).reverse
-sgenes = kai_to_num( sgenes_kai ).reverse
-
+mgenes = Base32.bytes( mgenome ).reverse
+sgenes = Base32.bytes( sgenes ).reverse
+p mgenes
+# => 
+p sgenes
+# => 
 
 babygenes1 = mixgenes( mgenes, sgenes )
 p babygenes1
@@ -2128,23 +2117,18 @@ let's wrap up the mixgenes call
 and convert the genes back into (base32) kai.
 
 ``` ruby
-def num_to_kai( genes_num )
-  genes_num.map do |gene|
-    Kai::ALPHABET[gene]
-  end.join
-end
-
-babygenes1_kai = num_to_kai( babygenes1.reverse )
+babygenes1_kai = Base32.encode( babygenes1.reverse )
 p babygenes1_kai
-# => "9cam676ka4f7b9gp4d11535k9f7a675h84k42644fa9pfcaa"
-babygenes2_kai = num_to_kai( babygenes2.reverse )
-p babygenes2_kai
-# => "9caa566kaf47b94gdd11585kae7a645576k47436aapgccad"
-babygenes3_kai = num_to_kai( babygenes3.reverse )
-p babygenes3_kai
-# => "cada87k5ff77994pd111535kae77476h784k2424f9pgcfdd"
-```
+#=> "9cam676ka4f7b9gp4d11535k9f7a675h84k42644fa9pfcaa"
 
+babygenes2_kai = Base32.encode( babygenes2.reverse )
+p babygenes2_kai
+#=> "9caa566kaf47b94gdd11585kae7a645576k47436aapgccad"
+
+babygenes3_kai = Base32.encode( babygenes3.reverse )
+p babygenes3_kai
+#=> "cada87k5ff77994pd111535kae77476h784k2424f9pgcfdd"
+```
 
 Voila! Now you can lookup the traits using a chart
 or use a gene reader (see above). Let's try:
