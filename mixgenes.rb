@@ -3,19 +3,7 @@ require 'base32-alphabets'
 
 genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
-genes_kai = Base32.encode( genome )
-p genes_kai
-#=> "aaaa788522f2agff16617755e979244166677664a9aacfff"
-
-def kai_to_num( genes_kai )
-  genes_num = []
-  genes_kai.each_char do |gene|
-    genes_num << Kai::NUMBER[gene]
-  end
-  genes_num
-end
-
-genes_num = kai_to_num( genes_kai )
+genes_num = Base32.bytes( genome )
 p genes_num
 # => [9, 9, 9, 9, 6, 7, 7, 4, 1, 1, 14, 1, 9, 15, 14, 14, 0, 5, 5, 0, 6, 6, 4, 4, 13, 8, 6, 8, 1, 3, 3, 0, 5, 5, 5, 6, 6, 5, 5, 3, 9, 8, 9, 9, 11, 14, 14, 14]
 p genes_num.size
@@ -82,16 +70,13 @@ end # mixgenes
 mgenome = 0x000063169218f348dc640d171b000208934b5a90189038cb3084624a50f7316c
 sgenome = 0x00005a13429085339c6521ef0300011c82438c628cc431a63298e3721f772d29
 
-mgenes_kai = Kai.encode( mgenome )   # convert to 5-bit (base32/kai) notation
-p mgenes_kai
-# => "ddca578ka4f7949p4d11535kaeea175h846k2243aa9gfdcd"
+mgenes = Base32.bytes( mgenome ).reverse
+sgenes = Base32.bytes( sgenome ).reverse
+p mgenes
+# => 
+p sgenes
+# => 
 
-sgenes_kai = Kai.encode( sgenome )
-p sgenes_kai
-# => "c9am65567ff7b9gg1d1138539f77647577k46784f9gpfcaa"
-
-mgenes = kai_to_num( mgenes_kai ).reverse
-sgenes = kai_to_num( sgenes_kai ).reverse
 
 ##
 ## use "deterministic" seed for rand(om) - for testing always gets same rand(om) numbers
@@ -108,19 +93,15 @@ p babygenes3
 # => [12, 12, 14, 11, 15, 23, 8, 14, 3, 1, 3, 1, 19, 3, 7, 6, 16, 5, 6, 3, 6, 6, 13, 9, 19, 4, 2, 4, 0, 0, 0, 12, 23, 3, 8, 8, 6, 6, 14, 14, 4, 19, 6, 7, 9, 12, 9, 11]
 
 
-def num_to_kai( genes_num )
-  genes_num.map do |gene|
-    Kai::ALPHABET[gene]
-  end.join
-end
-
-babygenes1_kai = num_to_kai( babygenes1.reverse )
+babygenes1_kai = Base32.encode( babygenes1.reverse )
 p babygenes1_kai
 # => "9cam676ka4f7b9gp4d11535k9f7a675h84k42644fa9pfcaa"
-babygenes2_kai = num_to_kai( babygenes2.reverse )
+
+babygenes2_kai = Base32.encode( babygenes2.reverse )
 p babygenes2_kai
 # => "9caa566kaf47b94gdd11585kae7a645576k47436aapgccad"
-babygenes3_kai = num_to_kai( babygenes3.reverse )
+
+babygenes3_kai = Base32.encode( babygenes3.reverse )
 p babygenes3_kai
 # => "cada87k5ff77994pd111535kae77476h784k2424f9pgcfdd"
 
