@@ -2271,11 +2271,12 @@ In plain english with genes in
 
 The "magic" calculation formula in mixgenes reads
 `mutation = (gene1/2)+16`. Let's try some calculations 
-`0/2+16 => 16` and `2/2+16 => 17`
-and `4/2+16 = 18` and so on and so forth until `28/2+16 => 30`.
-Note: It's impossible for a mutation to reach `31` with the mixgenes formula e.g.`30+31 = 31`.
+`gene1 = 0; (0/2)+16 => 16` and `gene1 = 2; (2/2)+16 => 17`
+and `gene1 = 4; (4/2)+16 => 18` and so on and so forth until `gene1 = 28; (28/2)+16 => 30`.
+Note: It's impossible for a mutation to reach `31` with the mixgenes formula e.g.`30+31 = 31` 
+because to mutate to the new never-before-seen `31` you need `31` itself.
 
-Or let's try a loop with `n+(n+1) = n/2+16` if `n` is an even number (e.g. `0`, `2`, `4`, `6`, ...)
+Let's try a loop with `n+(n+1) = n/2+16` if `n` is an even number (e.g. `0`, `2`, `4`, `6`, ...)
 to print all mewtation pairs:
 
 ``` ruby
