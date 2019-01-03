@@ -4,7 +4,7 @@ Base32.format = :electrologica   # use the Electrologica Alphabet / Variant
 
 
 # hexadecimal (base 16)
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 p Base32.encode( genome )
 #=> "09-09-09-09-06-07-07-04-01-01-14-01-09-15-14-14-00-05-05-00-06-06-04-04-13-08-06-08-01-03-03-00-05-05-05-06-06-05-05-03-09-08-09-09-11-14-14-14"
@@ -18,7 +18,7 @@ p Base32.encode( genome )
 
 Base32.format = :kai   # use the Kai Alphabet / Variant
 
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 p Base32.encode( genome )
 #=> "aaaa788522f2agff16617755e979244166677664a9aacfff"

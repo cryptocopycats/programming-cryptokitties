@@ -16,14 +16,14 @@ pp TRAITS
 
 
 # hexadecimal (base 16)
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 genes_kai = Base32.encode( genome )
 p genes_kai
-# => "aaaa788522f2agff16617755e979244166677664a9aacfff"
+#=> "aaaa788522f2agff16617755e979244166677664a9aacfff"
 genes_kai = genes_kai.reverse    # for easy array access reverse string
 p genes_kai
-# => "fffcaa9a466776661442979e55771661ffga2f225887aaaa"
+#=> "fffcaa9a466776661442979e55771661ffga2f225887aaaa"
 
 puts "Fur (FU) - Genes 0-3:"
 puts " 0 | #{TRAITS[:body][:kai][genes_kai[0]]}"

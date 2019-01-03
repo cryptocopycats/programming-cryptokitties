@@ -24,7 +24,7 @@ end
 
 
 puts "Kitty #1000:"
-print_genes( 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )  # kitty 1001
+print_genes( 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )  # kitty 1001
 
 puts
 puts "Kitty #1111:"
@@ -34,5 +34,5 @@ print_genes( 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac 
 
 ## use "built-in" pretty printer
 
-genome = Genome.new( 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )
+genome = Genome.new( 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )
 puts genome.build_tables    # outputs tables in text with markdown formatting
