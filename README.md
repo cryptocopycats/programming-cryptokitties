@@ -2324,6 +2324,8 @@ The same gene mutation pairs chart in (base32) kai reads:
 Note: It's impossible for a mutation to reach `x` with the mixgenes formula e.g. `w+x = x`.
 
 ``` ruby
+require 'base32-alphabets'
+
 (0..31).each do |n|
   if n.even?
     puts "#{Kai::ALPHABET[n]}+#{Kai::ALPHABET[n+1]} = #{Kai::ALPHABET[n/2+16]}"
