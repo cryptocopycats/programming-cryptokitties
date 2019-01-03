@@ -18,7 +18,7 @@ and look at the "magic" 240-bit integer number:
 # A 240-bit super "sekretoooo" integer genome
 
 # hexadecimal (base 16)
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce
 # decimal (base 10)
 genome = 512955438081049600613224346938352058409509756310147795204209859701881294
 # binary (base 2)
@@ -32,13 +32,13 @@ and binary (base 2 that is, 0 and 1):
 
 ``` ruby
 p genome    # printed as decimal (base 10) by default
-# => 512955438081049600613224346938352058409509756310147795204209859701881294
+#=> 512955438081049600613224346938352058409509756310147795204209859701881294
 
 p genome.to_s(16)
-# => "4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce"
+#=> "4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce"
 
 p genome.to_s(2)
-# => "10010100101001010010011000111001110010000001000010111000001010010111101110011100000000101001010000000110001100010000100\
+#=> "10010100101001010010011000111001110010000001000010111000001010010111101110011100000000101001010000000110001100010000100\
 #     011010100000110010000000100011000110000000101001010010100110001100010100101000110100101000010010100101011011100111001110"
 ```
 
@@ -56,7 +56,7 @@ resulting in 12 trait groups of 4 (x 5-bit) genes
 
 
 Let's break the genome into 5-bit chunks
-using `Base32.encode` from the [base32-alphabets library / gem](https://github.com/cryptocopycats/base32-alphabets).
+using `Base32.encode` from the [base32-alphabets library](https://github.com/cryptocopycats/base32-alphabets).
 
 ``` ruby
 require 'base32-alphabets'
@@ -65,7 +65,7 @@ Base32.format = :electrologica   # use the Electrologica Alphabet / Variant
 
 
 # hexadecimal (base 16)
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 p Base32.encode( genome )
 #=> "09-09-09-09-06-07-07-04-01-01-14-01-09-15-14-14-00-05-05-00-06-06-04-04-13-08-06-08-01-03-03-00-05-05-05-06-06-05-05-03-09-08-09-09-11-14-14-14"
@@ -110,7 +110,7 @@ Fur (FU) - Genes 0-3:
 
 
 Let's start deciphering from right-to-left `...06-05-05-03-09-08-09-09-11-14-14-14`, that is,
-`14` maps to ragamuffin, `14` to ragamuffin, `14` to ragamuffin, `11` to himalayan and so on:
+`14` maps to ragamuffin, `14` to ragamuffin, `14` to ragamuffin, `11` to himalayan, and so on:
 
 
 Fur (FU) - Genes 0-3:
@@ -188,22 +188,19 @@ What's Base32?
 Encoding / decoding numbers in 5-bit chunks is called base 32
 because 2^5 (=2 * 2 * 2 * 2 * 2) results in 32 values.
 Using the Electrologica notation / alphabet
-(`00 01 02 03 04 05 06 07`
-`08 09 10 11 12 13 14 15`
-`16 17 18 19 20 21 22 23`
-`24 25 26 27 28 29 30 31`) the conversion chart reads:
+(`00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31`) the conversion chart reads:
 
 
 |Base32 |Binary |Num|Base32 |Binary |Num|Base32 |Binary |Num|Base32 |Binary |Num|
 |------:|------:|--:|------:|------:|--:|------:|------:|--:|------:|------:|--:|
-| **00** | 00000 | 00 | **08** | 01000 | 08 | **16** | 10000 |16 | **24** | 11000 |24 |
-| **01** | 00001 | 01 | **09** | 01001 | 09 | **17** | 10001 |17 | **25** | 11001 |25 |
-| **02** | 00010 | 02 | **10** | 01010 | 10 | **18** | 10010 |18 | **26** | 11010 |26 |
-| **03** | 00011 | 03 | **11** | 01011 | 11 | **19** | 10011 |19 | **27** | 11011 |27 |
-| **04** | 00100 | 04 | **12** | 01100 | 12 | **20** | 10100 |20 | **28** | 11100 |28 |
-| **05** | 00101 | 05 | **13** | 01101 | 13 | **21** | 10101 |21 | **29** | 11101 |29 |
-| **06** | 00110 | 06 | **14** | 01110 | 14 | **22** | 10110 |22 | **30** | 11110 |30 |
-| **07** | 00111 | 07 | **15** | 01111 | 15 | **23** | 10111 |23 | **31** | 11111 |31 |
+| **00** | 00000 | 0 | **08** | 01000 | 8 | **16** | 10000 |16 | **24** | 11000 |24 |
+| **01** | 00001 | 1 | **09** | 01001 | 9 | **17** | 10001 |17 | **25** | 11001 |25 |
+| **02** | 00010 | 2 | **10** | 01010 | 10 | **18** | 10010 |18 | **26** | 11010 |26 |
+| **03** | 00011 | 3 | **11** | 01011 | 11 | **19** | 10011 |19 | **27** | 11011 |27 |
+| **04** | 00100 | 4 | **12** | 01100 | 12 | **20** | 10100 |20 | **28** | 11100 |28 |
+| **05** | 00101 | 5 | **13** | 01101 | 13 | **21** | 10101 |21 | **29** | 11101 |29 |
+| **06** | 00110 | 6 | **14** | 01110 | 14 | **22** | 10110 |22 | **30** | 11110 |30 |
+| **07** | 00111 | 7 | **15** | 01111 | 15 | **23** | 10111 |23 | **31** | 11111 |31 |
 
 
 What about Kai notation / alphabet?
@@ -218,14 +215,14 @@ The conversion chart reads:
 
 |Kai    |Binary |Num|Kai    |Binary |Num|Kai    |Binary |Num|Kai    |Binary |Num|
 |------:|------:|--:|------:|------:|--:|------:|------:|--:|------:|------:|--:|
-| **1** | 00000 | 00 | **9** | 01000 | 08 | **h** | 10000 |16 | **q** | 11000 |24 |
-| **2** | 00001 | 01 | **a** | 01001 | 09 | **i** | 10001 |17 | **r** | 11001 |25 |
-| **3** | 00010 | 02 | **b** | 01010 | 10 | **j** | 10010 |18 | **s** | 11010 |26 |
-| **4** | 00011 | 03 | **c** | 01011 | 11 | **k** | 10011 |19 | **t** | 11011 |27 |
-| **5** | 00100 | 04 | **d** | 01100 | 12 | **m** | 10100 |20 | **u** | 11100 |28 |
-| **6** | 00101 | 05 | **e** | 01101 | 13 | **n** | 10101 |21 | **v** | 11101 |29 |
-| **7** | 00110 | 06 | **f** | 01110 | 14 | **o** | 10110 |22 | **w** | 11110 |30 |
-| **8** | 00111 | 07 | **g** | 01111 | 15 | **p** | 10111 |23 | **x** | 11111 |31 |
+| **1** | 00000 | 0 | **9** | 01000 | 8 | **h** | 10000 |16 | **q** | 11000 |24 |
+| **2** | 00001 | 1 | **a** | 01001 | 9 | **i** | 10001 |17 | **r** | 11001 |25 |
+| **3** | 00010 | 2 | **b** | 01010 | 10 | **j** | 10010 |18 | **s** | 11010 |26 |
+| **4** | 00011 | 3 | **c** | 01011 | 11 | **k** | 10011 |19 | **t** | 11011 |27 |
+| **5** | 00100 | 4 | **d** | 01100 | 12 | **m** | 10100 |20 | **u** | 11100 |28 |
+| **6** | 00101 | 5 | **e** | 01101 | 13 | **n** | 10101 |21 | **v** | 11101 |29 |
+| **7** | 00110 | 6 | **f** | 01110 | 14 | **o** | 10110 |22 | **w** | 11110 |30 |
+| **8** | 00111 | 7 | **g** | 01111 | 15 | **p** | 10111 |23 | **x** | 11111 |31 |
 
 Note:  - the digit-0 and the letter-l
 are NOT used in the kai alphabet / notation.
@@ -241,7 +238,7 @@ Base32.format = :kai   # use the Kai Alphabet / Variant
 
 
 # hexadecimal (base 16)
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 p Base32.encode( genome )
 #=> "aaaa788522f2agff16617755e979244166677664a9aacfff"
@@ -258,7 +255,7 @@ the encoded string into a group of four (genes). Example:
 
 ``` ruby
 # hexadecimal (base 16)
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 p Base32.fmt( Base32.encode( genome ))
 #=> "aaaa 7885 22f2 agff 1661 7755 e979 2441 6667 7664 a9aa cfff"
@@ -267,24 +264,26 @@ genome = 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac # ki
 
 p Base32.fmt( Base32.encode( genome ))
 #=> "9ca9 8557 a22f gffa 1444 5557 9f77 277b 6778 6348 9afg eded"
+p Base32.fmt( genome )   # or use the "all-in-one" shortcut
+#=> "9ca9 8557 a22f gffa 1444 5557 9f77 277b 6778 6348 9afg eded"
 ```
 
 
 ## Build Your Own CryptoKitties Genome / Genes Reader
 
-Let's automate the lookup of the 5-bit chunk mapping to traits
+Let's automate the lookup of the 5-bit chunks mapping to traits
 and code a genes reader
 that deciphers the genome.
 
 
-Let's (re)use the [copycats library / gem](https://github.com/cryptocopycats/copycats)
-that includes an up-to-date list of all trait mappings.
+Let's (re)use the [copycats library](https://github.com/cryptocopycats/copycats)
+that includes an up-to-date list of all traits.
 For example, try:
 
 ``` ruby
 require 'copycats'
 
-pp TRAITS     ## pretty print (pp) TRAITS, that is, list of all trait mappings
+pp TRAITS     ## pretty print (pp) TRAITS, that is, list of all traits
 ```
 
 Resulting in:
@@ -638,14 +637,14 @@ decipher the genome.
 
 ``` ruby
 # hexadecimal (base 16)
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 genes_kai = Base32.encode( genome )
 p genes_kai
-# => "aaaa788522f2agff16617755e979244166677664a9aacfff"
+#=> "aaaa788522f2agff16617755e979244166677664a9aacfff"
 genes_kai = genes_kai.reverse    # for easy array access reverse string
 p genes_kai
-# => "fffcaa9a466776661442979e55771661ffga2f225887aaaa"
+#=> "fffcaa9a466776661442979e55771661ffga2f225887aaaa"
 
 puts "Fur (FU) - Genes 0-3:"
 puts " 0 | #{TRAITS[:body][:kai][genes_kai[0]]}"
@@ -775,7 +774,7 @@ For easy (re)use lets put together a more "generic"
 `print_genes` method:
 
 ``` ruby
-print_genes( 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )  # kitty 1001
+print_genes( 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce ) # kitty 1001
 print_genes( 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac ) # kitty 1111
 ```
 
@@ -864,7 +863,7 @@ Let's try it:
 
 
 ``` ruby
-genome = Genome.new( 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )
+genome = Genome.new( 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce )
 puts genome.build_tables    # outputs tables in text with markdown formatting
 ```
 
@@ -1414,7 +1413,7 @@ resulting in:
 
 Now let's generate a cattributes rarity / popularity statistics report in text with markdown formatting
 and let's use the `TRAITS` list of all traits
-from the [copycats library / gem](https://github.com/cryptocopycats/copycats)
+from the [copycats library](https://github.com/cryptocopycats/copycats)
 to add the official trait type names and two-letter codes:
 
 
@@ -1879,7 +1878,7 @@ EXCEPT the "magic" sooper-sekret gene mixing operation formula in the GeneSciene
 You can find the byte code in the contract at
 [`etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code`](https://etherscan.io/address/0xf97e0a5b616dffc913e72455fde9ea8bbe946a2b#code).
 If you click on "Switch to Opcode" you will see
-almost endless to-the-metal stack machine byte code
+an almost endless stream of to-the-metal stack machine byte code
 instructions:
 
 ```
@@ -1934,8 +1933,8 @@ def mixGenes(mGenes[48], sGenes[48], babyGenes[48]):
     mutation = 0
     # CHECK MUTATION
     if i % 4 == 0:
-      gene1 = mGene[i]
-      gene2 = sGene[i]
+      gene1 = mGenes[i]
+      gene2 = sGenes[i]
       if gene1 > gene2:
         gene1, gene2 = gene2, gene1
       if (gene2 - gene1) == 1 and iseven(gene1):
@@ -1947,12 +1946,12 @@ def mixGenes(mGenes[48], sGenes[48], babyGenes[48]):
 
     # GIVE BABY GENES
     if mutation:
-      baby[i] = mutation
+      babyGenes[i] = mutation
     else:
       if random() < 0.5:
-        babyGenes[i] = mGene[i]
+        babyGenes[i] = mGenes[i]
       else:
-        babyGenes[i] = sGene[i]
+        babyGenes[i] = sGenes[i]
 ```
 
 Yes, that's better.
@@ -1969,7 +1968,7 @@ and `sGenes[48]` - the sire's 48 genes.
 require 'base32-alphabets'
 
 
-genome = 0x4a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 
 genes_kai = Base32.encode( genome )
 p genes_kai
@@ -1977,16 +1976,16 @@ p genes_kai
 
 genes_num = Base32.bytes( genome )
 p genes_num
-# => [9, 9, 9, 9, 6, 7, 7, 4, 1, 1, 14, 1, 9, 15, 14, 14, 0, 5, 5, 0, 6, 6, 4, 4, 13, 8, 6, 8, 1, 3, 3, 0, 5, 5, 5, 6, 6, 5, 5, 3, 9, 8, 9, 9, 11, 14, 14, 14]
+#=> [9, 9, 9, 9, 6, 7, 7, 4, 1, 1, 14, 1, 9, 15, 14, 14, 0, 5, 5, 0, 6, 6, 4, 4, 13, 8, 6, 8, 1, 3, 3, 0, 5, 5, 5, 6, 6, 5, 5, 3, 9, 8, 9, 9, 11, 14, 14, 14]
 p genes_num.size
-# => 48
+#=> 48
 p genes_num.reverse
-# => [14, 14, 14, 11, 9, 9, 8, 9, 3, 5, 5, 6, 6, 5, 5, 5, 0, 3, 3, 1, 8, 6, 8, 13, 4, 4, 6, 6, 0, 5, 5, 0, 14, 14, 15, 9, 1, 14, 1, 1, 4, 7, 7, 6, 9, 9, 9, 9]
+#=> [14, 14, 14, 11, 9, 9, 8, 9, 3, 5, 5, 6, 6, 5, 5, 5, 0, 3, 3, 1, 8, 6, 8, 13, 4, 4, 6, 6, 0, 5, 5, 0, 14, 14, 15, 9, 1, 14, 1, 1, 4, 7, 7, 6, 9, 9, 9, 9]
 ```
 
 To get  the matron's 48 genes
 or the sire's 48 genes
-let's convert the genome to 5-bit chunks
+let's convert the genome using `Base32.bytes` to 5-bit chunks
 and than convert every gene (that is, 5-bit chunk)
 to an integer number
 to get an array of 48 genes e.g.
@@ -2005,7 +2004,7 @@ def mixgenes( mgenes, sgenes )  ## returns babygenes
 
   # PARENT GENE SWAPPING
   for i in 0.step(11,1) do ## loop from 0 to 11    # for(i = 0; i < 12; i++)
-    index = 4*i                                    #    index = 4 * i
+    index = 4 * i                                  #    index = 4 * i
     for j in 3.step(1,-1) do  ## loop from 3 to 1  #   for (j = 3; j > 0; j--)
       if rand() < 0.25                             #     if random() < 0.25:
         mgenes[index+j-1], mgenes[index+j] =       #       swap(mGenes, index+j, index+j-1)
@@ -2023,8 +2022,8 @@ def mixgenes( mgenes, sgenes )  ## returns babygenes
     mutation = nil                                 #    mutation = 0
     # CHECK MUTATION
     if i % 4 == 0                                  #    if i % 4 == 0:
-      gene1 = mgenes[i]                            #      gene1 = mGene[i]
-      gene2 = sgenes[i]                            #      gene2 = sGene[i]
+      gene1 = mgenes[i]                            #      gene1 = mGenes[i]
+      gene2 = sgenes[i]                            #      gene2 = sGenes[i]
       if gene1 > gene2                             #      if gene1 > gene2:
          gene1, gene2 = gene2, gene1               #        gene1, gene2 = gene2, gene1
       end
@@ -2034,18 +2033,18 @@ def mixgenes( mgenes, sgenes )  ## returns babygenes
           probability /= 2                         #          probability /= 2
         end
         if rand() < probability                    #        if random() < probability:
-          mutation = (gene1/2)+16                  #          mutation = (gene1 / 2) + 16
+          mutation = (gene1 / 2) + 16              #          mutation = (gene1 / 2) + 16
         end
       end
     end
     # GIVE BABY GENES
     if mutation                                    #    if mutation:
-      babygenes[i]=mutation                        #      baby[i] = mutation
+      babygenes[i] = mutation                      #      babyGenes[i] = mutation
     else                                           #    else:
       if rand() < 0.5                              #      if random() < 0.5:
-        babygenes[i] = mgenes[i]                   #        babyGenes[i] = mGene[i]
+        babygenes[i] = mgenes[i]                   #        babyGenes[i] = mGenes[i]
       else                                         #      else:
-        babygenes[i] = sgenes[i]                   #        babyGenes[i] = sGene[i]
+        babygenes[i] = sgenes[i]                   #        babyGenes[i] = sGenes[i]
       end
     end
   end
@@ -2068,21 +2067,22 @@ mgenome = 0x000063169218f348dc640d171b000208934b5a90189038cb3084624a50f7316c
 sgenome = 0x00005a13429085339c6521ef0300011c82438c628cc431a63298e3721f772d29
 
 mgenes = Base32.bytes( mgenome ).reverse
-sgenes = Base32.bytes( sgenes ).reverse
+sgenes = Base32.bytes( sgenome ).reverse
 p mgenes
-# => 
+#=> [12, 11, 12, 14, 15, 8, 9, 9, 2, 3, 1, 1, 19, 5, 3, 7, 16, 4, 6, 0, 9, 13, 13, 9, 19, 4, 2, 4, 0, 0, 12, 3, 23, 8, 3, 8, 6, 14, 3, 9, 19, 7, 6, 4, 9, 11, 12, 12]
 p sgenes
-# => 
+#=> [9, 9, 11, 14, 23, 15, 8, 14, 3, 7, 6, 5, 3, 19, 6, 6, 4, 6, 3, 5, 6, 6, 14, 8, 2, 4, 7, 2, 0, 0, 12, 0, 15, 15, 8, 10, 6, 14, 14, 6, 5, 4, 4, 5, 20, 9, 8, 11]
+
 
 babygenes1 = mixgenes( mgenes, sgenes )
 p babygenes1
-# => [9, 9, 11, 14, 23, 8, 9, 14, 3, 3, 5, 1, 3, 19, 3, 7, 16, 4, 6, 5, 9, 6, 14, 8, 19, 4, 2, 4, 0, 0, 12, 3, 23, 15, 8, 10, 6, 14, 3, 9, 19, 5, 6, 5, 20, 9, 11, 8]
+#=> [9, 9, 11, 14, 23, 8, 9, 14, 3, 3, 5, 1, 3, 19, 3, 7, 16, 4, 6, 5, 9, 6, 14, 8, 19, 4, 2, 4, 0, 0, 12, 3, 23, 15, 8, 10, 6, 14, 3, 9, 19, 5, 6, 5, 20, 9, 11, 8]
 babygenes2 = mixgenes( mgenes, sgenes )
 p babygenes2
-# => [12, 9, 11, 11, 15, 23, 9, 9, 5, 2, 3, 6, 3, 19, 5, 6, 4, 4, 3, 5, 9, 6, 13, 9, 19, 4, 7, 4, 0, 0, 12, 12, 15, 3, 8, 10, 6, 3, 14, 9, 19, 5, 5, 4, 9, 9, 11, 8]
+#=> [12, 9, 11, 11, 15, 23, 9, 9, 5, 2, 3, 6, 3, 19, 5, 6, 4, 4, 3, 5, 9, 6, 13, 9, 19, 4, 7, 4, 0, 0, 12, 12, 15, 3, 8, 10, 6, 3, 14, 9, 19, 5, 5, 4, 9, 9, 11, 8]
 babygenes3 = mixgenes( mgenes, sgenes )
 p babygenes3
-# => [12, 12, 14, 11, 15, 23, 8, 14, 3, 1, 3, 1, 19, 3, 7, 6, 16, 5, 6, 3, 6, 6, 13, 9, 19, 4, 2, 4, 0, 0, 0, 12, 23, 3, 8, 8, 6, 6, 14, 14, 4, 19, 6, 7, 9, 12, 9, 11]
+#=> [12, 12, 14, 11, 15, 23, 8, 14, 3, 1, 3, 1, 19, 3, 7, 6, 16, 5, 6, 3, 6, 6, 13, 9, 19, 4, 2, 4, 0, 0, 0, 12, 23, 3, 8, 8, 6, 6, 14, 14, 4, 19, 6, 7, 9, 12, 9, 11]
 ```
 
 Note: Every time you call mixgenes
@@ -2097,11 +2097,11 @@ e.g.
 
 ``` ruby
 p rand()
-#=> 0.5645703425961436
+#=> 0.6964691855978616
 p rand()
-#=> 0.1913357207205566
+#=> 0.28613933495037946
 p rand()
-#=> 0.6769058596527606
+#=> 0.2268514535642031
 ```
 
 You can calculate / read the odds / probabilities:
@@ -2134,7 +2134,7 @@ Voila! Now you can lookup the traits using a chart
 or use a gene reader (see above). Let's try:
 
 ``` ruby
-print_genes( babygenes1_kai )
+print_genes( babygenes1.reverse )
 ```
 
 resulting in:
@@ -2198,9 +2198,10 @@ There's a 50% / 50% chance
 of getting the gene from parent A or B.
 
 Now the (random lottery) fun starts.
-The mixgenes function swaps the genes (p, h1, h2, h3)
+The mixgenes function swaps the genes (h3 <-> h2, h2 <-> h1, h1 <-> p)
 starting at the 3rd hidden (h3) gene up to the primary (p) gene
-and the chance for a swap to happen are 25% (or 75% to NOT happen).
+and the chance for any of the three swaps
+to happen are 25% (or 75% to NOT happen).
 Resulting in:
 
 - 75%  (0.75) chance of getting the primary (p) gene from parent A or B
