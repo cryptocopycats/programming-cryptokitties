@@ -2258,7 +2258,7 @@ reads `if (gene2 - gene1) == 1 && gene1.even?`
 In plain english with genes in
 "raw" integer numbers the "magic" gene mutation pairs are:
 
-| Tier I      |  Tier II      |  Tier III    |  Tier IIII  |
+| Tier I  (16-23) | Tier II (24-27) | Tier III (28,29) | Tier IIII (30) |
 |-------------|---------------|--------------|-------------|
 | 0+1 => 16   |  16+17 => 24  | 24+25 => 28  | 28+29 => 30 |  
 | 2+3 => 17   |  18+19 => 25  | 26+27 => 29  |             |
@@ -2269,16 +2269,48 @@ In plain english with genes in
 | 12+13 => 22 |               |              |             |
 | 14+15 => 23 |               |              |             |
 
-The "magic" calcucation formula in mixgenes reads
-`mutation = (gene1/2)+16`. Let's try some calculations
+The "magic" calculation formula in mixgenes reads
+`mutation = (gene1/2)+16`. Let's try some calculations 
 `0/2+16 => 16` and `2/2+16 => 17`
-and `4/2+16 = 18` and so on and so forth until
-`28/2+16 => 30`.
+and `4/2+16 = 18` and so on and so forth until `28/2+16 => 30`.
+Note: It's impossible for a mutation to reach `31` with the mixgenes formula e.g.`30+31 = 31`.
+
+Or let's try a loop with `n+(n+1) = n/2+16` if `n` is an even number (e.g. `0`, `2`, `4`, `6`, ...)
+to print all mewtation pairs:
+
+``` ruby
+(0..31).each do |n|
+  if n.even?
+    puts "#{n}+#{n+1} = #{n/2+16}"
+  end
+end
+```
+
+Resulting in:
+
+```
+ 0+1  = 16
+ 2+3  = 17
+ 4+5  = 18
+ 6+7  = 19
+ 8+9  = 20
+10+11 = 21
+12+13 = 22
+14+15 = 23
+16+17 = 24
+18+19 = 25
+20+21 = 26
+22+23 = 27
+24+25 = 28
+26+27 = 29
+28+29 = 30
+30+31 = 31
+```
 
 
-The same gene mutation pairs chart in (base32) kai reads:
+The same gene mutation pairs chart in (base32) kai reads:               
 
-| Tier I   |  Tier II   |  Tier III |  Tier IIII  |
+| Tier I (h-p) |  Tier II  (q-t)  |  Tier III (u,v) |  Tier IIII (w)  |
 |----------|------------|-----------|-------------|
 | 1+2 => h |  h+i => q  | q+r => u  | u+v => w    |  
 | 3+4 => i |  j+k => r  | s+t => v  |             |
@@ -2289,7 +2321,50 @@ The same gene mutation pairs chart in (base32) kai reads:
 | d+e => o |            |           |             |
 | f+g => p |            |           |             |
 
+Note: It's impossible for a mutation to reach `x` with the mixgenes formula e.g. `w+x = x`.
 
+``` ruby
+(0..31).each do |n|
+  if n.even?
+    puts "#{Kai::ALPHABET[n]}+#{Kai::ALPHABET[n+1]} = #{Kai::ALPHABET[n/2+16]}"
+  end
+end
+```
+
+Resulting in:
+
+```
+1+2 = h
+3+4 = i
+5+6 = j
+7+8 = k
+9+a = m
+b+c = n
+d+e = o
+f+g = p
+h+i = q
+j+k = r
+m+n = s
+o+p = t
+q+r = u
+s+t = v
+u+v = w
+w+x = x
+```
+
+
+To sum up - there are 15 possible mutation pairs in four (I, II, III, IIII) tiers / levels:
+
+| Tier                      | Count | Total |
+|---------------------------|------:|------:|
+| Basic Traits              |    16 |    16 |
+| Tier I Mewtations (M1)    |     8 |    24 |
+| Tier II Mewtations (M2)   |     4 |    28 |
+| Tier III Mewtations (M3)  |     2 |    30 |
+| Tier IIII Mewtations (M4) |     1 |    31 |
+| "Magic" Trait (*)         |     1 |    32 |
+
+(*): Note: It's impossible for a mutation to reach the "magic" trait with the mixgenes formula.
 
 
 
