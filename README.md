@@ -2465,7 +2465,7 @@ Let's sort by highest odds / probability first:
 ``` ruby
 ODDS_BABY_TRAITS[:body] = ODDS_BABY_TRAITS[:body].to_a.sort { |l,r| r[1] <=> l[1] }
 pp ODDS_BABY_TRAITS
-# => {:body=> [["ragamuffin", 0.4921875], ["munchkin", 0.3984375], ["sphynx", 0.1015625], ["himalayan", 0.0078125]]}
+#=> {:body=> [["ragamuffin", 0.4921875], ["munchkin", 0.3984375], ["sphynx", 0.1015625], ["himalayan", 0.0078125]]}
 ```
 
 Resulting in:
@@ -2483,6 +2483,95 @@ breeding calculator service:
 (Source: [`cattributes.org/#/1001/1111`](https://cattributes.org/#/1001/1111))
 
 Bingo! The cattribute traits and odds / probabilities match up.
+
+
+Now let's take on
+all the other trait types, that is, pattern, eye color (`coloreyes`),
+eye shape (`eyes`), base color (`color1`),
+highlight color (`color2`), and so on
+and let's code a `kittycalc` method
+where you pass in the parents a and b
+and get the odds.
+
+``` ruby
+def kittycalc( a, b )
+  agenes_kai = Base32.encode( a ).reverse # note: reverse string for easy array access
+  bgenes_kai = Base32.encode( b ).reverse
+
+  odds = {}
+
+  TRAITS.each_with_index do |(trait_key, trait_hash),i|
+     odds[trait_key] ||= Hash.new(0)
+
+     offset = i*4
+     [agenes_kai, bgenes_kai].each do |genes_kai|
+       p_kai  = genes_kai[0+offset]
+       h1_kai = genes_kai[1+offset]
+       h2_kai = genes_kai[2+offset]
+       h3_kai = genes_kai[3+offset]
+
+       ## kai to trait name mapping (e.g. '1' => 'savannah', etc.)
+       kai = trait_hash[:kai]
+       p  = kai[p_kai]
+       h1 = kai[h1_kai]
+       h2 = kai[h2_kai]
+       h3 = kai[h3_kai]
+
+       ## use code (e.g. PU00, PU01, etc.) if trait is unnamed
+       code = trait_hash[:code]
+       p  = "#{code}%02d" % Kai::NUMBER[p_kai]   if p.nil?
+       h1 = "#{code}%02d" % Kai::NUMBER[h1_kai]  if h1.nil?
+       h2 = "#{code}%02d" % Kai::NUMBER[h2_kai]  if h2.nil?
+       h3 = "#{code}%02d" % Kai::NUMBER[h3_kai]  if h3.nil?
+
+       odds[trait_key][p]  += 0.375      # add primary (p) odds
+       odds[trait_key][h1] += 0.09375    # add hidden 1 (h1) odds
+       odds[trait_key][h2] += 0.0234375  # add hidden 2 (h2) odds
+       odds[trait_key][h3] += 0.0078125  # add hidden 3 (h3) odds
+     end
+
+     ## sort by highest odds / probabilities first
+     odds[trait_key] = odds[trait_key].to_a.sort { |l,r| r[1] <=> l[1] }
+  end
+  odds
+end
+```
+
+Let's try:
+
+``` ruby
+odds = kittycalc( a, b )
+pp odds
+```
+
+resulting in:
+``` ruby
+{:body=>      
+  [["ragamuffin", 0.4921875], ["munchkin", 0.3984375], ["sphynx", 0.1015625], ["himalayan", 0.0078125]],
+ :pattern=>   
+  [["luckystripe", 0.5], ["totesbasic", 0.46875], ["calicool", 0.03125]],
+ :coloreyes=>
+  [["mintgreen", 0.46875], ["strawberry", 0.375], ["sizzurp", 0.125], ["topaz", 0.0234375], ["chestnut", 0.0078125]],
+ :eyes=>
+  [["crazy", 0.4921875], ["thicccbrowz", 0.375], ["simple", 0.1328125]],
+ :color1=>
+  [["shadowgrey", 0.375], ["greymatter", 0.375], ["orangesoda", 0.1171875], ["aquamarine", 0.1171875], ["salmon", 0.015625]],
+ :color2=>
+  [["royalpurple", 0.5625], ["swampgreen", 0.40625], ["chocolate", 0.0234375], ["lemonade", 0.0078125]],
+ :color3=>
+  [["granitegrey", 0.59375], ["kittencream", 0.40625]],
+ :wild=>
+  [["WE03", 0.4921875], ["WE00", 0.390625], ["WE05", 0.1171875]],
+ :mouth=>
+  [["happygokitty", 0.5859375], ["pouty", 0.3828125], ["soserious", 0.03125]],
+ :environment=>
+  [["EN01", 0.5234375], ["EN14", 0.46875], ["EN09", 0.0078125]],
+ :secret=>
+  [["SE04", 0.4921875], ["SE06", 0.3828125], ["SE07", 0.125]],
+ :prestige=>
+  [["PU09", 0.59375], ["PU08", 0.3828125], ["PU11", 0.0234375]]}
+```
+
 
 
 
