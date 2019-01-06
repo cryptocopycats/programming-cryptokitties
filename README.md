@@ -2374,6 +2374,108 @@ To sum up - there are 15 possible mutation pairs in four (I, II, III, IIII) tier
 ## Build Your Own CryptoKitties Breeding (Offspring) Calculator
 
 
+Let's build a kitty breeding calculator
+that shows all possible traits with the odds / probabilities.
+Let's start with kitty #1001 and #1111 as parents a and b:
+
+``` ruby
+require 'copycats'
+
+a = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+b = 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac  # kitty 1111
+
+agenes_kai = Base32.encode( a ).reverse # note: reverse string for easy array access
+p agenes_kai
+#=> "fffcaa9a466776661442979e55771661ffga2f225887aaaa"
+
+bgenes_kai = Base32.encode( b ).reverse
+p bgenes_kai
+#=> "dedegfa984368776b77277f975554441affgf22a75589ac9"
+```
+
+Remember: For passing on the parents (a or b) gene
+to become the baby's (new) primary gene the odds / probabilities are:
+`0.375` (37.5%) for the primary (p) gene of parent (a or b),
+`0.09375` (9.375%) for the hidden 1 (h1),
+`0.0234375` (2.34375%) for the hidden 2 (h2), and
+`0.0078125`(0.78125%) for the hidden 3 (h3).
+
+
+Let's add up all the odds for the `body` (officially known as fur).
+Let's start with parent a (that is, kitty #1001):
+
+``` ruby
+ODDS_BABY_TRAITS = {}
+ODDS_BABY_TRAITS[:body] ||= Hash.new(0)
+
+####
+# step 1) add odds for parent a
+trait = TRAITS[:body][:kai][agenes_kai[0]]
+ODDS_BABY_TRAITS[:body][trait] += 0.375      # primary (p) - add ragamuffin (37.5%)
+pp ODDS_BABY_TRAITS
+#=> {:body=>{"ragamuffin"=>0.375}}
+
+trait = TRAITS[:body][:kai][agenes_kai[1]]
+ODDS_BABY_TRAITS[:body][trait] += 0.09375    # hidden 1 (h1) - add ragamuffin (9.375%)
+pp ODDS_BABY_TRAITS
+#=> {:body=>{"ragamuffin"=>0.46875}}
+
+trait = TRAITS[:body][:kai][agenes_kai[2]]
+ODDS_BABY_TRAITS[:body][trait] += 0.0234375  # hidden 2 (h2) - add ragamuffin (2.34375%)
+pp ODDS_BABY_TRAITS
+#=> {:body=>{"ragamuffin"=>0.4921875}}
+
+trait = TRAITS[:body][:kai][agenes_kai[3]]
+ODDS_BABY_TRAITS[:body][trait] += 0.0078125  # hidden 3 (h3) - add himalayan (0.78125%)
+pp ODDS_BABY_TRAITS
+#=> {:body=>{"ragamuffin"=>0.4921875, "himalayan"=>0.0078125}}
+```
+
+And let's add parent b (that is, kitty #1111):
+
+``` ruby
+####
+# step 2) add odds for parent b
+trait = TRAITS[:body][:kai][bgenes_kai[0]]
+ODDS_BABY_TRAITS[:body][trait] += 0.375      # primary (p) - add munchkin (37.5%)
+pp ODDS_BABY_TRAITS
+#=> {:body=>{"ragamuffin"=>0.4921875, "himalayan"=>0.0078125, "munchkin"=>0.375}}
+
+trait = TRAITS[:body][:kai][bgenes_kai[1]]
+ODDS_BABY_TRAITS[:body][trait] += 0.09375    # hidden 1 (h1) - add sphynx (9.375%)
+pp ODDS_BABY_TRAITS
+#=> {:body=>{"ragamuffin"=>0.4921875, "himalayan"=>0.0078125, "munchkin"=>0.375, "sphynx"=>0.09375}}
+
+trait = TRAITS[:body][:kai][bgenes_kai[2]]
+ODDS_BABY_TRAITS[:body][trait] += 0.0234375  # hidden 2 (h2) - add munchkin (2.34375%)
+pp ODDS_BABY_TRAITS
+#=> {:body=>{"ragamuffin"=>0.4921875, "himalayan"=>0.0078125, "munchkin"=>0.3984375, "sphynx"=>0.09375}}
+
+trait = TRAITS[:body][:kai][bgenes_kai[3]]
+ODDS_BABY_TRAITS[:body][trait] += 0.0078125  # hidden 3 (h3) - add sphinx (0.78125%)
+pp ODDS_BABY_TRAITS
+#=> {:body=> {"ragamuffin"=>0.4921875, "himalayan"=>0.0078125, "munchkin"=>0.3984375, "sphynx"=>0.1015625}}
+```
+
+Voila! The odds for fur (`body`) traits for a new (offspring) baby read:
+`{"ragamuffin"=>0.4921875, "himalayan"=>0.0078125, "munchkin"=>0.3984375, "sphynx"=>0.1015625}`.
+
+Let's sort by highest odds / probability first and pretty print:
+
+- ragamuffin => `0.4921875` (~49%)
+- munchkin => `0.3984375` (~40%)
+- sphynx => `0.1015625` (~10%)
+- himalayan => `0.0078125` (~1%)
+
+Compare with an online CryptoKitties (offspring)
+breeding calculator service:
+
+![](i/cattributes-offspring.png)
+
+(Source: [`cattributes.org/#/1001/1111`](https://cattributes.org/#/1001/1111))
+
+Bingo! The cattribute traits and odds / probabilities match up.
+
 
 
 To be continued...
