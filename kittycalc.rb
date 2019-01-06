@@ -122,7 +122,7 @@ def print_kittycalc_odds( odds )
   odds.each do |trait_key, recs|
     trait_hash = TRAITS[trait_key]
 
-    puts "#{trait_hash[:name]} (#{trait_hash[:code]}) - Genes #{trait_hash[:genes]}:"
+    puts "#{trait_hash[:name]} (#{trait_hash[:code]}):"
     recs.each do |rec|
       puts " #{'%5.2f'% (rec[1]*100)}% | #{rec[0]}"
     end
