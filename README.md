@@ -2580,7 +2580,7 @@ def print_kittycalc_odds( odds )
   odds.each do |trait_key, recs|
     trait_hash = TRAITS[trait_key]
 
-    puts "#{trait_hash[:name]} (#{trait_hash[:code]}) - Genes #{trait_hash[:genes]}:"
+    puts "#{trait_hash[:name]} (#{trait_hash[:code]}):"
     recs.each do |rec|
       puts " #{'%5.2f'% (rec[1]*100)}% | #{rec[0]}"
     end
@@ -2592,67 +2592,67 @@ end
 Try `print_kittycalc_odds( odds )`. Resulting in:
 
 ```
-Fur (FU) - Genes 0-3:
+Fur (FU):
  49.22% | ragamuffin
  39.84% | munchkin
  10.16% | sphynx
   0.78% | himalayan
 
-Pattern (PA) - Genes 4-7:
+Pattern (PA):
  50.00% | luckystripe
  46.88% | totesbasic
   3.12% | calicool
 
-Eye Color (EC) - Genes 8-11:
+Eye Color (EC):
  46.88% | mintgreen
  37.50% | strawberry
  12.50% | sizzurp
   2.34% | topaz
   0.78% | chestnut
 
-Eye Shape (ES) - Genes 12-15:
+Eye Shape (ES):
  49.22% | crazy
  37.50% | thicccbrowz
  13.28% | simple
 
-Base Color (BC) - Genes 16-19:
+Base Color (BC):
  37.50% | shadowgrey
  37.50% | greymatter
  11.72% | orangesoda
  11.72% | aquamarine
   1.56% | salmon
 
-Highlight Color (HC) - Genes 20-23:
+Highlight Color (HC):
  56.25% | royalpurple
  40.62% | swampgreen
   2.34% | chocolate
   0.78% | lemonade
 
-Accent Color (AC) - Genes 24-27:
+Accent Color (AC):
  59.38% | granitegrey
  40.62% | kittencream
 
-Wild Element (WE) - Genes 28-31:
+Wild Element (WE):
  49.22% | WE03
  39.06% | WE00
  11.72% | WE05
 
-Mouth (MO) - Genes 32-35:
+Mouth (MO):
  58.59% | happygokitty
  38.28% | pouty
   3.12% | soserious
 
-Environment (EN) - Genes 36-39:
+Environment (EN):
  52.34% | EN01
  46.88% | EN14
   0.78% | EN09
 
-Secret Y Gene (SE) - Genes 40-43:
+Secret Y Gene (SE):
  49.22% | SE04
  38.28% | SE06
  12.50% | SE07
 
-Purrstige (PU) - Genes 44-47:
+Purrstige (PU):
  59.38% | PU09
  38.28% | PU08
   2.34% | PU11
