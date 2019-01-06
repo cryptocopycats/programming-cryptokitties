@@ -2460,7 +2460,15 @@ pp ODDS_BABY_TRAITS
 Voila! The odds for fur (`body`) traits for a new (offspring) baby read:
 `{"ragamuffin"=>0.4921875, "himalayan"=>0.0078125, "munchkin"=>0.3984375, "sphynx"=>0.1015625}`.
 
-Let's sort by highest odds / probability first and pretty print:
+Let's sort by highest odds / probability first:
+
+``` ruby
+ODDS_BABY_TRAITS[:body] = ODDS_BABY_TRAITS[:body].to_a.sort { |l,r| r[1] <=> l[1] }
+pp ODDS_BABY_TRAITS
+# => {:body=> [["ragamuffin", 0.4921875], ["munchkin", 0.3984375], ["sphynx", 0.1015625], ["himalayan", 0.0078125]]}
+```
+
+Resulting in:
 
 - ragamuffin => `0.4921875` (~49%)
 - munchkin => `0.3984375` (~40%)
