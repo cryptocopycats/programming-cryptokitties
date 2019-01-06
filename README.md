@@ -2661,7 +2661,7 @@ Purrstige (PU) - Genes 44-47:
 
 What about mewtations?
 
-Good questions. Let's add the missing odds / probabilities for new mewtations traits
+Good question. Let's add the missing odds / probabilities for new mewtations traits
 to `kittycalc`. Remember: There's a 25% chance of getting a mutation for tier I & II
 and a 12.5% chance for tier III & IIII
 but only given A & B contain the right gene mutation pairs.
