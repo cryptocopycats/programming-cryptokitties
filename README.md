@@ -2667,5 +2667,334 @@ and a 12.5% chance for tier III & IIII
 but only given A & B contain the right gene mutation pairs.
 
 
+Remember: After swapping the genes in
+the mixgenes formula
+the odds / probabilities for the parents
+genes ending up as primary are:
+`0.75` (75%) for the primary (p) gene of parent (a or b),
+`0.1875` (18.75%) for the hidden 1 (h1),
+`0.046875` (4.6875%) for the hidden 2 (h2), and
+`0.015625`(1.5625%) for the hidden 3 (h3).
+
+With two parents and four genes (p, h1, h2, h3)
+for every trait that results in 4 x 4 = 16 mewtation pairs:
+
+```
+(p', h1', h2', h3') x (p", h1", h2", h3")
+                       =
+(p', p"), (p', h1"), (p', h2"), (p', h3")
+(h1',p"), (h1',h1"), (h1',h2"), (h1',h3")
+(h2',p"), (h2',h1"), (h2',h2"), (h3',h3")
+(h3',p"), (h3',h1"), (h3',h2"), (h3',h3")
+```
+
+Let's calculate the odds / probabilities for each pair:
+
+``` ruby
+p_p   = 0.75 * 0.75
+p_h1  = 0.75 * 0.1875
+p_h2  = 0.75 * 0.046875
+p_h3  = 0.75 * 0.015625
+total = p_p + p_h1 + p_h2 + p_h3
+puts "p_p=#{p_p}, p_h1=#{p_h1}, p_h2=#{p_h2}, p_h3=#{p_h3}, total=#{total}"
+#=> p_p=0.5625, p_h1=0.140625, p_h2=0.03515625, p_h3=0.01171875, total=0.75
+
+h1_p  = 0.1875 * 0.75
+h1_h1 = 0.1875 * 0.1875
+h1_h2 = 0.1875 * 0.046875
+h1_h3 = 0.1875 * 0.015625
+total = h1_p + h1_h1 + h1_h2 + h1_h3
+puts "h1_p=#{h1_p}, h1_h1=#{h1_h1}, h1_h2=#{h1_h2}, h1_h3=#{h1_h3}, total=#{total}"
+#=> h1_p=0.140625, h1_h1=0.03515625, h1_h2=0.0087890625, h1_h3=0.0029296875, total=0.1875
+
+h2_p  = 0.046875 * 0.75
+h2_h1 = 0.046875 * 0.1875
+h2_h2 = 0.046875 * 0.046875
+h2_h3 = 0.046875 * 0.015625
+total = h2_p + h2_h1 + h2_h2 + h2_h3
+puts "h2_p=#{h2_p}, h2_h1=#{h2_h1}, h2_h2=#{h2_h2}, h2_h3=#{h2_h3}, total=#{total}"
+#=> h2_p=0.03515625, h2_h1=0.0087890625, h2_h2=0.002197265625, h2_h3=0.000732421875, total=0.046875
+
+h3_p  = 0.015625 * 0.75
+h3_h1 = 0.015625 * 0.1875
+h3_h2 = 0.015625 * 0.046875
+h3_h3 = 0.015625 * 0.015625
+total = h3_p + h3_h1 + h3_h2 + h3_h3
+puts "h3_p=#{h3_p}, h3_h1=#{h3_h1}, h3_h2=#{h3_h2}, h3_h3=#{h3_h3}, total=#{total}"
+#=> h3_p=0.01171875, h3_h1=0.0029296875, h3_h2=0.000732421875, h3_h3=0.000244140625, total=0.015625
+
+
+total = p_p  + p_h1  + p_h2  + p_h3  +
+        h1_p + h1_h1 + h1_h2 + h1_h3 +
+        h2_p + h2_h1 + h2_h2 + h2_h3 +
+        h3_p + h3_h1 + h3_h2 + h3_h3
+puts "total=#{total}"
+#=> total=1.0
+```
+
+Note: All sixteen pairs totals sums up to 1.0, that is, 100%.
+Or with predefined odds in `p`, `h1`, `h2`, `h3`:
+
+``` ruby
+p  = 0.75
+h1 = 0.1875
+h2 = 0.046875
+h3 = 0.015625
+
+p_p   = p * p
+p_h1  = p * h1
+p_h2  = p * h2
+p_h3  = p * h3
+puts "p_p=#{p_p}, p_h1=#{p_h1}, p_h2=#{p_h2}, p_h3=#{p_h3}"
+#=> p_p=0.5625, p_h1=0.140625, p_h2=0.03515625, p_h3=0.01171875
+
+h1_p  = h1 * p
+h1_h1 = h1 * h1
+h1_h2 = h1 * h2
+h1_h3 = h1 * h3
+puts "h1_p=#{h1_p}, h1_h1=#{h1_h1}, h1_h2=#{h1_h2}, h1_h3=#{h1_h3}"
+#=> h1_p=0.140625, h1_h1=0.03515625, h1_h2=0.0087890625, h1_h3=0.0029296875
+
+h2_p  = h2 * p
+h2_h1 = h2 * h1
+h2_h2 = h2 * h2
+h2_h3 = h2 * h3
+puts "h2_p=#{h2_p}, h2_h1=#{h2_h1}, h2_h2=#{h2_h2}, h2_h3=#{h2_h3}"
+#=> h2_p=0.03515625, h2_h1=0.0087890625, h2_h2=0.002197265625, h2_h3=0.000732421875
+
+h3_p  = h3 * p
+h3_h1 = h3 * h1
+h3_h2 = h3 * h2
+h3_h3 = h3 * h3
+puts "h3_p=#{h3_p}, h3_h1=#{h3_h1}, h3_h2=#{h3_h2}, h3_h3=#{h3_h3}"
+#=> h3_p=0.01171875, h3_h1=0.0029296875, h3_h2=0.000732421875, h3_h3=0.000244140625
+
+total = p_p  + p_h1  + p_h2  + p_h3  +
+        h1_p + h1_h1 + h1_h2 + h1_h3 +
+        h2_p + h2_h1 + h2_h2 + h2_h3 +
+        h3_p + h3_h1 + h3_h2 + h3_h3
+puts "total=#{total}"
+#=> total=1.0
+```
+
+So what? In english that tells us if the primary gene (`p'`)
+of parent a
+and the primary gene (`p"`) of parent b are a mewtation pair
+than the odds / probabilities are:
+
+``` ruby
+puts p_p_a = 0.75 * 0.75 * 0.25   # a) mutation (25%)
+#=> 0.140625
+puts p_p_b = 0.75 * 0.75 * 0.75   # b) no mutation (75%)
+#=> 0.421875
+puts p_p_a + p_p_b
+#=> 0.5625
+```
+
+That's the "famous" 14% (`0.140625`) of mutation probability - written down in many mutation articles -
+for mutation level I & II (25%) if `p'` and `p"` hold the right gene pair.
+Let's try another pair with `p'` and `h1"`:
+
+``` ruby
+puts p_h1_a = 0.75 * 0.1875 * 0.25  # a) mutation (25%)
+#=> 0.03515625
+puts p_h1_b = 0.75 * 0.1875 * 0.75  # b) no mutation (75%)
+#=> 0.10546875
+puts p_h1_a + p_h1_b
+#=> 0.140625
+```
+
+Resulting in a mutation probability of 3.5% (`0.03515625`)
+for mutation level I & II (25%).
+
+Let's code a new `kittycalc_mewtations( a, b )` method
+that checks all traits for mewtation pairs and returns the odds / probabilites:
+
+``` ruby
+def kittycalc_mewtations( a, b )
+  agenes_kai = Base32.encode( a ).reverse # note: reverse string for easy array access
+  bgenes_kai = Base32.encode( b ).reverse
+
+  odds = {}
+
+  #########
+  #  4x4 = 16 gene pairs
+  #   0 = primary (p)     - 0.75
+  #   1 = hidden 1 (h1)   - 0.1875
+  #   2 = hidden 2 (h2)   - 0.046875
+  #   3 = hidden 3 (h3)   - 0.015625
+  pairs = [[0,0],[0,1],[0,2],[0,3],
+           [1,0],[1,1],[1,2],[1,3],
+           [2,0],[2,1],[2,2],[2,3],
+           [3,0],[3,1],[3,2],[3,3]]
+  odds_genes = [0.75, 0.1875, 0.046875, 0.015625]
+
+  TRAITS.each_with_index do |(trait_key, trait_hash),i|
+    odds[trait_key] ||= []
+
+    offset = i*4
+    pairs.each do |pair|
+      a_kai = agenes_kai[pair[0]+offset]
+      b_kai = bgenes_kai[pair[1]+offset]
+
+      gene1 = Kai::NUMBER[a_kai]  ## convert kai to integer number
+      gene2 = Kai::NUMBER[b_kai]
+
+      ## note: mutation code copied from mixgenes formula
+      if gene1 > gene2
+        gene1, gene2 = gene2, gene1
+      end
+      if (gene2 - gene1) == 1 && gene1.even?  ## bingo! mewtation pair
+        probability = 0.25
+        if gene1 > 23
+          probability /= 2
+        end
+        mutation  = (gene1 / 2) + 16
+
+        odds_pair = odds_genes[pair[0]] * odds_genes[pair[1]] * probability
+
+        odds[trait_key] << [pair,
+                            [Kai::ALPHABET[gene1], Kai::ALPHABET[gene2]],
+                            Kai::ALPHABET[mutation],
+                            odds_pair]
+      end
+    end
+    odds[trait_key] = odds[trait_key].sort { |l,r| r[3] <=> l[3] }
+  end
+  odds
+end
+```
+
+Let's try the kitty #1001 and #1111:
+
+``` ruby
+a = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
+b = 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac  # kitty 1111
+
+odds = kittycalc_mewtations( a, b )
+pp odds
+```
+
+resulting in:
+
+``` ruby
+{:body=>[],
+ :pattern=>
+  [[[0, 3], ["9", "a"], "m", 0.0029296875],
+   [[1, 3], ["9", "a"], "m", 0.000732421875],
+   [[2, 2], ["9", "a"], "m", 0.00054931640625],
+   [[3, 3], ["9", "a"], "m", 6.103515625e-05]],
+ :coloreyes=>
+  [[[0, 2], ["3", "4"], "i", 0.0087890625],
+   [[3, 0], ["7", "8"], "k", 0.0029296875]],
+ :eyes=>
+  [[[0, 0], ["7", "8"], "k", 0.140625]],
+ :color1=>
+  [[[0, 3], ["1", "2"], "h", 0.0029296875]],
+ :color2=>[],
+ :color3=>[],
+ :wild=>[],
+ :mouth=>
+  [[[0, 3], ["f", "g"], "p", 0.0029296875],
+   [[2, 1], ["f", "g"], "p", 0.002197265625],
+   [[1, 3], ["f", "g"], "p", 0.000732421875],
+   [[2, 2], ["f", "g"], "p", 0.00054931640625]],
+ :environment=>[],
+ :secret=>
+  [[[1, 0], ["7", "8"], "k", 0.03515625],
+   [[2, 0], ["7", "8"], "k", 0.0087890625],
+   [[3, 3], ["7", "8"], "k", 6.103515625e-05]],
+ :prestige=>
+  [[[0, 0], ["9", "a"], "m", 0.140625],
+   [[1, 0], ["9", "a"], "m", 0.03515625],
+   [[2, 0], ["9", "a"], "m", 0.0087890625],
+   [[3, 0], ["9", "a"], "m", 0.0029296875],
+   [[0, 3], ["9", "a"], "m", 0.0029296875],
+   [[1, 3], ["9", "a"], "m", 0.000732421875],
+   [[2, 3], ["9", "a"], "m", 0.00018310546875],
+   [[3, 3], ["9", "a"], "m", 6.103515625e-05]]}
+```
+
+Let's use a `print_kittycalc_mewtations_odds` helper for
+making the mewtation pairs and odds more readable:
+
+``` ruby
+def print_kittycalc_mewtations_odds( odds )
+  gene_names = ['p','h1','h2','h3']
+
+  odds.each do |trait_key, recs|
+    trait_hash = TRAITS[trait_key]
+
+    next if recs.empty?   ## skip trait types with no mewtations
+
+    puts "#{trait_hash[:name]} (#{trait_hash[:code]}) - #{recs.size} Mewtation Pair(s):"
+    recs.each do |rec|
+      a_kai = rec[1][0]
+      b_kai = rec[1][1]
+      m_kai = rec[2]
+
+      a = trait_hash[:kai][a_kai]
+      b = trait_hash[:kai][b_kai]
+      m = trait_hash[:kai][m_kai]
+
+      ## use code (e.g. PU00, PU01, etc.) if trait is unnamed
+      code = trait_hash[:code]
+      a = "#{code}%02d" % Kai::NUMBER[a_kai]  if a.nil?
+      b = "#{code}%02d" % Kai::NUMBER[b_kai]  if b.nil?
+      m = "#{code}%02d" % Kai::NUMBER[m_kai]  if m.nil?
+
+      print " #{'%5.2f'% (rec[3]*100)}% | "
+      print "%-18s" % "#{m}"
+      print " | "
+      print "%-5s" % "#{gene_names[rec[0][0]]}+#{gene_names[rec[0][1]]}"
+      print " | "
+      print "#{a}+#{b}"
+      print "\n"
+    end
+    puts
+  end
+end
+```
+
+Try `print_kittycalc_mewtations_odds( odds )`. Resulting in:
+
+```
+Pattern (PA) - 4 Mewtation Pair(s):
+  0.29% | tigerpunk          | p+h3  | calicool+luckystripe
+  0.07% | tigerpunk          | h1+h3 | calicool+luckystripe
+  0.05% | tigerpunk          | h2+h2 | calicool+luckystripe
+  0.01% | tigerpunk          | h3+h3 | calicool+luckystripe
+
+Eye Color (EC) - 2 Mewtation Pair(s):
+  0.88% | limegreen          | p+h2  | topaz+mintgreen
+  0.29% | bubblegum          | h3+p  | chestnut+strawberry
+
+Eye Shape (ES) - 1 Mewtation Pair(s):
+ 14.06% | raisedbrow         | p+p   | crazy+thicccbrowz
+
+Base Color (BC) - 1 Mewtation Pair(s):
+  0.29% | cloudwhite         | p+h3  | shadowgrey+salmon
+
+Mouth (MO) - 4 Mewtation Pair(s):
+  0.29% | tongue             | p+h3  | happygokitty+soserious
+  0.22% | tongue             | h2+h1 | happygokitty+soserious
+  0.07% | tongue             | h1+h3 | happygokitty+soserious
+  0.05% | tongue             | h2+h2 | happygokitty+soserious
+```
+
+Add-up and compare the mutation probabilities with
+an online CryptoKitties (offspring) breeding calculator service:
+
+- Pattern:    tigerpunk (0.4%)
+- Eye Color:  limegreen (0.9%), bubblegum (0.3%)
+- Eye Shape:  raisedbrow (14%)
+- Base Color: cloudwhite (0.3%)
+- Mouth:      tongue (0.6%)
+
+(Source: [`kittycalc.co/?k1=1001&k2=1111`](https://kittycalc.co/?k1=1001&k2=1111))
+
+Bingo! The mewtations cattribute traits and odds / probabilities match up.
+
+
 
 To be continued...
