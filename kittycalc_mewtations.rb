@@ -1,16 +1,10 @@
 # encoding: utf-8
 
-require 'base32-alphabets'
-
-
-###########################
-require_relative './traits.rb'
+require 'copycats'
 
 
 a = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce  # kitty 1001
 b = 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac  # kitty 1111
-
-
 
 
 
