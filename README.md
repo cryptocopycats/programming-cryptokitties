@@ -2659,7 +2659,7 @@ Purrstige (PU):
 ```
 
 
-What about mewtations?
+### What about mewtations?
 
 Good question. Let's add the missing odds / probabilities for new mewtations traits
 to `kittycalc`. Remember: There's a 25% chance of getting a mutation for tier I & II
