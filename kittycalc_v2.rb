@@ -15,7 +15,7 @@
 #
 #  note: for a detailed step-by-step write-up and code walkthrough
 #   see the "Build Your Own CryptoKitties Breeding (Offspring) Calculator" chapter [2]
-#   in the free online book titled "Programming Crypto Collectibles Step-by-Step Book / Guide"
+#   in the free online book titled "Programming Crypto Collectibles Step-by-Step"
 #
 # [1]: https://github.com/cryptocopycats/programming-cryptocollectibles/blob/master/mixgenes.rb
 # [2]: https://github.com/cryptocopycats/programming-cryptocollectibles#build-your-own-cryptokitties-breeding-offspring-calculator
