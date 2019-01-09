@@ -3,7 +3,7 @@
 
 ## More CryptoKitties kittycalc Examples
 
-Use 100% / purebreed (p, h1, h2, h3) trait genes example with - raisedbrow + fabulous =>  
+Use 100% / purebreed (p, h1, h2, h3) trait genes example with - raisedbrow + fabulous => wingtips 
 
 Find some cats:
 
@@ -39,4 +39,27 @@ Find some cats:
   generation   uint256 :  10
   genes   uint256 :  623386483268689632668854739517122132573390084717816367014400099229274157
 ```
+
+results in:
+
+```
+Eye Shape (ES) - 16 Mewtation Pair(s):
+ 14.06% | wingtips           | p+p   | fabulous+raisedbrow
+  3.52% | wingtips           | p+h1  | fabulous+raisedbrow
+  3.52% | wingtips           | h1+p  | fabulous+raisedbrow
+  0.88% | wingtips           | h1+h1 | fabulous+raisedbrow
+  0.88% | wingtips           | p+h2  | fabulous+raisedbrow
+  0.88% | wingtips           | h2+p  | fabulous+raisedbrow
+  0.29% | wingtips           | h3+p  | fabulous+raisedbrow
+  0.29% | wingtips           | p+h3  | fabulous+raisedbrow
+  0.22% | wingtips           | h1+h2 | fabulous+raisedbrow
+  0.22% | wingtips           | h2+h1 | fabulous+raisedbrow
+  0.07% | wingtips           | h1+h3 | fabulous+raisedbrow
+  0.07% | wingtips           | h3+h1 | fabulous+raisedbrow
+  0.05% | wingtips           | h2+h2 | fabulous+raisedbrow
+  0.02% | wingtips           | h3+h2 | fabulous+raisedbrow
+  0.02% | wingtips           | h2+h3 | fabulous+raisedbrow
+  0.01% | wingtips           | h3+h3 | fabulous+raisedbrow
+```
+
 
