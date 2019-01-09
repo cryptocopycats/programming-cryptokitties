@@ -2997,4 +2997,312 @@ Bingo! The mewtations cattribute traits and odds / probabilities match up.
 
 
 
+
+All together now. Let's add up the odds from step1 and the mewtations
+in a new all-in-one `kittycalc` version 2.0:
+
+
+``` ruby
+def kittycalc( a, b )
+  agenes_kai = Base32.encode( a ).reverse # note: reverse string for easy array access
+  bgenes_kai = Base32.encode( b ).reverse
+
+  odds            = kittycalc_step1( agenes_kai, bgenes_kai )
+  odds_mewtations = kittycalc_mewtations( agenes_kai, bgenes_kai )
+
+  ## update odds with mewtations
+  odds_mewtations.each do |trait_key, recs|
+    next if recs.empty?   ## skip trait types with no mewtations
+
+    recs.each do |rec|
+      a_kai          = rec[1][0]
+      b_kai          = rec[1][1]
+      m_kai          = rec[2]
+      odds_mewtation = rec[3]
+
+      odds[trait_key][m_kai] += odds_mewtation
+      odds[trait_key][a_kai] -= odds_mewtation / 2.0
+      odds[trait_key][b_kai] -= odds_mewtation / 2.0
+    end
+  end
+
+  ## map kai to trait name
+  ## sort by highest odds / probabilities first
+  odds.each do |trait_key, hash|
+    recs = odds[trait_key].to_a
+    recs = recs.map do |rec|
+       name = TRAITS[trait_key][:kai][rec[0]]
+       ## note: use code (e.g. PU00, PU01, etc.) if trait is unnamed
+       code = TRAITS[trait_key][:code]
+       name = "#{code}%02d" % Kai::NUMBER[rec[0]]  if name.nil?
+       [name,rec[1]]
+    end
+    recs = recs.sort { |l,r| r[1] <=> l[1] }
+    odds[trait_key] = recs
+  end
+
+  odds
+end
+```
+
+Note: If you add the odds for the new mewtation trait
+e.g. `odds[trait_key][m_kai] += odds_mewtation`
+you also need to subtract the odds for the two traits
+making up the mewtation pair
+e.g. `odds[trait_key][a_kai] -= odds_mewtation / 2.0` and
+`odds[trait_key][b_kai] -= odds_mewtation / 2.0`
+to keep the balance of 100% (1.0).
+Let's add the missing `kittycalc_step1` and `kittycalc_mewtations` code:
+
+
+``` ruby
+def kittycalc_step1( agenes_kai, bgenes_kai )
+  odds = {}
+
+  TRAITS.each_with_index do |(trait_key, trait_hash),i|
+     odds[trait_key] ||= Hash.new(0)
+
+     offset = i*4
+     [agenes_kai, bgenes_kai].each do |genes_kai|
+       p_kai  = genes_kai[0+offset]
+       h1_kai = genes_kai[1+offset]
+       h2_kai = genes_kai[2+offset]
+       h3_kai = genes_kai[3+offset]
+
+       odds[trait_key][p_kai]  += 0.375      # add primary (p) odds
+       odds[trait_key][h1_kai] += 0.09375    # add hidden 1 (h1) odds
+       odds[trait_key][h2_kai] += 0.0234375  # add hidden 2 (h2) odds
+       odds[trait_key][h3_kai] += 0.0078125  # add hidden 3 (h3) odds
+     end
+  end
+  odds
+end
+
+
+def kittycalc_mewtations( agenes_kai, bgenes_kai )
+  odds = {}
+
+  #########
+  #  4x4 = 16 gene pairs
+  #   0 = primary (p)     - 0.75
+  #   1 = hidden 1 (h1)   - 0.1875
+  #   2 = hidden 2 (h2)   - 0.046875
+  #   3 = hidden 3 (h3)   - 0.015625
+  pairs = [[0,0],[0,1],[0,2],[0,3],
+           [1,0],[1,1],[1,2],[1,3],
+           [2,0],[2,1],[2,2],[2,3],
+           [3,0],[3,1],[3,2],[3,3]]
+  odds_genes = [0.75, 0.1875, 0.046875, 0.015625]
+
+  TRAITS.each_with_index do |(trait_key, trait_hash),i|
+    odds[trait_key] ||= []
+
+    offset = i*4
+    pairs.each do |pair|
+      a_kai = agenes_kai[pair[0]+offset]
+      b_kai = bgenes_kai[pair[1]+offset]
+
+      gene1 = Kai::NUMBER[a_kai]  ## convert kai to integer number
+      gene2 = Kai::NUMBER[b_kai]
+
+      ## note: mutation code copied from mixgenes formula
+      if gene1 > gene2
+        gene1, gene2 = gene2, gene1
+      end
+      if (gene2 - gene1) == 1 && gene1.even?  ## bingo! mewtation pair
+        probability = 0.25
+        if gene1 > 23
+          probability /= 2
+        end
+        mutation  = (gene1 / 2) + 16
+
+        odds_pair = odds_genes[pair[0]] * odds_genes[pair[1]] * probability
+
+        odds[trait_key] << [pair,
+                            [Kai::ALPHABET[gene1], Kai::ALPHABET[gene2]],
+                            Kai::ALPHABET[mutation],
+                            odds_pair]
+      end
+    end
+    odds[trait_key] = odds[trait_key].sort { |l,r| r[3] <=> l[3] }
+  end
+  odds
+end
+```
+
+Voila! Let's try:
+
+``` ruby
+odds = kittycalc( a, b )
+pp odds
+```
+
+resulting in:
+
+``` ruby
+{:body=>
+  [["ragamuffin", 0.4921875],
+   ["munchkin", 0.3984375],
+   ["sphynx", 0.1015625],
+   ["himalayan", 0.0078125]],
+ :pattern=>
+  [["luckystripe", 0.49786376953125],
+   ["totesbasic", 0.375],
+   ["totesbasic", 0.09375],
+   ["calicool", 0.02911376953125],
+   ["tigerpunk", 0.0042724609375]],
+ :coloreyes=>
+  [["mintgreen", 0.46435546875],
+   ["strawberry", 0.37353515625],
+   ["sizzurp", 0.125],
+   ["topaz", 0.01904296875],
+   ["limegreen", 0.0087890625],
+   ["chestnut", 0.00634765625],
+   ["bubblegum", 0.0029296875]],
+ :eyes=>
+  [["crazy", 0.421875],
+   ["thicccbrowz", 0.3046875],
+   ["raisedbrow", 0.140625],
+   ["simple", 0.1328125]],
+ :color1=>
+  [["greymatter", 0.375],
+   ["shadowgrey", 0.37353515625],
+   ["aquamarine", 0.1171875],
+   ["orangesoda", 0.1171875],
+   ["salmon", 0.01416015625],
+   ["cloudwhite", 0.0029296875]],
+ :color2=>
+  [["royalpurple", 0.5625],
+   ["swampgreen", 0.40625],
+   ["chocolate", 0.0234375],
+   ["lemonade", 0.0078125]],
+ :color3=>
+  [["granitegrey", 0.59375],
+   ["kittencream", 0.40625]],
+ :mouth=>
+  [["happygokitty", 0.582733154296875],
+   ["pouty", 0.3828125],
+   ["soserious", 0.028045654296875],
+   ["tongue", 0.00640869140625]]}
+```
+
+Note: The "real" output if you follow along coding on
+your very own computer includes the "unnamed" traits
+`wild`, `environment`, `secrect` and `prestige` too.
+
+``` ruby
+{:wild=>
+  [["WE03", 0.4921875],
+   ["WE00", 0.390625],
+   ["WE05", 0.1171875]],
+ :environment=>
+  [["EN01", 0.5234375],
+   ["EN14", 0.46875],
+   ["EN09", 0.0078125]],
+ :secret=>
+  [["SE04", 0.4921875],
+   ["SE06", 0.360809326171875],
+   ["SE07", 0.102996826171875],
+   ["SE19", 0.04400634765625]],
+ :prestige=>
+  [["PU09", 0.498046875],
+   ["PU08", 0.287109375],
+   ["PU20", 0.19140625],
+   ["PU11", 0.0234375]]}
+```
+
+Let's keep it shorter and snip out the "unnamed" traits.
+Let's reuse the `print_kittycalc_odds` helper
+to make the odds more readable.
+Try `print_kittycalc_odds( odds )`. Resulting in:
+
+```
+Fur (FU):
+ 49.22% | ragamuffin
+ 39.84% | munchkin
+ 10.16% | sphynx
+  0.78% | himalayan
+
+Pattern (PA):
+ 49.79% | luckystripe
+ 37.50% | totesbasic
+  9.38% | totesbasic
+  2.91% | calicool
+  0.43% | tigerpunk
+
+Eye Color (EC):
+ 46.44% | mintgreen
+ 37.35% | strawberry
+ 12.50% | sizzurp
+  1.90% | topaz
+  0.88% | limegreen
+  0.63% | chestnut
+  0.29% | bubblegum
+
+Eye Shape (ES):
+ 42.19% | crazy
+ 30.47% | thicccbrowz
+ 14.06% | raisedbrow
+ 13.28% | simple
+
+Base Color (BC):
+ 37.50% | greymatter
+ 37.35% | shadowgrey
+ 11.72% | aquamarine
+ 11.72% | orangesoda
+  1.42% | salmon
+  0.29% | cloudwhite
+
+Highlight Color (HC):
+ 56.25% | royalpurple
+ 40.62% | swampgreen
+  2.34% | chocolate
+  0.78% | lemonade
+
+Accent Color (AC):
+ 59.38% | granitegrey
+ 40.62% | kittencream
+
+Mouth (MO):
+ 58.27% | happygokitty
+ 38.28% | pouty
+  2.80% | soserious
+  0.64% | tongue
+```
+
+Now if you compare the new numbers
+with a CryptoKitties (offspring) breeding calculator service - than the numbers match up. Bingo!
+
+To double check let's sum up all odds for the cattribute traits
+to see if the match up to 100% (`1.0`) each.
+
+``` ruby
+def check_odds( odds )
+  odds.each do |trait_key,recs|
+    total = recs.reduce(0) {|sum,rec| sum+=rec[1]; sum}
+    puts "#{trait_key}: #{total}"
+  end
+end
+
+check_odds( odds )
+```
+
+Resulting in:
+
+```
+body: 1.0
+pattern: 1.0
+coloreyes: 1.0
+eyes: 1.0
+color1: 1.0
+color2: 1.0
+color3: 1.0
+wild: 1.0
+mouth: 1.0
+environment: 1.0
+secret: 1.0
+prestige: 1.0
+```
+
+
 To be continued...
