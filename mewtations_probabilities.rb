@@ -91,16 +91,46 @@ puts "total=#{total}"
 #=> total=1.0
 
 
-puts p_p_a = 0.75 * 0.75 * 0.25   # a) mutation (25%)
+puts p_p_i = 0.75 * 0.75 * 0.25      # i) mutation (25%)
 #=> 0.140625
-puts p_p_b = 0.75 * 0.75 * 0.75   # b) no mutation (75%)
+puts p_a = p_p_i / 2
+#=> 0.0703125
+puts p_b = p_p_i / 2
+#=> 0.0703125
+puts p_p_ii = 0.75 * 0.75 * 0.75     # ii) no mutation (75%)
 #=> 0.421875
-puts p_p_a + p_p_b
+puts p_p_i + p_p_ii
 #=> 0.5625
 
-puts p_h1_a = 0.75 * 0.1875 * 0.25  # a) mutation (25%)
+puts p_h1_i = 0.75 * 0.1875 * 0.25   # i) mutation (25%)
 #=> 0.03515625
-puts p_h1_b = 0.75 * 0.1875 * 0.75  # b) no mutation (75%)
+puts p_a = p_h1_i / 2
+#=> 0.017578125
+puts h1_b = p_h1_i / 2
+#=> 0.017578125
+puts p_h1_ii = 0.75 * 0.1875 * 0.75  # ii) no mutation (75%)
 #=> 0.10546875
-puts p_h1_a + p_h1_b
+puts p_h1_i + p_h1_ii
 #=> 0.140625
+
+
+
+puts p_a  = p_p/2 + p_h1/2 + p_h2/2 + p_h3/2
+#=> 0.375
+puts p_b  = p_p/2 + h1_p/2 + h2_p/2 + h3_p/2
+#=> 0.375
+puts h1_a = h1_p/2 + h1_h1/2 + h1_h2/2 + h1_h3/2
+#=> 0.09375
+puts h1_b = p_h1/2 + h1_h1/2 + h2_h1/2 + h3_h1/2
+#=> 0.09375
+puts h2_a = h2_p/2 + h2_h1/2 + h2_h2/2 + h2_h3/2
+#=> 0.0234375
+puts h2_b = p_h2/2 + h1_h2/2 + h2_h2/2 + h3_h2/2
+#=> 0.0234375
+puts h3_a = h3_p/2 + h3_h1/2 + h3_h2/2 + h3_h3/2
+#=> 0.0078125
+puts h3_b = p_h3/2 + h1_h3/2 + h2_h3/2 + h3_h3/2
+#=> 0.0078125
+
+puts p_a + p_b + h1_a + h1_b + h2_a + h2_b + h3_a + h3_b
+#=> 1.0
