@@ -2783,11 +2783,11 @@ and the primary gene (`p"`) of parent b are a mewtation pair
 than the odds / probabilities are:
 
 ``` ruby
-puts p_p_a = 0.75 * 0.75 * 0.25   # a) mutation (25%)
+puts p_p_i = 0.75 * 0.75 * 0.25      # i) mutation (25%)
 #=> 0.140625
-puts p_p_b = 0.75 * 0.75 * 0.75   # b) no mutation (75%)
+puts p_p_ii = 0.75 * 0.75 * 0.75     # ii) no mutation (75%)
 #=> 0.421875
-puts p_p_a + p_p_b
+puts p_p_i + p_p_ii
 #=> 0.5625
 ```
 
@@ -2796,11 +2796,11 @@ for mutation level I & II (25%) if `p'` and `p"` hold the right gene pair.
 Let's try another pair with `p'` and `h1"`:
 
 ``` ruby
-puts p_h1_a = 0.75 * 0.1875 * 0.25  # a) mutation (25%)
+puts p_h1_i = 0.75 * 0.1875 * 0.25   # i) mutation (25%)
 #=> 0.03515625
-puts p_h1_b = 0.75 * 0.1875 * 0.75  # b) no mutation (75%)
+puts p_h1_ii = 0.75 * 0.1875 * 0.75  # ii) no mutation (75%)
 #=> 0.10546875
-puts p_h1_a + p_h1_b
+puts p_h1_i + p_h1_ii
 #=> 0.140625
 ```
 
