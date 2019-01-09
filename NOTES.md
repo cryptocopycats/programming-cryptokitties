@@ -60,6 +60,12 @@ Eye Shape (ES) - 16 Mewtation Pair(s):
   0.02% | wingtips           | h3+h2 | fabulous+raisedbrow
   0.02% | wingtips           | h2+h3 | fabulous+raisedbrow
   0.01% | wingtips           | h3+h3 | fabulous+raisedbrow
-```
+  
+---
 
+Eye Shape (ES):
+ 37.50% | raisedbrow
+ 37.50% | fabulous
+ 25.00% | wingtips
+```
 
