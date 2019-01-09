@@ -3004,39 +3004,38 @@ in a new all-in-one `kittycalc` version 2.0:
 
 ``` ruby
 def kittycalc( a, b )
-  agenes_kai = Base32.encode( a ).reverse # note: reverse string for easy array access
-  bgenes_kai = Base32.encode( b ).reverse
+  agenes = Base32.encode( a ).reverse # note: reverse string for easy array access
+  bgenes = Base32.encode( b ).reverse
 
-  odds            = kittycalc_step1( agenes_kai, bgenes_kai )
-  odds_mewtations = kittycalc_mewtations( agenes_kai, bgenes_kai )
+  odds            = kittycalc_step1( agenes, bgenes )
+  odds_mewtations = kittycalc_mewtations( agenes, bgenes )
 
   ## update odds with mewtations
   odds_mewtations.each do |trait_key, recs|
     next if recs.empty?   ## skip trait types with no mewtations
 
     recs.each do |rec|
-      a_kai          = rec[1][0]
-      b_kai          = rec[1][1]
-      m_kai          = rec[2]
+      agene          = rec[1][0]
+      bgene          = rec[1][1]
+      mewtation      = rec[2]
       odds_mewtation = rec[3]
 
-      odds[trait_key][m_kai] += odds_mewtation
-      odds[trait_key][a_kai] -= odds_mewtation / 2.0
-      odds[trait_key][b_kai] -= odds_mewtation / 2.0
+      odds[trait_key][mewtation] += odds_mewtation
+      odds[trait_key][agene]     -= odds_mewtation / 2.0
+      odds[trait_key][bgene]     -= odds_mewtation / 2.0
     end
   end
 
-  ## map kai to trait name
-  ## sort by highest odds / probabilities first
   odds.each do |trait_key, hash|
     recs = odds[trait_key].to_a
     recs = recs.map do |rec|
+       ## map kai char e.g '1' to trait name e.g. savannah'
        name = TRAITS[trait_key][:kai][rec[0]]
        ## note: use code (e.g. PU00, PU01, etc.) if trait is unnamed
-       code = TRAITS[trait_key][:code]
-       name = "#{code}%02d" % Kai::NUMBER[rec[0]]  if name.nil?
+       name = TRAITS[trait_key][:code] + Kai::CODE[rec[0]]  if name.nil?
        [name,rec[1]]
     end
+    ## sort by highest odds / probabilities first
     recs = recs.sort { |l,r| r[1] <=> l[1] }
     odds[trait_key] = recs
   end
@@ -3046,40 +3045,40 @@ end
 ```
 
 Note: If you add the odds for the new mewtation trait
-e.g. `odds[trait_key][m_kai] += odds_mewtation`
+e.g. `odds[trait_key][mewtation] += odds_mewtation`
 you also need to subtract the odds for the two traits
 making up the mewtation pair
-e.g. `odds[trait_key][a_kai] -= odds_mewtation / 2.0` and
-`odds[trait_key][b_kai] -= odds_mewtation / 2.0`
+e.g. `odds[trait_key][agene] -= odds_mewtation / 2.0` and
+`odds[trait_key][bgene] -= odds_mewtation / 2.0`
 to keep the balance of 100% (`1.0`).
 Let's add the missing `kittycalc_step1` and `kittycalc_mewtations` code:
 
 
 ``` ruby
-def kittycalc_step1( agenes_kai, bgenes_kai )
+def kittycalc_step1( agenes, bgenes )
   odds = {}
 
   TRAITS.each_with_index do |(trait_key, trait_hash),i|
      odds[trait_key] ||= Hash.new(0)
 
      offset = i*4
-     [agenes_kai, bgenes_kai].each do |genes_kai|
-       p_kai  = genes_kai[0+offset]
-       h1_kai = genes_kai[1+offset]
-       h2_kai = genes_kai[2+offset]
-       h3_kai = genes_kai[3+offset]
+     [agenes, bgenes].each do |genes|
+       p  = genes[0+offset]
+       h1 = genes[1+offset]
+       h2 = genes[2+offset]
+       h3 = genes[3+offset]
 
-       odds[trait_key][p_kai]  += 0.375      # add primary (p) odds
-       odds[trait_key][h1_kai] += 0.09375    # add hidden 1 (h1) odds
-       odds[trait_key][h2_kai] += 0.0234375  # add hidden 2 (h2) odds
-       odds[trait_key][h3_kai] += 0.0078125  # add hidden 3 (h3) odds
+       odds[trait_key][p]  += 0.375      # add primary (p) odds
+       odds[trait_key][h1] += 0.09375    # add hidden 1 (h1) odds
+       odds[trait_key][h2] += 0.0234375  # add hidden 2 (h2) odds
+       odds[trait_key][h3] += 0.0078125  # add hidden 3 (h3) odds
      end
   end
   odds
 end
 
 
-def kittycalc_mewtations( agenes_kai, bgenes_kai )
+def kittycalc_mewtations( agenes, bgenes )
   odds = {}
 
   #########
@@ -3099,11 +3098,8 @@ def kittycalc_mewtations( agenes_kai, bgenes_kai )
 
     offset = i*4
     pairs.each do |pair|
-      a_kai = agenes_kai[pair[0]+offset]
-      b_kai = bgenes_kai[pair[1]+offset]
-
-      gene1 = Kai::NUMBER[a_kai]  ## convert kai to integer number
-      gene2 = Kai::NUMBER[b_kai]
+      gene1 = Kai::NUMBER[ agenes[pair[0]+offset] ]  ## convert kai to integer number
+      gene2 = Kai::NUMBER[ bgenes[pair[1]+offset] ]
 
       ## note: mutation code copied from mixgenes formula
       if gene1 > gene2
@@ -3124,6 +3120,7 @@ def kittycalc_mewtations( agenes_kai, bgenes_kai )
                             odds_pair]
       end
     end
+    ## sort by highest odds / probabilities first
     odds[trait_key] = odds[trait_key].sort { |l,r| r[3] <=> l[3] }
   end
   odds
