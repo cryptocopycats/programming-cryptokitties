@@ -3130,7 +3130,7 @@ def kittycalc_mewtations( agenes_kai, bgenes_kai )
 end
 ```
 
-Voila! Let's try:
+Ready to go. Stand back two hundred meter and let's try:
 
 ``` ruby
 odds = kittycalc( a, b )
