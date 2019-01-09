@@ -1,5 +1,26 @@
 # encoding: utf-8
 
+####################################################################
+# cryptokitties (offspring) breeding calculator (incl. mewtations)
+#  - 100% accurate :-) - uses the mixgenes probabilities and formula [1]
+#
+#  use like
+#
+#    pp kittycalc( a, b )   ## pretty print (pp) "raw" odds
+#
+#  -or-
+#
+#    print_kittycalc_odds( kittycalc( a, b ) )  ## print "human" readable odds
+#
+#
+#  note: for a detailed step-by-step write-up and code walkthrough
+#   see the "Build Your Own CryptoKitties Breeding (Offspring) Calculator" chapter [1]
+#   in the free online book titled "Programming Crypto Collectibles Step-by-Step Book / Guide"
+#
+# [1]: https://github.com/cryptocopycats/programming-cryptocollectibles/blob/master/mixgenes.rb
+# [2]: https://github.com/cryptocopycats/programming-cryptocollectibles#build-your-own-cryptokitties-breeding-offspring-calculator
+
+
 require 'copycats'
 
 
