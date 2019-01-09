@@ -3,10 +3,12 @@
 
 ## More CryptoKitties kittycalc Examples
 
-Use 100% purebreed example with - raisedbrow + fabulous =>  
+Use 100% / purebreed (p, h1, h2, h3) trait genes example with - raisedbrow + fabulous =>  
 
-- https://heaven.cat/find?order=0&eyetype=k@0,1,2,3   # raisedbrow
-- https://heaven.cat/find?order=0&eyetype=j@0,1,2,3   # fabulous
+Find some cats:
+
+- https://heaven.cat/find?order=0&eyetype=k@0,1,2,3   - raisedbrow (k)
+- https://heaven.cat/find?order=0&eyetype=j@0,1,2,3   - fabulous (j)
 
 - #145894 => raisedbrow (eyetype/eye shape/eyes)  100% / purebreed
 
