@@ -2998,7 +2998,7 @@ Bingo! The mewtations cattribute traits and odds / probabilities match up.
 
 
 
-All together now. Let's add up the odds from step1 and the mewtations
+All together now. Let's add up the odds from step one and the mewtations
 in a new all-in-one `kittycalc` version 2.0:
 
 
@@ -3051,7 +3051,7 @@ you also need to subtract the odds for the two traits
 making up the mewtation pair
 e.g. `odds[trait_key][a_kai] -= odds_mewtation / 2.0` and
 `odds[trait_key][b_kai] -= odds_mewtation / 2.0`
-to keep the balance of 100% (1.0).
+to keep the balance of 100% (`1.0`).
 Let's add the missing `kittycalc_step1` and `kittycalc_mewtations` code:
 
 
