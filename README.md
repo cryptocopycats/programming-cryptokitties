@@ -3277,6 +3277,9 @@ Mouth (MO):
 Now if you compare the new numbers
 with a CryptoKitties (offspring) breeding calculator service - than the numbers match up. Bingo!
 
+![](i/cattributes-offspring-1001-1111.png)
+
+
 To double check let's sum up all odds for the cattribute traits
 to see if the match up to 100% (`1.0`) each.
 
