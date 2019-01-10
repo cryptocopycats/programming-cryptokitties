@@ -5,17 +5,17 @@ _Let's start with CryptoKitties & Copycats. Inside Unique Bits & Bytes on the Bl
 ![](i/cryptokitties-modernart-paintings.png)
 
 At the heart of crypto collectibles on the blockchain are unique bits & bytes.
-For CryptoKitties this is a 240-bit integer that holds the
+For CryptoKitties this is a 256-bit integer that holds the
 super "sekretoooo" genome / genes.
 
 
 ![](i/cryptokitties-genes01.png)
 
 Let's use Kitty #1001 as an example
-and look at the "magic" 240-bit integer number:
+and look at the "magic" 256-bit integer number:
 
 ``` ruby
-# A 240-bit super "sekretoooo" integer genome
+# A 256-bit super "sekretoooo" integer genome
 
 # hexadecimal (base 16)
 genome = 0x00004a52931ce4085c14bdce014a0318846a0c808c60294a6314a34a1295b9ce
@@ -43,16 +43,17 @@ p genome.to_s(2)
 ```
 
 So what? Thanks to Kai Turner
-who first deciphered the CryptoKitties 240-bit genome
+who first deciphered the CryptoKitties 256-bit genome
 in  [The CryptoKitties Genome Project: On Dominance, Inheritance and Mutation](https://medium.com/@kaigani/the-cryptokitties-genome-project-on-dominance-inheritance-and-mutation-b73059dcd0a4) on January 2018
-we  know today
+we know today
 that the genome breaks down into 5-bit chunks.
 And every 5-bit chunk is a gene.
-And four 5-bit chunks (known as the primary, hidden 1, hidden 2 and hidden 3 gene)
+And four 5-bit chunks - known as the primary (p), hidden 1 (h1), hidden 2 (h2) and hidden 3 (h3) gene or 
+dominant (d), 1st recessive (r1), 2nd recessive (r2), and 3rd recessive (r3) -
 get grouped into a trait
 (e.g. fur, pattern, eye color, eye shape, base color, highlight color, and so on)
 resulting in 12 trait groups of 4 (x 5-bit) genes
-(that is, 12 x 4 x 5-bit = 240 bits).
+(that is, 12 x 4 x 5-bit = 240 bits) - with the remaining leading 14 bits "unused" and zeroed-out (e.g. `0x0000`).
 
 
 Let's break the genome into 5-bit chunks
@@ -108,7 +109,9 @@ Fur (FU) - Genes 0-3:
 
 ---
 
+![](https://cryptocopycats.github.io/media/kitties/100x100/kitty-1001.png)
 
+Let's try Kitty #1001 as an example.
 Let's start deciphering from right-to-left `...06-05-05-03-09-08-09-09-11-14-14-14`, that is,
 `14` maps to ragamuffin, `14` to ragamuffin, `14` to ragamuffin, `11` to himalayan, and so on:
 
@@ -141,7 +144,11 @@ Eye Color (EC) - Genes 8-11:
 | 06        | 11   | chestnut    | Hidden 3 |
 
 
-and so on. Let's try another kitty #1111:
+and so on.
+
+![](https://cryptocopycats.github.io/media/kitties/100x100/kitty-1111.png)
+
+Let's try another kitty #1111:
 
 ``` ruby
 genome = 0x000042d28390864842e7b9c900c6321086438c6098ca298c728867425cf6b1ac # kitty 1111
@@ -206,7 +213,7 @@ Using the Electrologica notation / alphabet
 What about Kai notation / alphabet?
 
 The Kai (Base 32) notation / alphabet is named in honor of Kai Turner
-who first deciphered the CryptoKitties 240-bit genome
+who first deciphered the CryptoKitties 256-bit genome
 in 5-bit chunks.
 The Kai notation / alphabet
 follows base56
