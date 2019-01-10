@@ -48,12 +48,12 @@ in  [The CryptoKitties Genome Project: On Dominance, Inheritance and Mutation](h
 we know today
 that the genome breaks down into 5-bit chunks.
 And every 5-bit chunk is a gene.
-And four 5-bit chunks - known as the primary (p), hidden 1 (h1), hidden 2 (h2) and hidden 3 (h3) gene or 
+And four 5-bit chunks - known as the primary (p), hidden 1 (h1), hidden 2 (h2), and hidden 3 (h3) gene or 
 dominant (d), 1st recessive (r1), 2nd recessive (r2), and 3rd recessive (r3) -
 get grouped into a trait
 (e.g. fur, pattern, eye color, eye shape, base color, highlight color, and so on)
 resulting in 12 trait groups of 4 (x 5-bit) genes
-(that is, 12 x 4 x 5-bit = 240 bits) - with the remaining leading 14 bits "unused" and zeroed-out (e.g. `0x0000`).
+(that is, 12 x 4 x 5-bit = 240 bits) with the remaining leading 16 bits "unused" and zeroed-out (e.g. `0x0000`).
 
 
 Let's break the genome into 5-bit chunks
