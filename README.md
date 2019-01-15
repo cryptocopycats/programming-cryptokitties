@@ -16,6 +16,8 @@ by [Gerald Bauer](https://github.com/geraldb), et al
 
 To be continued...
 
+- [Appendix - CryptoKitties (and Copycats) Resources - Links, Links, Links](A1_resources.md)
+
 
 
 ## License
