@@ -38,10 +38,8 @@ _Collect and breed digital cartoon cats (on the blockchain)._
 ## Blockchain Transaction Statistics - Daily Users, Daily New Kitties, Daily Volume (in ETH) & More
 
 - [CryptoKitties @ DappRadar](https://dappradar.com/app/3/cryptokitties)
+- [CryptoKitties @ Gameunculus](https://gameunculus.io/app/1/cryptokitties)
 
-<!--
-- CryptoKitties @ ??
--->
 
 ## KittyCalc - CryptoKitties (Offspring) Breeding Calculators
 
