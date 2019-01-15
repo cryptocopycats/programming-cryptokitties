@@ -63,7 +63,7 @@ _Peek Into / Browse / Explore the Live Blockchain_
 
 ## KittyCalc - Kitty (Offspring) Breeding Calculators
 
-_Inside the MixGenes Lottery - Odds & Probabilities for Passing on Traits & Mewtations_
+_Inside the MixGenes Breeding Lottery - Odds & Probabilities for Passing on Traits & Mewtations_
 
 - [KittyHelper's KittyCalc @ `kittyhelper.co/kittycalc`](https://kittyhelper.co/kittycalc)
 - [Alanfalcon & Poopies' KittyCalc @ `kittycalc.co`](https://kittycalc.co)
