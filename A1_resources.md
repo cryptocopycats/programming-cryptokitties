@@ -51,7 +51,7 @@ _Daily Users, Daily New Kitties, Daily Sales Volume (in ETH) & More_
 
 ## Blockchain Browser / Explorer
 
-_Peek into and Browse / Explore the Live Blockchain_
+_Peek Into / Browse / Explore the Live Blockchain_
 
 - [CryptoKitties KittyCore Contract @ Etherscan](https://etherscan.io/address/0x06012c8cf97bead5deae237070f9587f8e7a266d)
 
@@ -73,9 +73,15 @@ _Inside the MixGenes Lottery - Odds & Probabilities for Passing on Traits & Mewt
 - [Kitty Finder @ Heaven.cat](https://heaven.cat/find)
 - [Kitty Search @ Rolldice.club](http://www.rolldice.club/cryptokitties/wkt_klist.php)
 
+## Design & Create Your Purrfect Kitty
+
+- [Kitty Designer @ Rolldice.club](http://www.rolldice.club/cryptokitties/wkt_creator.php)
+- [Kitty Designer](https://bytesforbites.github.io/cryptokitty-designer/#/), [(Source)](https://github.com/BytesForBites/cryptokitty-designer) by Abhishek Chadha 
+   - Hackernoon Article - [Hacking the CryptoKitties Genome](https://hackernoon.com/hacking-the-cryptokitties-genome-1cb3e7dddab3) by Abhishek Chadha, December 2017
 
 
-## CryptoKitties Public Datasets / Downloads
+
+## Public Kitty Datasets / Downloads
 
 **1 000 000+ Kitties in Comma-Separated Values (CSV) Format**
 
