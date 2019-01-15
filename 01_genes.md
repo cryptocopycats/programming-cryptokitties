@@ -1,4 +1,4 @@
-# Inside the CryptoKitties 256-Bit Genome - Slice & Dice Unique Bits & Bytes - 48 Genes (12 Traits x 4 P, H2, H3, H4)
+# Inside the CryptoKitties 256-Bit Genome - Slice & Dice Unique Bits & Bytes - 48 Genes (12 Traits x 4 P, H1, H2, H3)
 
 
 ![](i/cryptokitties-modernart-paintings.png)
