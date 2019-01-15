@@ -50,6 +50,7 @@ _Collect and breed digital cartoon cats (on the blockchain)_
 
 ## Search & Find Your Purrfect Kitty
 
+- [Kitty Search @ KittyHelper.co](https://kittyhelper.co/search)
 - [Kitty Finder @ Heaven.cat](https://heaven.cat/find)
 - [Kitty Search @ Rolldice.club](http://www.rolldice.club/cryptokitties/wkt_klist.php)
 
