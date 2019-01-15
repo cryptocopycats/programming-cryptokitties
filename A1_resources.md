@@ -17,6 +17,8 @@ _Collect and breed digital cartoon cats (on the blockchain)_
 
 ## Documentation
 
+_The Future of Digital Collectibles - The Latest (and Greatest) Investment Opportunities in Online Casino Gambling - The Future is Meow_
+
 - [Awesome CryptoKitties (and Copycats) @ Copycats](https://github.com/cryptocopycats/awesome-cryptokitties)
 - [CryptoKitties @ Wikipedia](https://en.wikipedia.org/wiki/CryptoKitties)
 
