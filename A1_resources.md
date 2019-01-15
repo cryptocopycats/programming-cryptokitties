@@ -92,8 +92,8 @@ _Pick the Fur, Pattern, Eyes, & Mouth Types and the Pattern, Highlight, Accent &
 
 **1 000 000+ Kitties in Comma-Separated Values (CSV) Format**
 
-- [`/kitties` @ Copycats](https://github.com/cryptocopycats/kitties)
-- [`/cryptokitties-csv-generator`](https://github.com/brianmcmichael/cryptokitties-csv-generator) incl. download scripts (for local ethereum client)
+- [`/kitties` @ Copycats](https://github.com/cryptocopycats/kitties) incl. id, gen(eration), matron+sire ids, birthdate, 48 (12x4) genes in kai (base32) notation
+- [`/cryptokitties-csv-generator`](https://github.com/brianmcmichael/cryptokitties-csv-generator) incl. download scripts (for local ethereum client) by Brian L. McMichael
 
 
 **More**
@@ -106,11 +106,12 @@ _Pick the Fur, Pattern, Eyes, & Mouth Types and the Pattern, Highlight, Accent &
 
 **Ruby**
 
-- [kittyverse](https://github.com/cryptocopycats/kittyverse)
-- [copycats](https://github.com/cryptocopycats/copycats)
-- [bitcat](https://github.com/cryptocopycats/bitcat)
-- [base32-alphabets](https://github.com/cryptocopycats/base32-alphabets)
+- [kittyverse @ Copycats](https://github.com/cryptocopycats/kittyverse) - helper classes for cattributes, trait types, traits, genes, genomes and more for cryptokitties and copycats
+- [copycats @ Copycats](https://github.com/cryptocopycats/copycats) - copycats command line tool (and core library) - crypto cats / kitties collectibles unchained
+- [bitcat @ Copycats](https://github.com/cryptocopycats/bitcat) -  bit catalog browser - browse your digital bit(s) collections; browse your crypto kitties / cats and more 
+- [base32-alphabets @ Copycats](https://github.com/cryptocopycats/base32-alphabets) - - base32 encoding / decoding in 5-bit groups (2^5=32) with kai, crockford or electrologica notations / alphabets
 
 **JavaScript**
 
-- [cheshire](https://github.com/endless-nameless-inc/cheshire) - a sandbox for CryptoKitties dapp developers
+- [cheshire](https://github.com/endless-nameless-inc/cheshire) - a sandbox for CryptoKitties dapp developers by Eugene Otto (Endless Namless)
+  - Article - [Cheshire: a CryptoKitties developer sandbox](https://medium.com/@endless_inc/cheshire-a-cryptokitties-developer-sandbox-4f2e2936340a), June 2018 
