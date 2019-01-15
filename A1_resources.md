@@ -10,42 +10,61 @@ _Collect and breed digital cartoon cats (on the blockchain)_
   - [Blog - News & Updates @ `cryptokitties.co/blog`](https://www.cryptokitties.co/blog)
   - [Getting Started Guide @ `guide.cryptokitties.co`](https://guide.cryptokitties.co)
   - [FAQs - Frequently Asked Questions @ `cryptokitties.co/faq`](https://www.cryptokitties.co/faq)
-  - [Official API Documentation @ `docs.api.cryptokitties.co`](https://docs.api.cryptokitties.co)
+  - [Official API Documentation @ `docs.api.cryptokitties.co`](https://docs.api.cryptokitties.co) - Sign-Up & API Key Required
   - Unofficial API
-    - [Cattributes Statistics @ `api.cryptokitties.co/cattributes`](https://api.cryptokitties.co/cattributes)
+    - [Cattributes Statistics @ `api.cryptokitties.co/cattributes`](https://api.cryptokitties.co/cattributes) - No API Key Required
 
 
 ## Documentation
 
-- [Awesome CryptoKitties (and Copycats)](https://github.com/cryptocopycats/awesome-cryptokitties)
+- [Awesome CryptoKitties (and Copycats) @ Copycats](https://github.com/cryptocopycats/awesome-cryptokitties)
 - [CryptoKitties @ Wikipedia](https://en.wikipedia.org/wiki/CryptoKitties)
 
 
-## CryptoKitties Genome / Gene Science / Genetics
+## Genome / Gene Science / Genetics
+
+_256-bit Genome - 48 Genes (12 Traits x 4 P, H1, H2, H3)_
 
 - [The CryptoKitties Genome Project: On Dominance, Inheritance and Mutation](https://medium.com/@kaigani/the-cryptokitties-genome-project-on-dominance-inheritance-and-mutation-b73059dcd0a4) by Kai Turner, January 2018
 - [CryptoKitties mixGenes Function](https://medium.com/@sean.soria/cryptokitties-mixgenes-function-69207883fc80) by Sean Soria, December 2017
 - [Base32 @ Wikipedia](https://en.wikipedia.org/wiki/Base32)
 
 
-## CryptoKitties References / Cheatsheets
+## References / Cheatsheets
 
 - [Genes / Traits Chart @ Copycats](https://github.com/cryptocopycats/kittyverse/blob/master/GENES.md)
 - [Cattributes Rarity & Popularity Statistics @ Copycats](https://github.com/cryptocopycats/copycats/blob/master/updates/CATTRIBUTES.md)
 - [Fancy, Exclusive and Special Editions Cats Timeline @ Copycats](https://github.com/cryptocopycats/kittyverse/blob/master/updates/FANCIES.md)
+- [Cattributes & Fancies Timeline @ Kotobaza.co](https://blog.kotobaza.co/timeline)
+- [Fancies @ Kotobaza.co](https://blog.kotobaza.co/cryptokitties-fancies)
+- [Fancies @ Rolldice.club](http://www.rolldice.club/cryptokitties/wkt_catrib.php)
 
 
-## Blockchain Transaction Statistics - Daily Users, Daily New Kitties, Daily Volume (in ETH) & More
+
+## Blockchain Transaction Statistics
+
+_Daily Users, Daily New Kitties, Daily Sales Volume (in ETH) & More_
 
 - [CryptoKitties @ DappRadar](https://dappradar.com/app/3/cryptokitties)
 - [CryptoKitties @ Gameunculus](https://gameunculus.io/app/1/cryptokitties)
 
 
-## KittyCalc - CryptoKitties (Offspring) Breeding Calculators
+## Blockchain Browser / Explorer
+
+_Peek into and Browse / Explore the Live Blockchain_
+
+- [CryptoKitties KittyCore Contract @ Etherscan](https://etherscan.io/address/0x06012c8cf97bead5deae237070f9587f8e7a266d)
+
+
+
+## KittyCalc - Kitty (Offspring) Breeding Calculators
+
+_Inside the MixGenes Lottery - Odds & Probabilities for Passing on Traits & Mewtations_
 
 - [KittyHelper's KittyCalc @ `kittyhelper.co/kittycalc`](https://kittyhelper.co/kittycalc)
 - [Alanfalcon & Poopies' KittyCalc @ `kittycalc.co`](https://kittycalc.co)
 - [Cattributes's KittyCalc @ `cattributes.org`](https://cattributes.org)
+
 
 
 ## Search & Find Your Purrfect Kitty
