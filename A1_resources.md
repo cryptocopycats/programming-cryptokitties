@@ -1,4 +1,4 @@
-# Appendix 1 - CryptoKitties Resources - Links, Links, Links
+# Appendix 1 - CryptoKitties (and Copycats) Resources - Links, Links, Links
 
 
 ## Official CryptoKitties Universe
