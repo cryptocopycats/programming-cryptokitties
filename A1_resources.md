@@ -52,7 +52,7 @@
 - kittyverse.json @ copycats  incl. trait types & traits, fancies timeline (incl. limits, ids, time windows, trait recipes and more)
 
 
-## CryptoKitties (Open Source) Libraries
+## CryptoKitties (Open Source) Libraries & Tools
 
 ### Ruby
 
