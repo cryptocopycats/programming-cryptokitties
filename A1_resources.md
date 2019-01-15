@@ -3,7 +3,7 @@
 
 ## Official CryptoKitties Universe
 
-_Collect and breed digital cartoon cats (on the blockchain)._
+_Collect and breed digital cartoon cats (on the blockchain)_
 
 - [Website @ `cryptokitties.co`](https://www.cryptokitties.co) 
   - [Updates - Timeline @ `updates.cryptokitties.co`](https://updates.cryptokitties.co)
