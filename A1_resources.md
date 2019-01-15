@@ -50,16 +50,25 @@ _Collect and breed digital cartoon cats (on the blockchain)._
 - [Cattributes's KittyCalc @ `cattributes.org`](https://cattributes.org)
 
 
+## Search & Find Your Purrfect Kitty
+
+- [Kitty Finder @ Heaven.cat](https://heaven.cat/find)
+- [Kitty Search @ Rolldice.club](http://www.rolldice.club/cryptokitties/wkt_klist.php)
+
+
 
 ## CryptoKitties Public Datasets / Downloads
 
 ### 1 000 000+ Kitties in Comma-Separated Values (CSV) Format
 
-- kitties @ copycats
+- [`/kitties` @ Copycats](https://github.com/cryptocopycats/kitties)
+- [`/cryptokitties-csv-generator`](https://github.com/brianmcmichael/cryptokitties-csv-generator) incl. download scripts (for local ethereum client)
+
 
 ### More
 
-- kittyverse.json @ copycats  incl. trait types & traits, fancies timeline (incl. limits, ids, time windows, trait recipes and more)
+- [`/kittyverse.json` @ Copycats](https://github.com/cryptocopycats/kittyverse.json) incl. trait types & traits, fancies timeline (incl. limits, ids, time windows, trait recipes and more)
+
 
 
 ## CryptoKitties (Open Source) Libraries & Tools
