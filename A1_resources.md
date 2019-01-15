@@ -59,13 +59,13 @@ _Collect and breed digital cartoon cats (on the blockchain)._
 
 ## CryptoKitties Public Datasets / Downloads
 
-### 1 000 000+ Kitties in Comma-Separated Values (CSV) Format
+**1 000 000+ Kitties in Comma-Separated Values (CSV) Format**
 
 - [`/kitties` @ Copycats](https://github.com/cryptocopycats/kitties)
 - [`/cryptokitties-csv-generator`](https://github.com/brianmcmichael/cryptokitties-csv-generator) incl. download scripts (for local ethereum client)
 
 
-### More
+**More**
 
 - [`/kittyverse.json` @ Copycats](https://github.com/cryptocopycats/kittyverse.json) incl. trait types & traits, fancies timeline (incl. limits, ids, time windows, trait recipes and more)
 
@@ -73,13 +73,13 @@ _Collect and breed digital cartoon cats (on the blockchain)._
 
 ## CryptoKitties (Open Source) Libraries & Tools
 
-### Ruby
+**Ruby**
 
-- base32-alphabets
-- kittyverse
-- copycats
-- bitcat
+- [kittyverse](https://github.com/cryptocopycats/kittyverse)
+- [copycats](https://github.com/cryptocopycats/copycats)
+- [bitcat](https://github.com/cryptocopycats/bitcat)
+- [base32-alphabets](https://github.com/cryptocopycats/base32-alphabets)
 
-### JavaScript
+**JavaScript**
 
-- cheshire
+- [cheshire](https://github.com/endless-nameless-inc/cheshire) - a sandbox for CryptoKitties dapp developers
