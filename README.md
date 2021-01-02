@@ -1,3 +1,8 @@
+
+For more blockchain books, see the [**Best of Crypto Books page »**](https://openblockchains.github.io/crypto-books/)
+
+---
+
 # Programming Crypto Collectibles Step-by-Step Book / Guide
 
 _Let's start with CryptoKitties & Copycats. Inside Unique Bits & Bytes on the Blockchain..._
@@ -27,8 +32,3 @@ To be continued...
 The Programming Crypto Collectibles Step-by-Step book / guide
 is dedicated to the public domain.
 Use it as you please with no restrictions whatsoever.
-
-
----
-
-For more blockchain books, see the new [**Best of Crypto Books page »**](https://openblockchains.github.io/crypto-books/)
