@@ -1,8 +1,4 @@
 
-For more blockchain books, see the [**Best of Crypto Books page »**](https://openblockchains.github.io/crypto-books/)
-
----
-
 Crypto Collectibles Series -
 [Kitties](https://github.com/cryptocopycats/programming-cryptokitties) ·
 [Punks](https://github.com/cryptopunksnotdead/programming-cryptopunks)
@@ -35,3 +31,10 @@ To be continued...
 The Programming CryptoKitties & Copycats Step-by-Step book / guide
 is dedicated to the public domain.
 Use it as you please with no restrictions whatsoever.
+
+
+
+---
+
+For more blockchain books, see the [**Best of Crypto Books page »**](https://openblockchains.github.io/crypto-books/)
+
