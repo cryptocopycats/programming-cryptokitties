@@ -3,7 +3,11 @@ For more blockchain books, see the [**Best of Crypto Books page »**](https://op
 
 ---
 
-Crypto Collectibles Series
+Crypto Collectibles Series -
+[Kitties](https://github.com/cryptocopycats/programming-cryptokitties) ·
+[Punks](https://github.com/cryptopunksnotdead/programming-cryptopunks)
+
+
 
 # Programming CryptoKitties & Copycats Step-by-Step Book / Guide
 
