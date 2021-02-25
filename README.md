@@ -3,9 +3,11 @@ For more blockchain books, see the [**Best of Crypto Books page »**](https://op
 
 ---
 
-# Programming Crypto Collectibles Step-by-Step Book / Guide
+Crypto Collectibles Series
 
-_Let's start with CryptoKitties & Copycats. Inside Unique Bits & Bytes on the Blockchain..._
+# Programming CryptoKitties & Copycats Step-by-Step Book / Guide
+
+_Inside Unique Bits & Bytes on the Blockchain..._
 
 by [Gerald Bauer](https://github.com/geraldb), et al
 
@@ -21,14 +23,11 @@ by [Gerald Bauer](https://github.com/geraldb), et al
 
 To be continued...
 
-- [Appendix - CryptoKitties (and Copycats) Resources - Links, Links, Links](A1_resources.md)
-
-
 
 ## License
 
 ![](https://publicdomainworks.github.io/buttons/zero88x31.png)
 
-The Programming Crypto Collectibles Step-by-Step book / guide
+The Programming CryptoKitties & Copycats Step-by-Step book / guide
 is dedicated to the public domain.
 Use it as you please with no restrictions whatsoever.
