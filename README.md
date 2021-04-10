@@ -25,6 +25,13 @@ by [Gerald Bauer](https://github.com/geraldb), et al
 To be continued...
 
 
+
+## Questions? Comments?
+
+Post them on the [cryptokitties reddit](https://old.reddit.com/r/cryptokitties). Thanks.
+
+
+
 ## License
 
 ![](https://publicdomainworks.github.io/buttons/zero88x31.png)
