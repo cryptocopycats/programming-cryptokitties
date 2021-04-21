@@ -14,7 +14,8 @@ Crypto Collectibles Series -
 
 Yes, Dapper Labs - the $7.5 billion dollar CryptoKitties gambling operator & promotor - falesly (or is that fraudulently?) 
 claiming it's a "video game with cute-little cartoon cats that you own 100%" - 
-censors this author's public service message. Remember - I do not get paid for writing the pages here.
+censors this author's public service message. Remember - I do not get paid for writing the pages here. In response to continue posting I've opened-up a new dev channel **[r/CryptoKittiesDev](https://old.reddit.com/r/CryptoKittiesDev/)**. Join us.
+
 
 ---
 
@@ -40,7 +41,7 @@ To be continued...
 
 ## Questions? Comments?
 
-Post them on the [cryptokitties reddit](https://old.reddit.com/r/cryptokitties). Thanks.
+Post them on the [CryptoKittiesDev reddit](https://old.reddit.com/r/CryptoKittiesDev). Thanks.
 
 
 
