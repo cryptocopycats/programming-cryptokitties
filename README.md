@@ -6,6 +6,18 @@ Crypto Collectibles Series -
 
 
 
+---
+
+**A message from the CryptoKitties makers:**
+
+**You've been permanently banned from participating in [r/CryptoKitties](https://old.reddit.com/r/ruby/). You won't be able to post or comment. Reason: Self-promotion.**
+
+Yes, Dapper Labs - the $7.5 billion dollar CryptoKitties gambling operator & promotor - falesly (or is that fraudulently?) 
+claiming it's a "video game with cute-little cartoon cats that you own 100%" - 
+censors this author's public service message. Remember - I do not get paid for writing this pages.
+
+---
+
 # Programming CryptoKitties & Copycats Step-by-Step Book / Guide
 
 _Inside Unique Bits & Bytes on the Blockchain..._
