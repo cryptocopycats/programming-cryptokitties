@@ -2,7 +2,8 @@
 Crypto Collectibles Series -
 [Cats](https://github.com/cryptocopycats/programming-mooncats) ·
 [Kitties](https://github.com/cryptocopycats/programming-cryptokitties) ·
-[Punks](https://github.com/cryptopunksnotdead/programming-cryptopunks)
+[Punks](https://github.com/cryptopunksnotdead/programming-cryptopunks) ·
+[(Modern Art) Spot Paintings](https://github.com/currencyart/currencyart-howto)
 
 
 
